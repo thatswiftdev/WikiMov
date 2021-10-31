@@ -14,6 +14,11 @@
 		4FA84C28272EF5260051F22A /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C27272EF5260051F22A /* Movies.swift */; };
 		4FA84C2A272EF6780051F22A /* MovieLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C29272EF6780051F22A /* MovieLoader.swift */; };
 		4FA84C2C272EF7300051F22A /* LoadMoviesFromRemoteUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C2B272EF7300051F22A /* LoadMoviesFromRemoteUseCaseTests.swift */; };
+		4FA84C2E272F16E00051F22A /* DefaultMovieLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C2D272F16E00051F22A /* DefaultMovieLoader.swift */; };
+		4FA84C30272F17110051F22A /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C2F272F17110051F22A /* HTTPClient.swift */; };
+		4FA84C32272F17310051F22A /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C31272F17310051F22A /* HTTPClientSpy.swift */; };
+		4FA84C34272F176A0051F22A /* MoviesMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C33272F176A0051F22A /* MoviesMapper.swift */; };
+		4FA84C36272F17890051F22A /* XCTestCase+TrackingMemoryLeaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C35272F17890051F22A /* XCTestCase+TrackingMemoryLeaks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +40,11 @@
 		4FA84C27272EF5260051F22A /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 		4FA84C29272EF6780051F22A /* MovieLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieLoader.swift; sourceTree = "<group>"; };
 		4FA84C2B272EF7300051F22A /* LoadMoviesFromRemoteUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoviesFromRemoteUseCaseTests.swift; sourceTree = "<group>"; };
+		4FA84C2D272F16E00051F22A /* DefaultMovieLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMovieLoader.swift; sourceTree = "<group>"; };
+		4FA84C2F272F17110051F22A /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		4FA84C31272F17310051F22A /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
+		4FA84C33272F176A0051F22A /* MoviesMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesMapper.swift; sourceTree = "<group>"; };
+		4FA84C35272F17890051F22A /* XCTestCase+TrackingMemoryLeaks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+TrackingMemoryLeaks.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +90,9 @@
 				4FA84C11272EDB6C0051F22A /* Infrastructure */,
 				4FA84C27272EF5260051F22A /* Movies.swift */,
 				4FA84C29272EF6780051F22A /* MovieLoader.swift */,
+				4FA84C2D272F16E00051F22A /* DefaultMovieLoader.swift */,
+				4FA84C2F272F17110051F22A /* HTTPClient.swift */,
+				4FA84C33272F176A0051F22A /* MoviesMapper.swift */,
 			);
 			path = WikiMov;
 			sourceTree = "<group>";
@@ -106,6 +119,8 @@
 			children = (
 				4FA84C1B272EDC5B0051F22A /* EndpointTests.swift */,
 				4FA84C2B272EF7300051F22A /* LoadMoviesFromRemoteUseCaseTests.swift */,
+				4FA84C31272F17310051F22A /* HTTPClientSpy.swift */,
+				4FA84C35272F17890051F22A /* XCTestCase+TrackingMemoryLeaks.swift */,
 			);
 			path = WikiMovTests;
 			sourceTree = "<group>";
@@ -219,7 +234,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FA84C34272F176A0051F22A /* MoviesMapper.swift in Sources */,
 				4FA84C14272EDB890051F22A /* Endpoint.swift in Sources */,
+				4FA84C2E272F16E00051F22A /* DefaultMovieLoader.swift in Sources */,
+				4FA84C30272F17110051F22A /* HTTPClient.swift in Sources */,
 				4FA84C26272EF1E20051F22A /* MovieEndpoint.swift in Sources */,
 				4FA84C28272EF5260051F22A /* Movies.swift in Sources */,
 				4FA84C2A272EF6780051F22A /* MovieLoader.swift in Sources */,
@@ -231,6 +249,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FA84C2C272EF7300051F22A /* LoadMoviesFromRemoteUseCaseTests.swift in Sources */,
+				4FA84C36272F17890051F22A /* XCTestCase+TrackingMemoryLeaks.swift in Sources */,
+				4FA84C32272F17310051F22A /* HTTPClientSpy.swift in Sources */,
 				4FA84C1C272EDC5B0051F22A /* EndpointTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

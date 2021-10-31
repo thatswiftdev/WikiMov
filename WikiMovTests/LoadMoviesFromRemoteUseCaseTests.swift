@@ -4,96 +4,6 @@
 import XCTest
 import WikiMov
 
-class DefaultMovieLoader: MovieLoader {
-  
-  private let client: HTTPClient
-  private let endpoint: Endpoint
-  
-  private var request: URLRequest!
-  
-  public enum Error: Swift.Error {
-    case connectivity
-    case invalidData
-  }
-  
-  init(client: HTTPClient, endpoint: Endpoint) throws {
-    self.client = client
-    self.endpoint = endpoint
-    self.request = try endpoint.makeURLRequest()
-  }
-  
-  typealias Result = MovieLoader.Result
-  
-  func load(completion: @escaping (Result) -> Void) {
-    client.get(from: request, queue: .main) { [weak self] result in
-      guard self != nil else { return }
-      
-      switch result {
-        
-      case let .success((data, response)):
-        completion(DefaultMovieLoader.map(data: data, from: response))
-        
-      case .failure:
-        completion(.failure(Error.connectivity))
-      }
-    }
-  }
-  
-  private static func map(data: Data, from response: HTTPURLResponse) -> DefaultMovieLoader.Result {
-    do {
-      let movies = try MoviesMapper.map(data, response: response)
-      return .success(movies)
-    } catch {
-      return .failure(error)
-    }
-  }
-}
-
-final class MoviesMapper {
-  
-  private struct Root: Decodable {
-    let results: [Movie]
-  }
-  
-  private static var OK_200 = 200
-  
-  static func map(_ data: Data, response: HTTPURLResponse) throws -> [Movie] {
-    guard response.statusCode == OK_200, let root = try? JSONDecoder().decode(Root.self, from: data) else {
-      throw DefaultMovieLoader.Error.invalidData
-    }
-    
-    return root.results
-  }
-}
-
-protocol HTTPClient {
-  typealias Result = Swift.Result<(Data, HTTPURLResponse), Error>
-  
-  func get(from request: URLRequest, queue: DispatchQueue, completion: @escaping (Result) -> Void)
-}
-
-class HTTPClientSpy: HTTPClient {
-  
-  private var messages = [(request: URLRequest, completion: (HTTPClient.Result) -> Void)]()
-  
-  var requestedURLs: [URLRequest] {
-    return messages.compactMap { $0.request }
-  }
-  
-  func get(from request: URLRequest, queue: DispatchQueue = .main, completion: @escaping (HTTPClient.Result) -> Void) {
-    messages.append((request, completion))
-  }
-  
-  func complete(with error: Error, at index: Int = 0) {
-    messages[index].completion(.failure(error))
-  }
-  
-  func complete(withStatusCode code: Int, data: Data, at index: Int = 0) {
-    let response = HTTPURLResponse(url: requestedURLs[index].url!, statusCode: code, httpVersion: nil, headerFields: nil)!
-    messages[index].completion(.success((data, response)))
-  }
-}
-
 class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
   
   func test_init_doesNotRequestDataFromURL() {
@@ -255,13 +165,5 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
     ]
     
     return (movie, json)
-  }
-}
-
-extension XCTestCase {
-  func trackForMemoryLeaks(for instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
-      addTeardownBlock { [weak instance] in
-          XCTAssertNil(instance, "Instance should have been deallocated. Potental memory leaks.", file: file, line: line)
-      }
   }
 }
