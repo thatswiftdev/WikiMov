@@ -4,30 +4,6 @@
 import XCTest
 import WikiMov
 
-enum MovieEndpoint: String {
-  case popular
-  case nowPlaying = "now_playing"
-  case topRated = "top_rated"
-}
-
-extension MovieEndpoint: Endpoint {
-  var baseURL: String {
-    return "https://api.themoviedb.org"
-  }
-  
-  var parameters: [String : Any]? {
-    return ["api_key": "7157aee554910d31feca06cc84700142"]
-  }
-  
-  var method: HTTPMethod {
-    return .get
-  }
-  
-  var path: String {
-    return "/3/movie/\(rawValue)"
-  }
-}
-
 class EndpointTests: XCTestCase {
   
   func test_popularMovies_endpointURL() throws {
