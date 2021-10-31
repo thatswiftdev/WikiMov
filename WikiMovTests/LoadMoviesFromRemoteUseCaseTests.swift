@@ -8,6 +8,7 @@ class DefaultMovieLoader: MovieLoader {
   
   private let client: HTTPClient
   private let endpoint: Endpoint
+  
   private var request: URLRequest!
   
   init(client: HTTPClient, endpoint: Endpoint) throws {
@@ -52,13 +53,24 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
   }
   
   func test_load_shouldRequestDataFromURL() throws {
+    let (sut, client) = makeSUT()
     
     let endpoint = try MovieEndpoint.popular.makeURLRequest()
-    let (sut, client) = makeSUT()
     
     sut.load { _ in }
     
     XCTAssertEqual(client.requestedURLs, [endpoint])
+  }
+  
+  func test_loadTwice_shouldRequestDataFromURLTwice() throws {
+    let (sut, client) = makeSUT()
+    
+    let endpoint = try MovieEndpoint.popular.makeURLRequest()
+    
+    sut.load { _ in }
+    sut.load { _ in }
+    
+    XCTAssertEqual(client.requestedURLs, [endpoint, endpoint])
   }
   
   // MARK: - Helpers
