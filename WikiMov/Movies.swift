@@ -3,18 +3,25 @@
 
 import Foundation
 
-public struct Movie: Equatable, Decodable {
-  let backdropPath: String?
+public struct Movie: Hashable, Decodable {
   let id: Int?
+  let title: String?
+  let backdropPath: String?
   let posterPath: String?
   let releaseDate: String?
-  let title: String?
   
-  enum CodingKeys: String, CodingKey {
-    case backdropPath
-    case id
-    case posterPath
-    case releaseDate
-    case title
+  
+  public init(
+    id: Int?,
+    backdropPath: String?,
+    posterPath: String?,
+    releaseDate: String?,
+    title: String?)
+  {
+    self.id = id
+    self.title = title
+    self.backdropPath = backdropPath
+    self.posterPath = posterPath
+    self.releaseDate = releaseDate
   }
 }

@@ -160,7 +160,6 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
       client.complete(withStatusCode: 200, data: emptyMoviesJSON)
     }
   }
-
   
   // MARK: - Helpers
   private func makeSUT(
