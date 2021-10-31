@@ -25,8 +25,19 @@ class DefaultMovieLoader: MovieLoader {
   typealias Result = MovieLoader.Result
   
   func load(completion: @escaping (Result) -> Void) {
-    client.get(from: request, queue: .main) { _ in
-      completion(.failure(Error.connectivity))
+    client.get(from: request, queue: .main) { result in
+      switch result {
+      case let .success((_, response)):
+        guard response.statusCode == 200 else {
+          completion(.failure(Error.invalidData))
+          return
+        }
+        
+        completion(.success([]))
+        
+      case .failure:
+        completion(.failure(Error.connectivity))
+      }
     }
   }
 }
@@ -51,6 +62,11 @@ class HTTPClientSpy: HTTPClient {
   
   func complete(with error: Error, at index: Int = 0) {
     messages[index].completion(.failure(error))
+  }
+  
+  func complete(withStatusCode code: Int, data: Data, at index: Int = 0) {
+    let response = HTTPURLResponse(url: requestedURLs[index].url!, statusCode: code, httpVersion: nil, headerFields: nil)!
+    messages[index].completion(.success((data, response)))
   }
 }
 
@@ -86,23 +102,25 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
   func test_load_deliversErrorOnClientError() {
     let (sut, client) = makeSUT()
     let clientError = NSError(domain: "Any", code: 0)
-    let exp = expectation(description: "Wait for load completion")
-    
-    sut.load { result in
-      switch result {
-      case let .failure(error as DefaultMovieLoader.Error):
-        XCTAssertEqual(error, .connectivity)
-        
-      default:
-        break
-      }
-      exp.fulfill()
-    }
-    
-    client.complete(with: clientError)
-    
-    wait(for: [exp], timeout: 1.0)
 
+    expect(sut, toCompleteWithResult: failure(.connectivity)) {
+      client.complete(with: clientError)
+    }
+  }
+  
+  func test_load_deliversErrorOnNon200HTTPResponse() {
+    let (sut, client) = makeSUT()
+    var capturedErrors = [DefaultMovieLoader.Error]()
+    
+    let statusCodes = [199, 201, 300, 400, 500]
+    
+    for (index, code) in statusCodes.enumerated() {
+      expect(sut, toCompleteWithResult: failure(.invalidData)) {
+        let moviesJSON = makeMoviesJSON([])
+        client.complete(withStatusCode: code, data: moviesJSON, at: index)
+        capturedErrors.removeAll()
+      }
+    }
   }
   
   // MARK: - Helpers
@@ -115,4 +133,38 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
         
         return (sut, client)
       }
+  
+  private func failure(_ error: DefaultMovieLoader.Error) -> DefaultMovieLoader.Result {
+    return .failure(error)
+  }
+  
+  private func expect(_ sut: DefaultMovieLoader, toCompleteWithResult expectedResult: MovieLoader.Result, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
+    
+    let exp = expectation(description: "Wait for load completion")
+    
+    sut.load { receivedResult in
+      switch (receivedResult, expectedResult) {
+      case let (MovieLoader.Result.success(receivedMovies), MovieLoader.Result.success(expectedMovies)):
+        XCTAssertEqual(receivedMovies, expectedMovies, file: file, line: line)
+        
+      case let (MovieLoader.Result.failure(receivedError as DefaultMovieLoader.Error), MovieLoader.Result.failure(expectedError as DefaultMovieLoader.Error)):
+        XCTAssertEqual(receivedError, expectedError, file: file, line: line)
+        
+      default:
+          XCTFail("Expected result \(expectedResult), but got \(receivedResult) instead.", file: file, line: line)
+      }
+      
+      exp.fulfill()
+    }
+    action()
+    
+    wait(for: [exp], timeout: 2.0)
+  }
+  
+  private func makeMoviesJSON(_ results: [[String: Any]]) -> Data {
+      let itemsJSON = [
+          "results": results
+      ]
+      return try! JSONSerialization.data(withJSONObject: itemsJSON)
+  }
 }
