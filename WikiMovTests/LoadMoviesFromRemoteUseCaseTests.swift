@@ -25,7 +25,9 @@ class DefaultMovieLoader: MovieLoader {
   typealias Result = MovieLoader.Result
   
   func load(completion: @escaping (Result) -> Void) {
-    client.get(from: request, queue: .main) { result in
+    client.get(from: request, queue: .main) { [weak self] result in
+      guard self != nil else { return }
+      
       switch result {
         
       case let .success((data, response)):
@@ -124,7 +126,7 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
   func test_load_deliversErrorOnClientError() {
     let (sut, client) = makeSUT()
     let clientError = NSError(domain: "Any", code: 0)
-
+    
     expect(sut, toCompleteWithResult: failure(.connectivity)) {
       client.complete(with: clientError)
     }
@@ -175,16 +177,30 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
     }
   }
   
+  func test_load_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
+    let endpoint = MovieEndpoint.nowPlaying
+    let client = HTTPClientSpy()
+    var sut: DefaultMovieLoader? = try! DefaultMovieLoader(client: client, endpoint: endpoint)
+    
+    var capturedResults: [DefaultMovieLoader.Result] = []
+    sut?.load { result in capturedResults.append(result) }
+    
+    sut = nil
+    client.complete(withStatusCode: 200, data: makeMoviesJSON([]))
+    
+    XCTAssertTrue(capturedResults.isEmpty)
+  }
+  
   // MARK: - Helpers
   private func makeSUT(
     endpoint: Endpoint = MovieEndpoint.popular,
-      file: StaticString = #filePath,
-      line: UInt = #line) -> (DefaultMovieLoader, HTTPClientSpy) {
-        let client = HTTPClientSpy()
-        let sut = try! DefaultMovieLoader(client: client, endpoint: endpoint)
-        
-        return (sut, client)
-      }
+    file: StaticString = #filePath,
+    line: UInt = #line) -> (DefaultMovieLoader, HTTPClientSpy) {
+      let client = HTTPClientSpy()
+      let sut = try! DefaultMovieLoader(client: client, endpoint: endpoint)
+      
+      return (sut, client)
+    }
   
   private func failure(_ error: DefaultMovieLoader.Error) -> DefaultMovieLoader.Result {
     return .failure(error)
@@ -203,7 +219,7 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
         XCTAssertEqual(receivedError, expectedError, file: file, line: line)
         
       default:
-          XCTFail("Expected result \(expectedResult), but got \(receivedResult) instead.", file: file, line: line)
+        XCTFail("Expected result \(expectedResult), but got \(receivedResult) instead.", file: file, line: line)
       }
       
       exp.fulfill()
@@ -214,13 +230,13 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
   }
   
   private func makeMoviesJSON(_ results: [[String: Any]]) -> Data {
-      let itemsJSON = [
-          "results": results
-      ]
-      return try! JSONSerialization.data(withJSONObject: itemsJSON)
+    let itemsJSON = [
+      "results": results
+    ]
+    return try! JSONSerialization.data(withJSONObject: itemsJSON)
   }
   
-  private func makeMovie(id: Int, title: String, backdropPath: String, posterPath: String, releaseDate: String) -> (movie: Movie, json: [String: Any]){
+  private func makeMovie(id: Int, title: String, backdropPath: String, posterPath: String, releaseDate: String) -> (movie: Movie, json: [String: Any]) {
     let movie = Movie(
       id: id,
       title: title,
