@@ -2,27 +2,39 @@
 // Copyright © 2021. All rights reserved.
 
 import XCTest
+import WikiMov
 
-class WikiMovTests: XCTestCase {
+enum MovieEndpoint: String {
+  case popular
+}
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+extension MovieEndpoint: Endpoint {
+  var baseURL: String {
+    return "https://api.themoviedb.org"
+  }
+  
+  var parameters: [String : Any]? {
+    return ["api_key": "7157aee554910d31feca06cc84700142"]
+  }
+  
+  var method: HTTPMethod {
+    return .get
+  }
+  
+  var path: String {
+    return "/3/movie/\(rawValue)"
+  }
+}
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+class EndpointTests: XCTestCase {
+  
+  func test_popularMovies_endpointURL() throws {
+    let endpoint: MovieEndpoint = .popular
+    
+    let request = try endpoint.makeURLRequest()
+    
+    XCTAssertEqual(request.url?.scheme, "https")
+    XCTAssertEqual(request.url?.host, "api.themoviedb.org")
+    XCTAssertEqual(request.url?.path, "/3/movie/popular")
+  }
 }
