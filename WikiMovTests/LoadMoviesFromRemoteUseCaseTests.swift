@@ -198,7 +198,8 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
     line: UInt = #line) -> (DefaultMovieLoader, HTTPClientSpy) {
       let client = HTTPClientSpy()
       let sut = try! DefaultMovieLoader(client: client, endpoint: endpoint)
-      
+      trackForMemoryLeaks(for: sut, file: file, line: line)
+      trackForMemoryLeaks(for: client, file: file, line: line)
       return (sut, client)
     }
   
@@ -254,5 +255,13 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
     ]
     
     return (movie, json)
+  }
+}
+
+extension XCTestCase {
+  func trackForMemoryLeaks(for instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
+      addTeardownBlock { [weak instance] in
+          XCTAssertNil(instance, "Instance should have been deallocated. Potental memory leaks.", file: file, line: line)
+      }
   }
 }
