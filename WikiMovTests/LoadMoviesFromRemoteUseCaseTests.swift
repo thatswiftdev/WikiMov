@@ -151,6 +151,15 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
       client.complete(withStatusCode: 200, data: invalidJSONData)
     }
   }
+  
+  func test_load_deliversMoviesOn200HTTPResponseWithEmptyJSONList() {
+    let (sut, client) = makeSUT()
+    
+    expect(sut, toCompleteWithResult: .success([])) {
+      let emptyMoviesJSON = makeMoviesJSON([])
+      client.complete(withStatusCode: 200, data: emptyMoviesJSON)
+    }
+  }
 
   
   // MARK: - Helpers
