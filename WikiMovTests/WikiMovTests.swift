@@ -7,6 +7,7 @@ import WikiMov
 enum MovieEndpoint: String {
   case popular
   case nowPlaying = "now_playing"
+  case topRated = "top_rated"
 }
 
 extension MovieEndpoint: Endpoint {
@@ -35,6 +36,7 @@ class EndpointTests: XCTestCase {
     XCTAssertEqual(request.url?.scheme, "https")
     XCTAssertEqual(request.url?.host, "api.themoviedb.org")
     XCTAssertEqual(request.url?.path, "/3/movie/popular")
+    XCTAssertEqual(request.url?.query, "api_key=7157aee554910d31feca06cc84700142")
   }
   
   func test_nowPlayingMovies_endpointURL() throws {
@@ -43,6 +45,16 @@ class EndpointTests: XCTestCase {
     XCTAssertEqual(request.url?.scheme, "https")
     XCTAssertEqual(request.url?.host, "api.themoviedb.org")
     XCTAssertEqual(request.url?.path, "/3/movie/now_playing")
+    XCTAssertEqual(request.url?.query, "api_key=7157aee554910d31feca06cc84700142")
+  }
+  
+  func test_topRatedMovies_endpointURL() throws {
+    let request = try makeEndpoint(MovieEndpoint.topRated)
+    
+    XCTAssertEqual(request.url?.scheme, "https")
+    XCTAssertEqual(request.url?.host, "api.themoviedb.org")
+    XCTAssertEqual(request.url?.path, "/3/movie/top_rated")
+    XCTAssertEqual(request.url?.query, "api_key=7157aee554910d31feca06cc84700142")
   }
   
   // MARK: - Helpers
