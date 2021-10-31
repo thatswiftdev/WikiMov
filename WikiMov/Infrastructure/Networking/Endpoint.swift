@@ -38,5 +38,4 @@ public extension Endpoint {
     request.httpMethod = method.rawValue
     return request
   }
-
 }
