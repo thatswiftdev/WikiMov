@@ -3,11 +3,11 @@
 
 import Foundation
 
-public struct Movies: Decodable {
+public struct Movies: Equatable, Decodable {
   let results: [MovieResult]?
 }
 
-public struct MovieResult: Decodable {
+public struct MovieResult: Equatable, Decodable {
   let backdropPath: String?
   let id: Int?
   let posterPath: String?

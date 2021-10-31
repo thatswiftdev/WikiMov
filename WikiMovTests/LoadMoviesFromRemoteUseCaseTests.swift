@@ -11,6 +11,11 @@ class DefaultMovieLoader: MovieLoader {
   
   private var request: URLRequest!
   
+  public enum Error: Swift.Error {
+    case connectivity
+    case invalidData
+  }
+  
   init(client: HTTPClient, endpoint: Endpoint) throws {
     self.client = client
     self.endpoint = endpoint
@@ -21,7 +26,8 @@ class DefaultMovieLoader: MovieLoader {
   
   func load(completion: @escaping (Result) -> Void) {
     client.get(from: request, queue: .main) { _ in
-}
+      completion(.failure(Error.connectivity))
+    }
   }
 }
 
@@ -41,6 +47,10 @@ class HTTPClientSpy: HTTPClient {
   
   func get(from request: URLRequest, queue: DispatchQueue = .main, completion: @escaping (HTTPClient.Result) -> Void) {
     messages.append((request, completion))
+  }
+  
+  func complete(with error: Error, at index: Int = 0) {
+    messages[index].completion(.failure(error))
   }
 }
 
@@ -71,6 +81,28 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
     sut.load { _ in }
     
     XCTAssertEqual(client.requestedURLs, [endpoint, endpoint])
+  }
+  
+  func test_load_deliversErrorOnClientError() {
+    let (sut, client) = makeSUT()
+    let clientError = NSError(domain: "Any", code: 0)
+    let exp = expectation(description: "Wait for load completion")
+    
+    sut.load { result in
+      switch result {
+      case let .failure(error as DefaultMovieLoader.Error):
+        XCTAssertEqual(error, .connectivity)
+        
+      default:
+        break
+      }
+      exp.fulfill()
+    }
+    
+    client.complete(with: clientError)
+    
+    wait(for: [exp], timeout: 1.0)
+
   }
   
   // MARK: - Helpers
