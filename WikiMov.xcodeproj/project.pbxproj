@@ -11,6 +11,7 @@
 		4FA84C1C272EDC5B0051F22A /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C1B272EDC5B0051F22A /* EndpointTests.swift */; };
 		4FA84C1D272EDC5B0051F22A /* WikiMov.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA84C07272EB9130051F22A /* WikiMov.framework */; };
 		4FA84C26272EF1E20051F22A /* MovieEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C25272EF1E20051F22A /* MovieEndpoint.swift */; };
+		4FA84C28272EF5260051F22A /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C27272EF5260051F22A /* Movies.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		4FA84C19272EDC5B0051F22A /* WikiMovTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikiMovTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FA84C1B272EDC5B0051F22A /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
 		4FA84C25272EF1E20051F22A /* MovieEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieEndpoint.swift; sourceTree = "<group>"; };
+		4FA84C27272EF5260051F22A /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				4FA84C11272EDB6C0051F22A /* Infrastructure */,
+				4FA84C27272EF5260051F22A /* Movies.swift */,
 			);
 			path = WikiMov;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			files = (
 				4FA84C14272EDB890051F22A /* Endpoint.swift in Sources */,
 				4FA84C26272EF1E20051F22A /* MovieEndpoint.swift in Sources */,
+				4FA84C28272EF5260051F22A /* Movies.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
