@@ -88,11 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				4FA84C11272EDB6C0051F22A /* Infrastructure */,
-				4FA84C27272EF5260051F22A /* Movies.swift */,
-				4FA84C29272EF6780051F22A /* MovieLoader.swift */,
-				4FA84C2D272F16E00051F22A /* DefaultMovieLoader.swift */,
-				4FA84C2F272F17110051F22A /* HTTPClient.swift */,
-				4FA84C33272F176A0051F22A /* MoviesMapper.swift */,
+				4FA84C37272F18090051F22A /* Movie API */,
 			);
 			path = WikiMov;
 			sourceTree = "<group>";
@@ -123,6 +119,18 @@
 				4FA84C35272F17890051F22A /* XCTestCase+TrackingMemoryLeaks.swift */,
 			);
 			path = WikiMovTests;
+			sourceTree = "<group>";
+		};
+		4FA84C37272F18090051F22A /* Movie API */ = {
+			isa = PBXGroup;
+			children = (
+				4FA84C27272EF5260051F22A /* Movies.swift */,
+				4FA84C29272EF6780051F22A /* MovieLoader.swift */,
+				4FA84C2D272F16E00051F22A /* DefaultMovieLoader.swift */,
+				4FA84C2F272F17110051F22A /* HTTPClient.swift */,
+				4FA84C33272F176A0051F22A /* MoviesMapper.swift */,
+			);
+			path = "Movie API";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
