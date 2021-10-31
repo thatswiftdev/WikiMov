@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4FA84C0B272EB9130051F22A /* WikiMov.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FA84C0A272EB9130051F22A /* WikiMov.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4FA84C14272EDB890051F22A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C13272EDB890051F22A /* Endpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4FA84C07272EB9130051F22A /* WikiMov.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WikiMov.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4FA84C0A272EB9130051F22A /* WikiMov.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WikiMov.h; sourceTree = "<group>"; };
+		4FA84C13272EDB890051F22A /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,9 +45,25 @@
 		4FA84C09272EB9130051F22A /* WikiMov */ = {
 			isa = PBXGroup;
 			children = (
-				4FA84C0A272EB9130051F22A /* WikiMov.h */,
+				4FA84C11272EDB6C0051F22A /* Infrastructure */,
 			);
 			path = WikiMov;
+			sourceTree = "<group>";
+		};
+		4FA84C11272EDB6C0051F22A /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				4FA84C12272EDB760051F22A /* Networking */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		4FA84C12272EDB760051F22A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				4FA84C13272EDB890051F22A /* Endpoint.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -57,7 +73,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FA84C0B272EB9130051F22A /* WikiMov.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +108,7 @@
 				TargetAttributes = {
 					4FA84C06272EB9130051F22A = {
 						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 					};
 				};
 			};
@@ -129,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FA84C14272EDB890051F22A /* Endpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +272,7 @@
 		4FA84C0F272EB9130051F22A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -277,12 +295,15 @@
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		4FA84C10272EB9130051F22A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -305,6 +326,7 @@
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
