@@ -19,6 +19,7 @@
 		4FA84C32272F17310051F22A /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C31272F17310051F22A /* HTTPClientSpy.swift */; };
 		4FA84C34272F176A0051F22A /* MoviesMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C33272F176A0051F22A /* MoviesMapper.swift */; };
 		4FA84C36272F17890051F22A /* XCTestCase+TrackingMemoryLeaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C35272F17890051F22A /* XCTestCase+TrackingMemoryLeaks.swift */; };
+		4FA84C39272F18B90051F22A /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C38272F18B90051F22A /* URLSessionHTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		4FA84C31272F17310051F22A /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
 		4FA84C33272F176A0051F22A /* MoviesMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesMapper.swift; sourceTree = "<group>"; };
 		4FA84C35272F17890051F22A /* XCTestCase+TrackingMemoryLeaks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+TrackingMemoryLeaks.swift"; sourceTree = "<group>"; };
+		4FA84C38272F18B90051F22A /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				4FA84C2D272F16E00051F22A /* DefaultMovieLoader.swift */,
 				4FA84C2F272F17110051F22A /* HTTPClient.swift */,
 				4FA84C33272F176A0051F22A /* MoviesMapper.swift */,
+				4FA84C38272F18B90051F22A /* URLSessionHTTPClient.swift */,
 			);
 			path = "Movie API";
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				4FA84C34272F176A0051F22A /* MoviesMapper.swift in Sources */,
 				4FA84C14272EDB890051F22A /* Endpoint.swift in Sources */,
 				4FA84C2E272F16E00051F22A /* DefaultMovieLoader.swift in Sources */,
+				4FA84C39272F18B90051F22A /* URLSessionHTTPClient.swift in Sources */,
 				4FA84C30272F17110051F22A /* HTTPClient.swift in Sources */,
 				4FA84C26272EF1E20051F22A /* MovieEndpoint.swift in Sources */,
 				4FA84C28272EF5260051F22A /* Movies.swift in Sources */,
