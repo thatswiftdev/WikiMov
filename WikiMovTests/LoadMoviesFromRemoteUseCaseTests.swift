@@ -161,6 +161,20 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
     }
   }
   
+  func test_load_deliversMoviesOn200HTTPResponseWithJSONList() {
+    let (sut, client) = makeSUT()
+    
+    let movie1 = makeMovie(id: 1, title: "Movie 1", backdropPath: "Backdrop 1", posterPath: "Poster 1", releaseDate: "2021-10-20")
+    let movie2 = makeMovie(id: 2, title: "Movie 2", backdropPath: "Backdrop 2", posterPath: "Poster 2", releaseDate: "2021-10-22")
+    
+    let movies = [movie1.movie, movie2.movie]
+    
+    expect(sut, toCompleteWithResult: .success(movies)) {
+      let jsonList = makeMoviesJSON([movie1.json, movie2.json])
+      client.complete(withStatusCode: 200, data: jsonList)
+    }
+  }
+  
   // MARK: - Helpers
   private func makeSUT(
     endpoint: Endpoint = MovieEndpoint.popular,
@@ -204,5 +218,25 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
           "results": results
       ]
       return try! JSONSerialization.data(withJSONObject: itemsJSON)
+  }
+  
+  private func makeMovie(id: Int, title: String, backdropPath: String, posterPath: String, releaseDate: String) -> (movie: Movie, json: [String: Any]){
+    let movie = Movie(
+      id: id,
+      title: title,
+      backdropPath: backdropPath,
+      posterPath: posterPath,
+      releaseDate: releaseDate
+    )
+    
+    let json: [String: Any] = [
+      "id": id,
+      "title": title,
+      "backdropPath": backdropPath,
+      "posterPath": posterPath,
+      "releaseDate": releaseDate
+    ]
+    
+    return (movie, json)
   }
 }

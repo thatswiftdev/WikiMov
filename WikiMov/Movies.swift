@@ -13,10 +13,10 @@ public struct Movie: Hashable, Decodable {
   
   public init(
     id: Int?,
+    title: String?,
     backdropPath: String?,
     posterPath: String?,
-    releaseDate: String?,
-    title: String?)
+    releaseDate: String?)
   {
     self.id = id
     self.title = title
