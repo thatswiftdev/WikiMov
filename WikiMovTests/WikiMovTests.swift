@@ -30,9 +30,7 @@ extension MovieEndpoint: Endpoint {
 class EndpointTests: XCTestCase {
   
   func test_popularMovies_endpointURL() throws {
-    let endpoint: MovieEndpoint = .popular
-    
-    let request = try endpoint.makeURLRequest()
+    let request = try makeEndpoint(MovieEndpoint.popular)
     
     XCTAssertEqual(request.url?.scheme, "https")
     XCTAssertEqual(request.url?.host, "api.themoviedb.org")
@@ -40,13 +38,16 @@ class EndpointTests: XCTestCase {
   }
   
   func test_nowPlayingMovies_endpointURL() throws {
-    let endpoint: MovieEndpoint = .nowPlaying
-    
-    let request = try endpoint.makeURLRequest()
+    let request = try makeEndpoint(MovieEndpoint.nowPlaying)
     
     XCTAssertEqual(request.url?.scheme, "https")
     XCTAssertEqual(request.url?.host, "api.themoviedb.org")
     XCTAssertEqual(request.url?.path, "/3/movie/now_playing")
-    
+  }
+  
+  // MARK: - Helpers
+  private func makeEndpoint(_ endpoint: Endpoint) throws -> URLRequest {
+    let request = try endpoint.makeURLRequest()
+    return request
   }
 }
