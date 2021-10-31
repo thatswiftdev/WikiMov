@@ -20,6 +20,13 @@
 		4FA84C34272F176A0051F22A /* MoviesMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C33272F176A0051F22A /* MoviesMapper.swift */; };
 		4FA84C36272F17890051F22A /* XCTestCase+TrackingMemoryLeaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C35272F17890051F22A /* XCTestCase+TrackingMemoryLeaks.swift */; };
 		4FA84C39272F18B90051F22A /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C38272F18B90051F22A /* URLSessionHTTPClient.swift */; };
+		4FA84C41272F1AB90051F22A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C40272F1AB90051F22A /* AppDelegate.swift */; };
+		4FA84C43272F1AB90051F22A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C42272F1AB90051F22A /* SceneDelegate.swift */; };
+		4FA84C45272F1AB90051F22A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C44272F1AB90051F22A /* ViewController.swift */; };
+		4FA84C48272F1AB90051F22A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FA84C46272F1AB90051F22A /* Main.storyboard */; };
+		4FA84C4B272F1AB90051F22A /* WikiMovApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C49272F1AB90051F22A /* WikiMovApp.xcdatamodeld */; };
+		4FA84C4D272F1ABC0051F22A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FA84C4C272F1ABC0051F22A /* Assets.xcassets */; };
+		4FA84C50272F1ABC0051F22A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FA84C4E272F1ABC0051F22A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +54,15 @@
 		4FA84C33272F176A0051F22A /* MoviesMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesMapper.swift; sourceTree = "<group>"; };
 		4FA84C35272F17890051F22A /* XCTestCase+TrackingMemoryLeaks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+TrackingMemoryLeaks.swift"; sourceTree = "<group>"; };
 		4FA84C38272F18B90051F22A /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
+		4FA84C3E272F1AB90051F22A /* WikiMovApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiMovApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FA84C40272F1AB90051F22A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4FA84C42272F1AB90051F22A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4FA84C44272F1AB90051F22A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4FA84C47272F1AB90051F22A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4FA84C4A272F1AB90051F22A /* WikiMovApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WikiMovApp.xcdatamodel; sourceTree = "<group>"; };
+		4FA84C4C272F1ABC0051F22A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4FA84C4F272F1ABC0051F22A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4FA84C51272F1ABC0051F22A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +81,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4FA84C3B272F1AB90051F22A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -73,6 +96,7 @@
 			children = (
 				4FA84C09272EB9130051F22A /* WikiMov */,
 				4FA84C1A272EDC5B0051F22A /* WikiMovTests */,
+				4FA84C3F272F1AB90051F22A /* WikiMovApp */,
 				4FA84C08272EB9130051F22A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -82,6 +106,7 @@
 			children = (
 				4FA84C07272EB9130051F22A /* WikiMov.framework */,
 				4FA84C19272EDC5B0051F22A /* WikiMovTests.xctest */,
+				4FA84C3E272F1AB90051F22A /* WikiMovApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,6 +161,21 @@
 			path = "Movie API";
 			sourceTree = "<group>";
 		};
+		4FA84C3F272F1AB90051F22A /* WikiMovApp */ = {
+			isa = PBXGroup;
+			children = (
+				4FA84C40272F1AB90051F22A /* AppDelegate.swift */,
+				4FA84C42272F1AB90051F22A /* SceneDelegate.swift */,
+				4FA84C44272F1AB90051F22A /* ViewController.swift */,
+				4FA84C46272F1AB90051F22A /* Main.storyboard */,
+				4FA84C4C272F1ABC0051F22A /* Assets.xcassets */,
+				4FA84C4E272F1ABC0051F22A /* LaunchScreen.storyboard */,
+				4FA84C51272F1ABC0051F22A /* Info.plist */,
+				4FA84C49272F1AB90051F22A /* WikiMovApp.xcdatamodeld */,
+			);
+			path = WikiMovApp;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -185,6 +225,23 @@
 			productReference = 4FA84C19272EDC5B0051F22A /* WikiMovTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		4FA84C3D272F1AB90051F22A /* WikiMovApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FA84C52272F1ABC0051F22A /* Build configuration list for PBXNativeTarget "WikiMovApp" */;
+			buildPhases = (
+				4FA84C3A272F1AB90051F22A /* Sources */,
+				4FA84C3B272F1AB90051F22A /* Frameworks */,
+				4FA84C3C272F1AB90051F22A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WikiMovApp;
+			productName = WikiMovApp;
+			productReference = 4FA84C3E272F1AB90051F22A /* WikiMovApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -200,6 +257,9 @@
 						LastSwiftMigration = 1300;
 					};
 					4FA84C18272EDC5B0051F22A = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					4FA84C3D272F1AB90051F22A = {
 						CreatedOnToolsVersion = 13.0;
 					};
 				};
@@ -219,6 +279,7 @@
 			targets = (
 				4FA84C06272EB9130051F22A /* WikiMov */,
 				4FA84C18272EDC5B0051F22A /* WikiMovTests */,
+				4FA84C3D272F1AB90051F22A /* WikiMovApp */,
 			);
 		};
 /* End PBXProject section */
@@ -235,6 +296,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FA84C3C272F1AB90051F22A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FA84C50272F1ABC0051F22A /* LaunchScreen.storyboard in Resources */,
+				4FA84C4D272F1ABC0051F22A /* Assets.xcassets in Resources */,
+				4FA84C48272F1AB90051F22A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +338,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4FA84C3A272F1AB90051F22A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FA84C45272F1AB90051F22A /* ViewController.swift in Sources */,
+				4FA84C41272F1AB90051F22A /* AppDelegate.swift in Sources */,
+				4FA84C4B272F1AB90051F22A /* WikiMovApp.xcdatamodeld in Sources */,
+				4FA84C43272F1AB90051F22A /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -276,6 +358,25 @@
 			targetProxy = 4FA84C1E272EDC5B0051F22A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4FA84C46272F1AB90051F22A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FA84C47272F1AB90051F22A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4FA84C4E272F1ABC0051F22A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FA84C4F272F1ABC0051F22A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4FA84C0C272EB9130051F22A /* Debug */ = {
@@ -508,6 +609,71 @@
 			};
 			name = Release;
 		};
+		4FA84C53272F1ABC0051F22A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 296RF6QMS7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WikiMovApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.overheardswift.WikiMovApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4FA84C54272F1ABC0051F22A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 296RF6QMS7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WikiMovApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.overheardswift.WikiMovApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -538,7 +704,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		4FA84C52272F1ABC0051F22A /* Build configuration list for PBXNativeTarget "WikiMovApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FA84C53272F1ABC0051F22A /* Debug */,
+				4FA84C54272F1ABC0051F22A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4FA84C49272F1AB90051F22A /* WikiMovApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4FA84C4A272F1AB90051F22A /* WikiMovApp.xcdatamodel */,
+			);
+			currentVersion = 4FA84C4A272F1AB90051F22A /* WikiMovApp.xcdatamodel */;
+			path = WikiMovApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4FA84BFE272EB9130051F22A /* Project object */;
 }
