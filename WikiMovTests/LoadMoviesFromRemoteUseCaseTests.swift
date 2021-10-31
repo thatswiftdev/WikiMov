@@ -27,18 +27,40 @@ class DefaultMovieLoader: MovieLoader {
   func load(completion: @escaping (Result) -> Void) {
     client.get(from: request, queue: .main) { result in
       switch result {
-      case let .success((_, response)):
-        guard response.statusCode == 200 else {
-          completion(.failure(Error.invalidData))
-          return
-        }
         
-        completion(.success([]))
+      case let .success((data, response)):
+        completion(DefaultMovieLoader.map(data: data, from: response))
         
       case .failure:
         completion(.failure(Error.connectivity))
       }
     }
+  }
+  
+  private static func map(data: Data, from response: HTTPURLResponse) -> DefaultMovieLoader.Result {
+    do {
+      let movies = try MoviesMapper.map(data, response: response)
+      return .success(movies)
+    } catch {
+      return .failure(error)
+    }
+  }
+}
+
+final class MoviesMapper {
+  
+  private struct Root: Decodable {
+    let results: [Movie]
+  }
+  
+  private static var OK_200 = 200
+  
+  static func map(_ data: Data, response: HTTPURLResponse) throws -> [Movie] {
+    guard response.statusCode == OK_200, let root = try? JSONDecoder().decode(Root.self, from: data) else {
+      throw DefaultMovieLoader.Error.invalidData
+    }
+    
+    return root.results
   }
 }
 
