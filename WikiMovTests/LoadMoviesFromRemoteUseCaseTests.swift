@@ -132,7 +132,6 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
   
   func test_load_deliversErrorOnNon200HTTPResponse() {
     let (sut, client) = makeSUT()
-    var capturedErrors = [DefaultMovieLoader.Error]()
     
     let statusCodes = [199, 201, 300, 400, 500]
     
@@ -140,10 +139,19 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
       expect(sut, toCompleteWithResult: failure(.invalidData)) {
         let moviesJSON = makeMoviesJSON([])
         client.complete(withStatusCode: code, data: moviesJSON, at: index)
-        capturedErrors.removeAll()
       }
     }
   }
+  
+  func test_load_deliversErrorOn200HTTPResponseWithInvalidJSONData() {
+    let (sut, client) = makeSUT()
+    
+    expect(sut, toCompleteWithResult: failure(.invalidData)) {
+      let invalidJSONData = Data("invalid-json".utf8)
+      client.complete(withStatusCode: 200, data: invalidJSONData)
+    }
+  }
+
   
   // MARK: - Helpers
   private func makeSUT(
