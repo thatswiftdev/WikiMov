@@ -4,7 +4,7 @@
 import Foundation
 import WikiMov
 
-protocol MovieListViewBehavior: BarButtonAble {
+protocol MovieListViewBehavior: BarButtonAble, Animatable {
   func show(isLoading: Bool)
 }
 

@@ -72,10 +72,10 @@ class MovieListViewController: UIViewController {
   }
   
   private func updateTableViewContentSize(size: CGFloat) {
-    DispatchQueue.main.async {
-      self.scrollView.layoutIfNeeded()
+    animate(with: scrollView) {
       self.tableViewHeight?.constant = size
-    }
+      self.view.layoutIfNeeded()
+    } completion: { _ in }
   }
 
   // MARK: - Events
