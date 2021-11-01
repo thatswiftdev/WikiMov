@@ -20,9 +20,7 @@ final class MovieDataSource: NSObject, UITableViewDataSourceDelegate {
     guard  let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.identifier, for: indexPath) as? MovieCell else {
       return UITableViewCell()
     }
-    cell.movieView.titleLabel.text = movies[indexPath.row].title
-    cell.movieView.releaseDateLabel.text = movies[indexPath.row].releaseDate
-    cell.movieView.overviewLabel.text = movies[indexPath.row].overview
+    cell.configure(with: movies[indexPath.row])
     return cell
   }
 }

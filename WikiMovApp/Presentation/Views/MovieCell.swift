@@ -19,6 +19,13 @@ final class MovieCell: UITableViewCell {
     ])
   }
   
+  func configure(with viewModel: MovieViewModel) {
+    movieView.titleLabel.text = viewModel.title
+    movieView.releaseDateLabel.text = viewModel.releaseDate
+    movieView.overviewLabel.text = viewModel.overview
+    movieView.posterView.setImage(from: viewModel.posterPath)
+  }
+  
   required init?(coder: NSCoder) {
     super.init(coder: coder)
   }

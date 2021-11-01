@@ -20,7 +20,7 @@ final class MovieView: UIView {
     $0.edges(to: container, 5)
   }
   
-  private lazy var posterView = UIImageView.make {
+  private(set) lazy var posterView = RemoteImageView.make {
     $0.backgroundColor = .lightGray
     $0.contentMode = .scaleAspectFit
     $0.width(100)
