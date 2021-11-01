@@ -10,6 +10,11 @@
 		05B8F08E272FBA50002EF1F0 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8F08D272FBA50002EF1F0 /* Logger.swift */; };
 		05B8F090272FBBBA002EF1F0 /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8F08F272FBBBA002EF1F0 /* MovieView.swift */; };
 		05B8F092272FC4E2002EF1F0 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8F091272FC4E2002EF1F0 /* Observable.swift */; };
+		05B8F094272FCB5D002EF1F0 /* MovieDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8F093272FCB5D002EF1F0 /* MovieDataSource.swift */; };
+		05B8F096272FCB9C002EF1F0 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8F095272FCB9C002EF1F0 /* MovieCell.swift */; };
+		05B8F098272FCC87002EF1F0 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8F097272FCC87002EF1F0 /* MovieViewModel.swift */; };
+		05B8F09A272FCCC0002EF1F0 /* MovieListViewBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8F099272FCCC0002EF1F0 /* MovieListViewBehavior.swift */; };
+		05B8F09C272FCD0D002EF1F0 /* DefaultMovieListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8F09B272FCD0D002EF1F0 /* DefaultMovieListPresenter.swift */; };
 		4FA84C14272EDB890051F22A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C13272EDB890051F22A /* Endpoint.swift */; };
 		4FA84C1C272EDC5B0051F22A /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C1B272EDC5B0051F22A /* EndpointTests.swift */; };
 		4FA84C1D272EDC5B0051F22A /* WikiMov.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA84C07272EB9130051F22A /* WikiMov.framework */; };
@@ -79,6 +84,11 @@
 		05B8F08D272FBA50002EF1F0 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		05B8F08F272FBBBA002EF1F0 /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
 		05B8F091272FC4E2002EF1F0 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		05B8F093272FCB5D002EF1F0 /* MovieDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataSource.swift; sourceTree = "<group>"; };
+		05B8F095272FCB9C002EF1F0 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		05B8F097272FCC87002EF1F0 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
+		05B8F099272FCCC0002EF1F0 /* MovieListViewBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewBehavior.swift; sourceTree = "<group>"; };
+		05B8F09B272FCD0D002EF1F0 /* DefaultMovieListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMovieListPresenter.swift; sourceTree = "<group>"; };
 		4FA84C07272EB9130051F22A /* WikiMov.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WikiMov.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FA84C13272EDB890051F22A /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		4FA84C19272EDC5B0051F22A /* WikiMovTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikiMovTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -291,6 +301,11 @@
 				4FA84C44272F1AB90051F22A /* MovieListViewController.swift */,
 				4FA84C5F272F6D0D0051F22A /* MovieListPresenter.swift */,
 				05B8F08F272FBBBA002EF1F0 /* MovieView.swift */,
+				05B8F093272FCB5D002EF1F0 /* MovieDataSource.swift */,
+				05B8F095272FCB9C002EF1F0 /* MovieCell.swift */,
+				05B8F097272FCC87002EF1F0 /* MovieViewModel.swift */,
+				05B8F099272FCCC0002EF1F0 /* MovieListViewBehavior.swift */,
+				05B8F09B272FCD0D002EF1F0 /* DefaultMovieListPresenter.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -466,11 +481,16 @@
 			files = (
 				05B8F092272FC4E2002EF1F0 /* Observable.swift in Sources */,
 				4FA84C77272F79010051F22A /* UIView+Spacing.swift in Sources */,
+				05B8F096272FCB9C002EF1F0 /* MovieCell.swift in Sources */,
 				4FA84C7C272F7CA90051F22A /* Constants.swift in Sources */,
 				4FA84C71272F78B10051F22A /* Constraint.swift in Sources */,
 				4FA84C45272F1AB90051F22A /* MovieListViewController.swift in Sources */,
 				4FA84C41272F1AB90051F22A /* AppDelegate.swift in Sources */,
+				05B8F098272FCC87002EF1F0 /* MovieViewModel.swift in Sources */,
 				4FA84C80272F839A0051F22A /* ScrollViewContainer.swift in Sources */,
+				05B8F09A272FCCC0002EF1F0 /* MovieListViewBehavior.swift in Sources */,
+				05B8F09C272FCD0D002EF1F0 /* DefaultMovieListPresenter.swift in Sources */,
+				05B8F094272FCB5D002EF1F0 /* MovieDataSource.swift in Sources */,
 				4FA84C75272F78EA0051F22A /* UIView+Dimension.swift in Sources */,
 				4FA84C7A272F7A430051F22A /* BarButtonAble.swift in Sources */,
 				4FA84C73272F78CD0051F22A /* UIView+Center.swift in Sources */,

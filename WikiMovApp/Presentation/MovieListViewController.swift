@@ -27,7 +27,6 @@ class MovieListViewController: UIViewController {
   }
   
   private lazy var tableView = UITableView.make {
-    $0.dataSource = self
     $0.separatorStyle = .none
     $0.rowHeight = UITableView.automaticDimension
     $0.register(MovieCell.self, forCellReuseIdentifier: MovieCell.identifier)
@@ -56,6 +55,10 @@ class MovieListViewController: UIViewController {
   private func load() {
     self.show(isLoading: true)
     self.presenter.loadMovies(from: MovieEndpoint.popular)
+    self.presenter.dataSource.observe(on: self) { [weak self] dataSource in
+      guard let self = self, let dataSource = dataSource else { return }
+      self.tableView.dataSourceDelegate(dataSource)
+    }
   }
   
   private func configureSubviews() {
@@ -80,7 +83,7 @@ class MovieListViewController: UIViewController {
       self.view.layoutIfNeeded()
     } completion: { _ in }
   }
-
+  
   // MARK: - Events
   @objc private func goToFavorites() {}
 }
@@ -92,19 +95,5 @@ extension MovieListViewController: MovieListViewBehavior {
     } else {
       self.scrollView.refreshControl?.endRefreshing()
     }
-  }
-}
-
-extension MovieListViewController: UITableViewDataSource {
-  
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 10
-  }
-  
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard  let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.identifier, for: indexPath) as? MovieCell else {
-      return UITableViewCell()
-    }
-    return cell
   }
 }

@@ -21,7 +21,7 @@ final class MovieView: UIView {
   }
   
   private lazy var posterView = UIImageView.make {
-    $0.backgroundColor = .red
+    $0.backgroundColor = .lightGray
     $0.contentMode = .scaleAspectFit
     $0.width(100)
     $0.height(140)
@@ -36,21 +36,18 @@ final class MovieView: UIView {
     $0.distribution = .fillProportionally
   }
   
-  private lazy var titleLabel = UILabel.make {
-    $0.text = "Title 1"
+  private(set) lazy var titleLabel = UILabel.make {
     $0.font = .systemFont(ofSize: 16, weight: .bold)
     $0.numberOfLines = 2
   }
   
-  private lazy var releaseDateLabel = UILabel.make {
-    $0.text = "20 September 2021"
+  private(set) lazy var releaseDateLabel = UILabel.make {
     $0.font = .systemFont(ofSize: 14, weight: .semibold)
     $0.textColor = .gray
     $0.numberOfLines = 1
   }
   
-  private lazy var overviewLabel = UILabel.make {
-    $0.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. "
+  private(set) lazy var overviewLabel = UILabel.make {
     $0.numberOfLines = 3
     $0.font = .systemFont(ofSize: 14, weight: .light)
   }
@@ -70,27 +67,6 @@ final class MovieView: UIView {
           ])
         ])
       ])
-    ])
-  }
-  
-  required init?(coder: NSCoder) {
-    super.init(coder: coder)
-  }
-}
-
-final class MovieCell: UITableViewCell {
-  
-  static let identifier = String(describing: self)
-  
-  private lazy var movieView = MovieView.make {
-    $0.edges(to: contentView)
-  }
-  
-  override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-    super.init(style: style, reuseIdentifier: reuseIdentifier)
-    selectionStyle = .none
-    contentView.addSubviews([
-      movieView
     ])
   }
   
