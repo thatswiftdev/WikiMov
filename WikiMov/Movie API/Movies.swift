@@ -3,7 +3,7 @@
 
 import Foundation
 
-public struct Movie: Hashable, Decodable {
+public struct Movie: Decodable {
   let id: Int?
   let title: String?
   let backdrop_path: String?

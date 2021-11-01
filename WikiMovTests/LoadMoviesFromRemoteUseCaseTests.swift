@@ -146,14 +146,15 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
     return try! JSONSerialization.data(withJSONObject: itemsJSON)
   }
   
-  private func makeMovie(id: Int, title: String, backdropPath: String, posterPath: String, releaseDate: String, overview: String) -> (movie: Movie, json: [String: Any]) {
-    let movie = Movie(
+  private func makeMovie(id: Int, title: String, backdropPath: String, posterPath: String, releaseDate: String, overview: String) -> (movie: LocalMovie, json: [String: Any]) {
+    let movie = LocalMovie(
       id: id,
       title: title,
       backdropPath: backdropPath,
       posterPath: posterPath,
       releaseDate: releaseDate,
-      overview: overview
+      overview: overview,
+      isFavorite: false
     )
     
     let json: [String: Any] = [
@@ -162,8 +163,9 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
       "backdrop_path": backdropPath,
       "poster_path": posterPath,
       "release_date": releaseDate,
-      "overview": overview
-    ]
+      "overview": overview,
+      "isFavorite": false
+    ].compactMapValues { $0 }
     
     return (movie, json)
   }

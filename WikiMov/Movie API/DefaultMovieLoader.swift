@@ -36,9 +36,16 @@ public class DefaultMovieLoader: MovieLoader {
   private static func map(data: Data, from response: HTTPURLResponse) -> DefaultMovieLoader.Result {
     do {
       let movies = try MoviesMapper.map(data, response: response)
-      return .success(movies)
+      return .success(movies.toLocal())
     } catch {
       return .failure(error)
+    }
+  }
+}
+
+private extension Array where Element == Movie {
+  func toLocal() -> [LocalMovie] {
+    return map { LocalMovie(id: $0.id ?? 0, title: $0.title ?? "", backdropPath: $0.backdrop_path ?? "", posterPath: $0.poster_path ?? "", releaseDate: $0.release_date ?? "", overview: $0.overview ?? "", isFavorite: false)
     }
   }
 }

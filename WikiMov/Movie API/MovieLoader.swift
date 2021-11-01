@@ -4,7 +4,7 @@
 import Foundation
 
 public protocol MovieLoader {
-  typealias Result = Swift.Result<[Movie], Error>
+  typealias Result = Swift.Result<[LocalMovie], Error>
   
   func load(from endpoint: Endpoint, completion: @escaping (Result) -> Void)
 }

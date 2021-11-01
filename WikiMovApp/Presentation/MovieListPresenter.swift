@@ -30,7 +30,8 @@ final class DefaultMovieListPresenter: MovieListPresenter {
       guard let self = self else { return }
       
       switch result {
-      case .success:
+      case let .success(data):
+        dump(data)
         self.view.show(isLoading: false)
         
       case .failure:
