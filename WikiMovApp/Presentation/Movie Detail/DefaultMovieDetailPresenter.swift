@@ -7,6 +7,7 @@ import WikiMov
 final class DefaultMovieDetailPresenter: MovieDetailPresenter {
   
   let movieId: Observable<Int> = Observable(0)
+  let movieDetail: Observable<MovieViewModel?> = Observable(nil)
   
   private let loader: MovieDetailLoader
 
@@ -21,6 +22,10 @@ final class DefaultMovieDetailPresenter: MovieDetailPresenter {
       guard let self = self, id != 0 else { return }
       self.loadMovieDetail(id: id)
     }
+    
+    self.movieDetail.observe(on: self) { [weak self] detail in
+      //
+    }
   }
   
   func loadMovieDetail(id: Int) {
@@ -33,5 +38,9 @@ final class DefaultMovieDetailPresenter: MovieDetailPresenter {
         break
       }
     }
+  }
+  
+  func loadMovieReviews(id: Int) {
+    //
   }
 }

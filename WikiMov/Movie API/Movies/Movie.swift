@@ -4,12 +4,12 @@
 import Foundation
 
 public struct Movie: Decodable {
-  let id: Int?
-  let title: String?
-  let backdrop_path: String?
-  let poster_path: String?
-  let release_date: String?
-  let overview: String?
+  public let id: Int?
+  public let title: String?
+  public let backdrop_path: String?
+  public let poster_path: String?
+  public let release_date: String?
+  public let overview: String?
   
   public init(
     id: Int?,
