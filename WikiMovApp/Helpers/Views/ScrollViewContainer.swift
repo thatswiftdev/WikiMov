@@ -4,6 +4,9 @@
 import UIKit
 
 public final class ScrollViewContainer: UIScrollView {
+  
+  private let refresher = UIRefreshControl()
+  
   private lazy var stackView = UIStackView.make {
     $0.axis = .vertical
     $0.edges(to: self).center(.horizontal, to: self)
@@ -11,6 +14,7 @@ public final class ScrollViewContainer: UIScrollView {
   
   public override init(frame: CGRect) {
     super.init(frame: frame)
+    self.refreshControl = refresher
     addSubviews([stackView])
   }
   
