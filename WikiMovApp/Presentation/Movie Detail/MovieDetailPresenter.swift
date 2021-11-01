@@ -5,6 +5,7 @@ import Foundation
 
 protocol MovieDetailPresenterUseCase {
   func addMovieToFavorite(_ movie: MovieViewModel)
+  func removeMovieFromFavorite(_ movie: MovieViewModel)
   func loadMovieDetailFromLocalStore(movieId: Int)
   func loadMovieReviews(movieId: Int)
 }

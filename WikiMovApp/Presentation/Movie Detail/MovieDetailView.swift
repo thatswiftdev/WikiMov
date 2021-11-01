@@ -5,7 +5,12 @@ import UIKit
 
 class MovieDetailView: MovieView {
   
-  var favoriteCallback: ((MovieViewModel) -> Void)?
+  var favoriteCallback: ((CallbackType) -> Void)?
+  
+  enum CallbackType {
+    case addToFavorite(MovieViewModel)
+    case deleteFromFavorite(MovieViewModel)
+  }
   
   private var viewModel: MovieViewModel?
   
@@ -39,7 +44,11 @@ class MovieDetailView: MovieView {
   // MARK: - Events
   @objc private func addToFavorite() {
     if let vm = self.viewModel {
-      self.favoriteCallback?(vm)
+      if favoriteButton.isSelected {
+        self.favoriteCallback?(.deleteFromFavorite(vm))
+      } else {
+        self.favoriteCallback?(.addToFavorite(vm))
+      }
     }
   }
 }

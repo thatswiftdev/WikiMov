@@ -87,9 +87,17 @@ final class DefaultMovieDetailPresenter: MovieDetailPresenter {
   }
   
   func addMovieToFavorite(_ movie: MovieViewModel) {
-    localLoader.save(movie.toLocal()) { error in
+    localLoader.save(movie.toLocal()) { [weak self] error in
       if error == nil {
-        self.loadMovieDetailFromLocalStore(movieId: movie.id)
+        self?.loadMovieDetailFromLocalStore(movieId: movie.id)
+      }
+    }
+  }
+  
+  func removeMovieFromFavorite(_ movie: MovieViewModel) {
+    localLoader.delete(movie.toLocal()) { [weak self] error in
+      if error == nil {
+        self?.loadMovieDetailFromLocalStore(movieId: movie.id)
       }
     }
   }

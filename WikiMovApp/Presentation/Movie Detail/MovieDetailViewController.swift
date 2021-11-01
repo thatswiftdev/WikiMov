@@ -5,6 +5,8 @@ import UIKit
 
 final class MovieDetailViewController: UIViewController {
   
+  var presenter: MovieDetailPresenter!
+  
   private lazy var movieDetailView = MovieDetailView.make {
     $0.posterView.width(160)
     $0.posterView.height(220)
@@ -16,8 +18,6 @@ final class MovieDetailViewController: UIViewController {
     $0.setBackgroundColor(color: .white)
     $0.setSpacingBetweenItems(to: 5)
   }
-  
-  var presenter: MovieDetailPresenter!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -36,11 +36,17 @@ final class MovieDetailViewController: UIViewController {
   }
   
   private func configureCallbacks() {
-    movieDetailView.favoriteCallback = { [weak self] viewModel in
-      self?.presenter.addMovieToFavorite(viewModel)
+    movieDetailView.favoriteCallback = { [weak self] type in
+      switch type {
+      case let .addToFavorite(viewModel):
+        self?.presenter.addMovieToFavorite(viewModel)
+        
+      case let .deleteFromFavorite(viewModel):
+        self?.presenter.removeMovieFromFavorite(viewModel)
+      }
     }
   }
-
+  
 }
 
 extension MovieDetailViewController: MovieDetailViewBehavior {
