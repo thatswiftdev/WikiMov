@@ -33,6 +33,7 @@
 		4FA84C73272F78CD0051F22A /* UIView+Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C72272F78CD0051F22A /* UIView+Center.swift */; };
 		4FA84C75272F78EA0051F22A /* UIView+Dimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C74272F78EA0051F22A /* UIView+Dimension.swift */; };
 		4FA84C77272F79010051F22A /* UIView+Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C76272F79010051F22A /* UIView+Spacing.swift */; };
+		4FA84C7A272F7A430051F22A /* BarButtonAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C79272F7A430051F22A /* BarButtonAble.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		4FA84C72272F78CD0051F22A /* UIView+Center.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Center.swift"; sourceTree = "<group>"; };
 		4FA84C74272F78EA0051F22A /* UIView+Dimension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Dimension.swift"; sourceTree = "<group>"; };
 		4FA84C76272F79010051F22A /* UIView+Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Spacing.swift"; sourceTree = "<group>"; };
+		4FA84C79272F7A430051F22A /* BarButtonAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonAble.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				4FA84C6D272F78510051F22A /* Declayout */,
+				4FA84C79272F7A430051F22A /* BarButtonAble.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				4FA84C45272F1AB90051F22A /* MovieListViewController.swift in Sources */,
 				4FA84C41272F1AB90051F22A /* AppDelegate.swift in Sources */,
 				4FA84C75272F78EA0051F22A /* UIView+Dimension.swift in Sources */,
+				4FA84C7A272F7A430051F22A /* BarButtonAble.swift in Sources */,
 				4FA84C73272F78CD0051F22A /* UIView+Center.swift in Sources */,
 				4FA84C43272F1AB90051F22A /* SceneDelegate.swift in Sources */,
 				4FA84C60272F6D0D0051F22A /* MovieListPresenter.swift in Sources */,
