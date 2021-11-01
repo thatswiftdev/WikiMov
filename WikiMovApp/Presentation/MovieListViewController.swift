@@ -68,6 +68,7 @@ class MovieListViewController: UIViewController {
     makeBarButton(withCustomView: titleLabel, position: .leftBarButton)
     let rightBarButton = makeBarButton(withImage: Constants.Image.favorite, position: .rightBarButton)
     rightBarButton.tintColor = Constants.Color.pink
+    rightBarButton.action = #selector(goToFavorites)
   }
   
   private func updateTableViewContentSize(size: CGFloat) {
@@ -77,7 +78,8 @@ class MovieListViewController: UIViewController {
     }
   }
 
-
+  // MARK: - Events
+  @objc private func goToFavorites() {}
 }
 
 extension MovieListViewController: MovieListViewBehavior {
@@ -86,7 +88,6 @@ extension MovieListViewController: MovieListViewBehavior {
       self.scrollView.refreshControl?.beginRefreshing()
     } else {
       self.scrollView.refreshControl?.endRefreshing()
-      self.scrollView.refreshControl?.removeFromSuperview()
     }
   }
 }
