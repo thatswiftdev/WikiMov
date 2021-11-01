@@ -5,6 +5,10 @@ import UIKit
 
 final class MovieDataSource: NSObject, UITableViewDataSourceDelegate {
   
+  typealias MovieID = Int
+  
+  var selectedCallback: ((MovieID) -> Void)?
+  
   private var movies: [MovieViewModel]!
   
   init(movies: [MovieViewModel]) {
@@ -22,5 +26,9 @@ final class MovieDataSource: NSObject, UITableViewDataSourceDelegate {
     }
     cell.configure(with: movies[indexPath.row])
     return cell
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    self.selectedCallback?(movies[indexPath.row].id)
   }
 }

@@ -14,7 +14,7 @@ public final class URLSessionHTTPClient: HTTPClient {
   }
   
   public func get(from request: URLRequest, queue: DispatchQueue, completion: @escaping (HTTPClient.Result) -> Void) {
-    session.dataTask(with: request) { data, response, error in
+    session.dataTask(with: request) { [weak self] data, response, error in
       if let error = error {
         queue.async {
           completion(.failure(error))
@@ -24,7 +24,7 @@ public final class URLSessionHTTPClient: HTTPClient {
         queue.async {
           completion(.success((data, response)))
         }
-        self.logger.log(response)
+        self?.logger.log(response)
       }
     }.resume()
   }

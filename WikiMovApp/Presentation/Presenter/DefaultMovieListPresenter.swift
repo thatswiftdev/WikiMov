@@ -24,6 +24,9 @@ final class DefaultMovieListPresenter: MovieListPresenter {
     
     self.localMovie.observe(on: self) { movies in
       datasource.value = MovieDataSource(movies: movies)
+      datasource.value?.selectedCallback = { id in
+        print(id)
+      }
     }
   }
   

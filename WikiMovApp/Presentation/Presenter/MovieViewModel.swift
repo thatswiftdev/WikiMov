@@ -4,13 +4,13 @@
 import Foundation
 
 struct MovieViewModel {
-  public let id: Int
-  public let title: String
-  public let backdropPath: String
-  public let posterPath: String
-  public let releaseDate: String
-  public let overview: String
-  public let isFavorite: Bool
+  let id: Int
+  let title: String
+  let backdropPath: String
+  let posterPath: String
+  let releaseDate: String
+  let overview: String
+  let isFavorite: Bool
 }
 
 extension MovieViewModel {
