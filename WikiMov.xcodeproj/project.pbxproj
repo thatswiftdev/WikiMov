@@ -25,6 +25,9 @@
 		4FA84C45272F1AB90051F22A /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C44272F1AB90051F22A /* MovieListViewController.swift */; };
 		4FA84C4D272F1ABC0051F22A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FA84C4C272F1ABC0051F22A /* Assets.xcassets */; };
 		4FA84C50272F1ABC0051F22A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FA84C4E272F1ABC0051F22A /* LaunchScreen.storyboard */; };
+		4FA84C60272F6D0D0051F22A /* MovieListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C5F272F6D0D0051F22A /* MovieListPresenter.swift */; };
+		4FA84C68272F6E480051F22A /* WikiMov.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA84C07272EB9130051F22A /* WikiMov.framework */; };
+		4FA84C69272F6E480051F22A /* WikiMov.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA84C07272EB9130051F22A /* WikiMov.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +38,28 @@
 			remoteGlobalIDString = 4FA84C06272EB9130051F22A;
 			remoteInfo = WikiMov;
 		};
+		4FA84C6A272F6E480051F22A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FA84BFE272EB9130051F22A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4FA84C06272EB9130051F22A;
+			remoteInfo = WikiMov;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4FA84C6C272F6E480051F22A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4FA84C69272F6E480051F22A /* WikiMov.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4FA84C07272EB9130051F22A /* WikiMov.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WikiMov.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +83,7 @@
 		4FA84C4C272F1ABC0051F22A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4FA84C4F272F1ABC0051F22A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4FA84C51272F1ABC0051F22A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FA84C5F272F6D0D0051F22A /* MovieListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FA84C68272F6E480051F22A /* WikiMov.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +120,7 @@
 				4FA84C1A272EDC5B0051F22A /* WikiMovTests */,
 				4FA84C3F272F1AB90051F22A /* WikiMovApp */,
 				4FA84C08272EB9130051F22A /* Products */,
+				4FA84C61272F6D530051F22A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -166,8 +193,16 @@
 				4FA84C4C272F1ABC0051F22A /* Assets.xcassets */,
 				4FA84C4E272F1ABC0051F22A /* LaunchScreen.storyboard */,
 				4FA84C51272F1ABC0051F22A /* Info.plist */,
+				4FA84C5F272F6D0D0051F22A /* MovieListPresenter.swift */,
 			);
 			path = WikiMovApp;
+			sourceTree = "<group>";
+		};
+		4FA84C61272F6D530051F22A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,10 +261,12 @@
 				4FA84C3A272F1AB90051F22A /* Sources */,
 				4FA84C3B272F1AB90051F22A /* Frameworks */,
 				4FA84C3C272F1AB90051F22A /* Resources */,
+				4FA84C6C272F6E480051F22A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4FA84C6B272F6E480051F22A /* PBXTargetDependency */,
 			);
 			name = WikiMovApp;
 			productName = WikiMovApp;
@@ -338,6 +375,7 @@
 				4FA84C45272F1AB90051F22A /* MovieListViewController.swift in Sources */,
 				4FA84C41272F1AB90051F22A /* AppDelegate.swift in Sources */,
 				4FA84C43272F1AB90051F22A /* SceneDelegate.swift in Sources */,
+				4FA84C60272F6D0D0051F22A /* MovieListPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +386,11 @@
 			isa = PBXTargetDependency;
 			target = 4FA84C06272EB9130051F22A /* WikiMov */;
 			targetProxy = 4FA84C1E272EDC5B0051F22A /* PBXContainerItemProxy */;
+		};
+		4FA84C6B272F6E480051F22A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4FA84C06272EB9130051F22A /* WikiMov */;
+			targetProxy = 4FA84C6A272F6E480051F22A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -495,6 +538,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -504,7 +548,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.overheardswift.WikiMov;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -527,6 +571,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -536,7 +581,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.overheardswift.WikiMov;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -601,6 +646,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 296RF6QMS7;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/WikiMov/";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WikiMovApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
