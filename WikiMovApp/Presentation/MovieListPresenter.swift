@@ -12,6 +12,8 @@ protocol MovieListPresenterUseCase {
   func loadMovies(from endpoint: Endpoint)
 }
 
+protocol MovieListPresenterOutput {}
+
 protocol MovieListPresenter: MovieListPresenterUseCase {}
 
 
@@ -30,7 +32,7 @@ final class DefaultMovieListPresenter: MovieListPresenter {
       guard let self = self else { return }
       
       switch result {
-      case .success:
+      case let .success(data):
         self.view.show(isLoading: false)
         
       case .failure:

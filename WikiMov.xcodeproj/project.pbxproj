@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		05B8F08E272FBA50002EF1F0 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8F08D272FBA50002EF1F0 /* Logger.swift */; };
 		05B8F090272FBBBA002EF1F0 /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8F08F272FBBBA002EF1F0 /* MovieView.swift */; };
+		05B8F092272FC4E2002EF1F0 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8F091272FC4E2002EF1F0 /* Observable.swift */; };
 		4FA84C14272EDB890051F22A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C13272EDB890051F22A /* Endpoint.swift */; };
 		4FA84C1C272EDC5B0051F22A /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C1B272EDC5B0051F22A /* EndpointTests.swift */; };
 		4FA84C1D272EDC5B0051F22A /* WikiMov.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA84C07272EB9130051F22A /* WikiMov.framework */; };
@@ -77,6 +78,7 @@
 /* Begin PBXFileReference section */
 		05B8F08D272FBA50002EF1F0 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		05B8F08F272FBBBA002EF1F0 /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
+		05B8F091272FC4E2002EF1F0 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		4FA84C07272EB9130051F22A /* WikiMov.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WikiMov.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FA84C13272EDB890051F22A /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		4FA84C19272EDC5B0051F22A /* WikiMovTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikiMovTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -252,6 +254,7 @@
 				4FA84C6D272F78510051F22A /* Declayout */,
 				4FA84C7D272F83890051F22A /* Views */,
 				4FA84C7E272F838F0051F22A /* Constant */,
+				05B8F091272FC4E2002EF1F0 /* Observable.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05B8F092272FC4E2002EF1F0 /* Observable.swift in Sources */,
 				4FA84C77272F79010051F22A /* UIView+Spacing.swift in Sources */,
 				4FA84C7C272F7CA90051F22A /* Constants.swift in Sources */,
 				4FA84C71272F78B10051F22A /* Constraint.swift in Sources */,
