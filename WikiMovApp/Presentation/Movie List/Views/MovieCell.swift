@@ -24,7 +24,7 @@ final class MovieCell: UITableViewCell {
   
   func configure(with viewModel: MovieViewModel) {
     movieView.titleLabel.text = viewModel.title
-    movieView.releaseDateLabel.text = "Released: " + viewModel.formattedReleaseDate
+    movieView.releaseDateLabel.text = viewModel.formattedReleaseDate
     movieView.overviewLabel.text = viewModel.overview
     movieView.posterView.setImage(from: viewModel.posterPath)
   }
