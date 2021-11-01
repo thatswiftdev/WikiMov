@@ -30,7 +30,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
   private func initialController() -> UINavigationController {
     let movieList = MovieListViewController(presenter: self.makePresenter())
-    movieList.title = "WikiMov"
+    movieList.view.backgroundColor = .white
+    
     let navigation = UINavigationController(rootViewController: movieList)
     return navigation
   }

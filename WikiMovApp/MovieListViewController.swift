@@ -4,9 +4,15 @@
 import UIKit
 import WikiMov
 
-class MovieListViewController: UIViewController {
+class MovieListViewController: UIViewController, BarButtonAble {
   
   private var presenter: MovieListPresenter!
+  
+  private lazy var titleLabel = UILabel.make {
+    $0.textColor = .black
+    $0.text = "WikiMov"
+    $0.font = .systemFont(ofSize: 16, weight: .semibold)
+  }
   
   convenience init(presenter: MovieListPresenter) {
     self.init()
@@ -15,12 +21,14 @@ class MovieListViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = .systemPurple
-    load()
+    configureBarButton()
   }
 
-  func load() {
-    self.presenter.loadMovies(from: MovieEndpoint.nowPlaying)
+  // MARK: - Helpers
+  private func configureBarButton() {
+    makeBarButton(withCustomView: titleLabel, position: .leftBarButton)
+    let rightBarButton = makeBarButton(withImage: UIImage(systemName: "heart.fill"), position: .rightBarButton)
+    rightBarButton.tintColor = .systemPink
   }
 
 }
