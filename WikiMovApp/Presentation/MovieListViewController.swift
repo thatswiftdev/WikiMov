@@ -28,7 +28,9 @@ class MovieListViewController: UIViewController {
   
   private lazy var tableView = UITableView.make {
     $0.dataSource = self
-    $0.register(UITableViewCell.self, forCellReuseIdentifier: "MovieList")
+    $0.separatorStyle = .none
+    $0.rowHeight = UITableView.automaticDimension
+    $0.register(MovieCell.self, forCellReuseIdentifier: MovieCell.identifier)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -100,9 +102,9 @@ extension MovieListViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "MovieList")
-    cell.textLabel?.text = "Title @\(indexPath.row+1)"
-    cell.detailTextLabel?.text = "Description @\(indexPath.row+1)"
+    guard  let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.identifier, for: indexPath) as? MovieCell else {
+      return UITableViewCell()
+    }
     return cell
   }
 }
