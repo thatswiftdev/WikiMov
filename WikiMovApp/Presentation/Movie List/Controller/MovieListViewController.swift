@@ -41,6 +41,7 @@ class MovieListViewController: UIViewController {
     super.viewDidLoad()
     configureSubviews()
     configureBarButton()
+    show(isLoading: true)
   }
   
   override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -53,8 +54,7 @@ class MovieListViewController: UIViewController {
   
   // MARK: - Helpers
   private func load() {
-    self.show(isLoading: true)
-    self.presenter.loadMovies(from: MovieEndpoint.popular)
+    self.presenter.loadMovies(from: MovieEndpoint.nowPlaying)
     self.presenter.dataSource.observe(on: self) { [weak self] dataSource in
       guard let self = self, let dataSource = dataSource else { return }
       self.tableView.dataSourceDelegate(dataSource)

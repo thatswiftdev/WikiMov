@@ -19,6 +19,7 @@ final class MovieDetailViewController: UIViewController {
     super.viewDidLoad()
     configureSubviews()
     configureCallbacks()
+    show(isLoading: true)
   }
   
   // MARK: -  Helpers
@@ -49,5 +50,14 @@ extension MovieDetailViewController: MovieDetailViewBehavior {
   func configureView(with viewModel: MovieViewModel) {
     title = viewModel.title
     movieDetailView.configure(with: viewModel)
+    show(isLoading: false)
+  }
+  
+  func show(isLoading: Bool) {
+    if isLoading {
+      self.scrollView.refreshControl?.beginRefreshing()
+    } else  {
+      self.scrollView.refreshControl?.endRefreshing()
+    }
   }
 }

@@ -19,13 +19,13 @@ class MovieDetailView: MovieView {
     $0.setImage(Constants.Image.unfavorite, for: .normal)
     $0.setImage(Constants.Image.favorite, for: .selected)
     $0.tintColor = Constants.Color.pink
-    $0.addTarget(self, action: #selector(addToFavorite), for: .touchUpInside)
+    $0.addTarget(self, action: #selector(favButtonAction), for: .touchUpInside)
   }
   
   override init(frame: CGRect) {
     super.init(frame: frame)
     posterView.width(160)
-    posterView.height(220)
+    posterView.height(250)
     overviewLabel.numberOfLines = 0
     
     stack.addArrangedSubview(favoriteButton)
@@ -46,7 +46,7 @@ class MovieDetailView: MovieView {
   }
   
   // MARK: - Events
-  @objc private func addToFavorite() {
+  @objc private func favButtonAction() {
     if let vm = self.viewModel {
       if favoriteButton.isSelected {
         self.favoriteCallback?(.deleteFromFavorite(vm))

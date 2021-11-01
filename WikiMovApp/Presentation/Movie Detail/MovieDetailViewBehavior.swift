@@ -5,4 +5,5 @@ import Foundation
 
 protocol MovieDetailViewBehavior {
   func configureView(with viewModel: MovieViewModel)
+  func show(isLoading: Bool)
 }
