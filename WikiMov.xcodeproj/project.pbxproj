@@ -372,12 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				4FA84C12272EDB760051F22A /* Endpoint */,
-				4FFE325C2730370A001D7B0C /* LocalMovieLoader.swift */,
-				4FFE325E2730375E001D7B0C /* LocalMovieStore.swift */,
-				4FFE32602730379A001D7B0C /* DefaultLocalMovieLoader.swift */,
-				4FFE326227303974001D7B0C /* LocalMovieStore.xcdatamodeld */,
-				4FFE326527303C72001D7B0C /* ListFavoriteMovies.swift */,
-				4FFE326727303D3B001D7B0C /* CoreDataLocalMovieStore.swift */,
+				4FFE32812730432A001D7B0C /* Core Data */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -504,6 +499,19 @@
 				4FFE327727304282001D7B0C /* WikiMovLocalStoreIntegrationTests.swift */,
 			);
 			path = WikiMovLocalStoreIntegrationTests;
+			sourceTree = "<group>";
+		};
+		4FFE32812730432A001D7B0C /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				4FFE325C2730370A001D7B0C /* LocalMovieLoader.swift */,
+				4FFE325E2730375E001D7B0C /* LocalMovieStore.swift */,
+				4FFE32602730379A001D7B0C /* DefaultLocalMovieLoader.swift */,
+				4FFE326227303974001D7B0C /* LocalMovieStore.xcdatamodeld */,
+				4FFE326527303C72001D7B0C /* ListFavoriteMovies.swift */,
+				4FFE326727303D3B001D7B0C /* CoreDataLocalMovieStore.swift */,
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
