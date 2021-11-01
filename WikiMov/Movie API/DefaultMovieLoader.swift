@@ -6,21 +6,19 @@ import Foundation
 public class DefaultMovieLoader: MovieLoader {
   
   private let client: HTTPClient
-  private let endpoint: Endpoint
 
   public enum Error: Swift.Error {
     case connectivity
     case invalidData
   }
   
-  public init(client: HTTPClient, endpoint: Endpoint) {
+  public init(client: HTTPClient) {
     self.client = client
-    self.endpoint = endpoint
   }
   
   public typealias Result = MovieLoader.Result
   
-  public func load(completion: @escaping (Result) -> Void) {
+  public func load(from endpoint: Endpoint, completion: @escaping (Result) -> Void) {
     client.get(from: endpoint.makeURLRequest(), queue: .main) { [weak self] result in
       guard self != nil else { return }
       

@@ -15,22 +15,22 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
   func test_load_shouldRequestDataFromURL() throws {
     let (sut, client) = makeSUT()
     
-    let endpoint = MovieEndpoint.popular.makeURLRequest()
+    let endpoint = MovieEndpoint.popular
     
-    sut.load { _ in }
+    sut.load(from: endpoint) { _ in }
     
-    XCTAssertEqual(client.requestedURLs, [endpoint])
+    XCTAssertEqual(client.requestedURLs, [endpoint.makeURLRequest()])
   }
   
   func test_loadTwice_shouldRequestDataFromURLTwice() throws {
     let (sut, client) = makeSUT()
     
-    let endpoint = MovieEndpoint.popular.makeURLRequest()
+    let endpoint = MovieEndpoint.popular
     
-    sut.load { _ in }
-    sut.load { _ in }
+    sut.load(from: endpoint) { _ in }
+    sut.load(from: endpoint) { _ in }
     
-    XCTAssertEqual(client.requestedURLs, [endpoint, endpoint])
+    XCTAssertEqual(client.requestedURLs, [endpoint.makeURLRequest(), endpoint.makeURLRequest()])
   }
   
   func test_load_deliversErrorOnClientError() {
@@ -90,10 +90,10 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
   func test_load_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
     let endpoint = MovieEndpoint.nowPlaying
     let client = HTTPClientSpy()
-    var sut: DefaultMovieLoader? = DefaultMovieLoader(client: client, endpoint: endpoint)
+    var sut: DefaultMovieLoader? = DefaultMovieLoader(client: client)
     
     var capturedResults: [DefaultMovieLoader.Result] = []
-    sut?.load { result in capturedResults.append(result) }
+    sut?.load(from: endpoint) { result in capturedResults.append(result) }
     
     sut = nil
     client.complete(withStatusCode: 200, data: makeMoviesJSON([]))
@@ -103,11 +103,10 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
   
   // MARK: - Helpers
   private func makeSUT(
-    endpoint: Endpoint = MovieEndpoint.popular,
     file: StaticString = #filePath,
     line: UInt = #line) -> (DefaultMovieLoader, HTTPClientSpy) {
       let client = HTTPClientSpy()
-      let sut = DefaultMovieLoader(client: client, endpoint: endpoint)
+      let sut = DefaultMovieLoader(client: client)
       trackForMemoryLeaks(for: sut, file: file, line: line)
       trackForMemoryLeaks(for: client, file: file, line: line)
       return (sut, client)
@@ -121,7 +120,7 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
     
     let exp = expectation(description: "Wait for load completion")
     
-    sut.load { receivedResult in
+    sut.load(from: MovieEndpoint.popular) { receivedResult in
       switch (receivedResult, expectedResult) {
       case let (MovieLoader.Result.success(receivedMovies), MovieLoader.Result.success(expectedMovies)):
         XCTAssertEqual(receivedMovies, expectedMovies, file: file, line: line)
