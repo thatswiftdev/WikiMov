@@ -7,11 +7,7 @@ final class MovieDetailViewController: UIViewController {
   
   var presenter: MovieDetailPresenter!
   
-  private lazy var movieDetailView = MovieDetailView.make {
-    $0.posterView.width(160)
-    $0.posterView.height(220)
-    $0.overviewLabel.numberOfLines = 0
-  }
+  private lazy var movieDetailView = MovieDetailView()
   
   private lazy var scrollView = ScrollViewContainer.make {
     $0.edges(to: view, 0, true)

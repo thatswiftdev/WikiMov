@@ -24,6 +24,10 @@ class MovieDetailView: MovieView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
+    posterView.width(160)
+    posterView.height(220)
+    overviewLabel.numberOfLines = 0
+    
     stack.addArrangedSubview(favoriteButton)
   }
   
