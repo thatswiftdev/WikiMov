@@ -14,7 +14,7 @@ public final class DefaultNetworkLogger: Logger {
   public func log(_ response: HTTPURLResponse) {
     guard let url = response.url else { return }
     
-    print("+ URL: \(url)")
-    print("+ STATUS: \(response.statusCode)")
+    print("[+] URL: \(url)")
+    print("[+] STATUS: \(response.statusCode)")
   }
 }

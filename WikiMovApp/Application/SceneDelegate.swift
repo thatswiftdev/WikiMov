@@ -24,7 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
   private func makePresenter(view: MovieListViewBehavior) -> MovieListPresenter {
     let loader = DefaultMovieLoader(client: client)
-    let presenter = DefaultMovieListPresenter(loader: loader, view: view)
+    let router = DefaultMovieRouter(view: view)
+    let presenter = DefaultMovieListPresenter(loader: loader, view: view, router: router)
     return presenter
   }
   

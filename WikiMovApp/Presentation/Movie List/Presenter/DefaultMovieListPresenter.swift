@@ -11,10 +11,12 @@ final class DefaultMovieListPresenter: MovieListPresenter {
   
   private let loader: MovieLoader
   private let view: MovieListViewBehavior
+  private let router: MovieRouter
   
-  init(loader: MovieLoader, view: MovieListViewBehavior) {
+  init(loader: MovieLoader, view: MovieListViewBehavior, router: MovieRouter) {
     self.loader = loader
     self.view = view
+    self.router = router
     
     configureObservers()
   }
@@ -24,8 +26,9 @@ final class DefaultMovieListPresenter: MovieListPresenter {
     
     self.localMovie.observe(on: self) { movies in
       datasource.value = MovieDataSource(movies: movies)
-      datasource.value?.selectedCallback = { id in
-        print(id)
+      datasource.value?.selectedCallback = { [weak self] id in
+        guard let self = self else { return }
+        self.router.showDetail(with: id)
       }
     }
   }

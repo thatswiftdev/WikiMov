@@ -89,6 +89,11 @@ class MovieListViewController: UIViewController {
 }
 
 extension MovieListViewController: MovieListViewBehavior {
+  
+  var navigation: UINavigationController? {
+    return self.navigationController
+  }
+  
   func show(isLoading: Bool) {
     if isLoading {
       self.scrollView.refreshControl?.beginRefreshing()
