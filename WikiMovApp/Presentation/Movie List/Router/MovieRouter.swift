@@ -27,12 +27,14 @@ final class DefaultMovieRouter: MovieRouter {
 
 extension DefaultMovieRouter {
   private func makeDetailMovieController(movieId id: Int) -> MovieDetailViewController {
-    let loader = DefaultMovieDetailLoader(client: client)
     
-    let presenter = DefaultMovieDetailPresenter(loader: loader)
+    let loader = DefaultMovieDetailLoader(client: client)
+    let detail = MovieDetailViewController()
+    let presenter = DefaultMovieDetailPresenter(loader: loader, view: detail)
     presenter.movieId.value = id
     
-    let detail = MovieDetailViewController(presenter: presenter)
+    detail.presenter = presenter
+  
     return detail
   }
 }

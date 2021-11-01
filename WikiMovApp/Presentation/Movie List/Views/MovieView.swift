@@ -18,22 +18,22 @@ final class MovieView: UIView {
   private lazy var stack = UIStackView.make {
     $0.spacing = 10
     $0.edges(to: container, 5)
+    $0.alignment = .top
   }
   
   private(set) lazy var posterView = RemoteImageView.make {
     $0.backgroundColor = .lightGray
     $0.contentMode = .scaleAspectFit
-    $0.width(100)
-    $0.height(140)
   }
   
   private lazy var stackHeader = UIStackView.make {
     $0.axis = .vertical
+    $0.spacing = 10
   }
   
   private lazy var stackContent = UIStackView.make {
     $0.axis = .vertical
-    $0.distribution = .fillProportionally
+    $0.spacing = 10
   }
   
   private(set) lazy var titleLabel = UILabel.make {
@@ -48,7 +48,6 @@ final class MovieView: UIView {
   }
   
   private(set) lazy var overviewLabel = UILabel.make {
-    $0.numberOfLines = 3
     $0.font = .systemFont(ofSize: 14, weight: .light)
   }
   

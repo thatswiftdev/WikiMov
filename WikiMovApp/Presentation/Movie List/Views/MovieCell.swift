@@ -9,6 +9,9 @@ final class MovieCell: UITableViewCell {
   
   private(set) lazy var movieView = MovieView.make {
     $0.edges(to: contentView)
+    $0.overviewLabel.numberOfLines = 3
+    $0.posterView.width(100)
+    $0.posterView.height(140)
   }
   
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

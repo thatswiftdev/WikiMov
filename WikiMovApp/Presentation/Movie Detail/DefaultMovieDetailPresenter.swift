@@ -10,9 +10,11 @@ final class DefaultMovieDetailPresenter: MovieDetailPresenter {
   let movieDetail: Observable<MovieViewModel?> = Observable(nil)
   
   private let loader: MovieDetailLoader
-
-  init(loader: MovieDetailLoader) {
+  private let view: MovieDetailViewBehavior
+  
+  init(loader: MovieDetailLoader, view: MovieDetailViewBehavior) {
     self.loader = loader
+    self.view = view
     
     configureObservers()
   }
@@ -24,7 +26,8 @@ final class DefaultMovieDetailPresenter: MovieDetailPresenter {
     }
     
     self.movieDetail.observe(on: self) { [weak self] detail in
-      //
+      guard let self = self, let detail = detail else { return }
+      self.view.configureView(with: detail)
     }
   }
   
@@ -32,7 +35,18 @@ final class DefaultMovieDetailPresenter: MovieDetailPresenter {
     loader.load(from: MovieDetailEndpoint.detail(id: id)) { result in
       switch result {
       case let .success(detail):
-        dump(detail)
+        
+        let viewModel = MovieViewModel(
+          id: detail.id ?? 0,
+          title: detail.title ?? "",
+          backdropPath: detail.backdrop_path ?? "",
+          posterPath: detail.poster_path ?? "",
+          releaseDate: detail.release_date ?? "",
+          overview: detail.overview ?? "",
+          isFavorite: false
+        )
+        
+        self.movieDetail.value = viewModel
         
       case .failure:
         break
