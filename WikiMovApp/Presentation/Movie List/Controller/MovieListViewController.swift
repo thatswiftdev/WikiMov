@@ -36,12 +36,23 @@ class MovieListViewController: UIViewController {
     super.viewWillAppear(animated)
     tableView.addObserver(self, forKeyPath: UITableView.contentSizeKeyPath, options: .new, context: nil)
   }
+
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    tableView.removeObserver(self, forKeyPath: UITableView.contentSizeKeyPath)
+  }
+
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    self.scrollView.layoutIfNeeded()
+    self.tableViewHeight?.constant = self.tableView.contentSize.height
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    show(isLoading: true)
     configureSubviews()
     configureBarButton()
-    show(isLoading: true)
   }
   
   override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -57,7 +68,7 @@ class MovieListViewController: UIViewController {
     self.presenter.loadMovies(from: MovieEndpoint.nowPlaying)
     self.presenter.dataSource.observe(on: self) { [weak self] dataSource in
       guard let self = self, let dataSource = dataSource else { return }
-      self.tableView.dataSourceDelegate(dataSource)
+      self.tableView.dataSourceDelegate(dataSource).reloads()
     }
   }
   

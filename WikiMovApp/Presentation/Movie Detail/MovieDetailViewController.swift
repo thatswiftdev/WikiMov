@@ -17,11 +17,11 @@ final class MovieDetailViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    show(isLoading: true)
     configureSubviews()
     configureCallbacks()
-    show(isLoading: true)
   }
-  
+
   // MARK: -  Helpers
   private func configureSubviews() {
     view.backgroundColor = .white
