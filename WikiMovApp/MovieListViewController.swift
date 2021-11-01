@@ -16,14 +16,27 @@ class MovieListViewController: UIViewController {
     $0.font = .systemFont(ofSize: 16, weight: .semibold)
   }
   
+  private lazy var scrollView = ScrollViewContainer.make {
+    $0.edges(to: view, 0, true)
+    $0.setBackgroundColor(color: .systemBlue)
+    $0.setSpacingBetweenItems(to: 5)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    configureSubviews()
     configureBarButton()
   }
 
   // MARK: - Helpers
   private func load() {
     self.presenter.loadMovies(from: MovieEndpoint.popular)
+  }
+  
+  private func configureSubviews() {
+    view.addSubviews([
+      scrollView
+    ])
   }
   
   private func configureBarButton() {
