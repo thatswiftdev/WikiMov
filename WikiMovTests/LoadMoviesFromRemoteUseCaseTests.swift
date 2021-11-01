@@ -158,9 +158,9 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
     let json: [String: Any] = [
       "id": id,
       "title": title,
-      "backdropPath": backdropPath,
-      "posterPath": posterPath,
-      "releaseDate": releaseDate
+      "backdrop_path": backdropPath,
+      "poster_path": posterPath,
+      "release_date": releaseDate
     ]
     
     return (movie, json)

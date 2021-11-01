@@ -6,9 +6,9 @@ import Foundation
 public struct Movie: Hashable, Decodable {
   let id: Int?
   let title: String?
-  let backdropPath: String?
-  let posterPath: String?
-  let releaseDate: String?
+  let backdrop_path: String?
+  let poster_path: String?
+  let release_date: String?
   
   
   public init(
@@ -20,8 +20,8 @@ public struct Movie: Hashable, Decodable {
   {
     self.id = id
     self.title = title
-    self.backdropPath = backdropPath
-    self.posterPath = posterPath
-    self.releaseDate = releaseDate
+    self.backdrop_path = backdropPath
+    self.poster_path = posterPath
+    self.release_date = releaseDate
   }
 }
