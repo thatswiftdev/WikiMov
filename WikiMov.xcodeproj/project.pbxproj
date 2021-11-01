@@ -69,6 +69,7 @@
 		4FFE326A27303E8F001D7B0C /* LoadFavoriteMoviesFromLocalStoreUseCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE326927303E8F001D7B0C /* LoadFavoriteMoviesFromLocalStoreUseCasesTests.swift */; };
 		4FFE326C27303EF2001D7B0C /* LocalMovieStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE326B27303EF2001D7B0C /* LocalMovieStoreSpy.swift */; };
 		4FFE326E273040EE001D7B0C /* SaveFavoriteMoviesToLocalStoreUseCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE326D273040EE001D7B0C /* SaveFavoriteMoviesToLocalStoreUseCasesTests.swift */; };
+		4FFE327027304188001D7B0C /* DeleteFavoriteMovieFromLocalStoreUseCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE326F27304188001D7B0C /* DeleteFavoriteMovieFromLocalStoreUseCasesTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +167,7 @@
 		4FFE326927303E8F001D7B0C /* LoadFavoriteMoviesFromLocalStoreUseCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFavoriteMoviesFromLocalStoreUseCasesTests.swift; sourceTree = "<group>"; };
 		4FFE326B27303EF2001D7B0C /* LocalMovieStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalMovieStoreSpy.swift; sourceTree = "<group>"; };
 		4FFE326D273040EE001D7B0C /* SaveFavoriteMoviesToLocalStoreUseCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFavoriteMoviesToLocalStoreUseCasesTests.swift; sourceTree = "<group>"; };
+		4FFE326F27304188001D7B0C /* DeleteFavoriteMovieFromLocalStoreUseCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFavoriteMovieFromLocalStoreUseCasesTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -376,6 +378,7 @@
 				05B8F0B1272FFDBF002EF1F0 /* Helpers */,
 				4FFE326927303E8F001D7B0C /* LoadFavoriteMoviesFromLocalStoreUseCasesTests.swift */,
 				4FFE326D273040EE001D7B0C /* SaveFavoriteMoviesToLocalStoreUseCasesTests.swift */,
+				4FFE326F27304188001D7B0C /* DeleteFavoriteMovieFromLocalStoreUseCasesTests.swift */,
 			);
 			path = WikiMovTests;
 			sourceTree = "<group>";
@@ -646,6 +649,7 @@
 				4FFE326E273040EE001D7B0C /* SaveFavoriteMoviesToLocalStoreUseCasesTests.swift in Sources */,
 				4FA84C32272F17310051F22A /* HTTPClientSpy.swift in Sources */,
 				4FA84C1C272EDC5B0051F22A /* EndpointTests.swift in Sources */,
+				4FFE327027304188001D7B0C /* DeleteFavoriteMovieFromLocalStoreUseCasesTests.swift in Sources */,
 				4FFE326A27303E8F001D7B0C /* LoadFavoriteMoviesFromLocalStoreUseCasesTests.swift in Sources */,
 				4FFE326C27303EF2001D7B0C /* LocalMovieStoreSpy.swift in Sources */,
 			);
