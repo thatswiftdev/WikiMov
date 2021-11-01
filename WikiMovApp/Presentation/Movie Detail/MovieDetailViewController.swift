@@ -5,7 +5,7 @@ import UIKit
 
 final class MovieDetailViewController: UIViewController {
   
-  private lazy var movieView = MovieDetailView.make {
+  private lazy var movieDetailView = MovieDetailView.make {
     $0.posterView.width(160)
     $0.posterView.height(220)
     $0.overviewLabel.numberOfLines = 0
@@ -22,6 +22,7 @@ final class MovieDetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureSubviews()
+    configureCallbacks()
   }
   
   // MARK: -  Helpers
@@ -29,9 +30,15 @@ final class MovieDetailViewController: UIViewController {
     view.backgroundColor = .white
     view.addSubviews([
       scrollView.addArrangedSubViews([
-        movieView
+        movieDetailView
       ])
     ])
+  }
+  
+  private func configureCallbacks() {
+    movieDetailView.favoriteCallback = { [weak self] viewModel in
+      self?.presenter.addMovieToFavorite(viewModel)
+    }
   }
 
 }
@@ -39,9 +46,6 @@ final class MovieDetailViewController: UIViewController {
 extension MovieDetailViewController: MovieDetailViewBehavior {
   func configureView(with viewModel: MovieViewModel) {
     title = viewModel.title
-    movieView.titleLabel.text = viewModel.title
-    movieView.releaseDateLabel.text = viewModel.formattedReleaseDate
-    movieView.overviewLabel.text = viewModel.overview
-    movieView.posterView.setImage(from: viewModel.posterPath)
+    movieDetailView.configure(with: viewModel)
   }
 }

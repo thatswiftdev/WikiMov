@@ -4,12 +4,13 @@
 import Foundation
 
 protocol MovieDetailPresenterUseCase {
-  func loadMovieDetail(id: Int)
-  func loadMovieReviews(id: Int)
+  func addMovieToFavorite(_ movie: MovieViewModel)
+  func loadMovieDetailFromLocalStore(movieId: Int)
+  func loadMovieReviews(movieId: Int)
 }
 
 protocol MovieDetailPresenterInput {
-  var movieId: Observable<Int> { get }
+  var movieId: Observable<Int?> { get }
   var movieDetail: Observable<MovieViewModel?> { get }
 }
 
