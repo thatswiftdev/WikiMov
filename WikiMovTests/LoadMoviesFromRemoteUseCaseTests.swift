@@ -76,8 +76,8 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
   func test_load_deliversMoviesOn200HTTPResponseWithJSONList() {
     let (sut, client) = makeSUT()
     
-    let movie1 = makeMovie(id: 1, title: "Movie 1", backdropPath: "Backdrop 1", posterPath: "Poster 1", releaseDate: "2021-10-20")
-    let movie2 = makeMovie(id: 2, title: "Movie 2", backdropPath: "Backdrop 2", posterPath: "Poster 2", releaseDate: "2021-10-22")
+    let movie1 = makeMovie(id: 1, title: "Movie 1", backdropPath: "Backdrop 1", posterPath: "Poster 1", releaseDate: "2021-10-20", overview: "Overview 1")
+    let movie2 = makeMovie(id: 2, title: "Movie 2", backdropPath: "Backdrop 2", posterPath: "Poster 2", releaseDate: "2021-10-22", overview: "Overview 1")
     
     let movies = [movie1.movie, movie2.movie]
     
@@ -146,13 +146,14 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
     return try! JSONSerialization.data(withJSONObject: itemsJSON)
   }
   
-  private func makeMovie(id: Int, title: String, backdropPath: String, posterPath: String, releaseDate: String) -> (movie: Movie, json: [String: Any]) {
+  private func makeMovie(id: Int, title: String, backdropPath: String, posterPath: String, releaseDate: String, overview: String) -> (movie: Movie, json: [String: Any]) {
     let movie = Movie(
       id: id,
       title: title,
       backdropPath: backdropPath,
       posterPath: posterPath,
-      releaseDate: releaseDate
+      releaseDate: releaseDate,
+      overview: overview
     )
     
     let json: [String: Any] = [
@@ -160,7 +161,8 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
       "title": title,
       "backdrop_path": backdropPath,
       "poster_path": posterPath,
-      "release_date": releaseDate
+      "release_date": releaseDate,
+      "overview": overview
     ]
     
     return (movie, json)

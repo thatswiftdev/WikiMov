@@ -9,19 +9,21 @@ public struct Movie: Hashable, Decodable {
   let backdrop_path: String?
   let poster_path: String?
   let release_date: String?
-  
+  let overview: String?
   
   public init(
     id: Int?,
     title: String?,
     backdropPath: String?,
     posterPath: String?,
-    releaseDate: String?)
+    releaseDate: String?,
+    overview: String?)
   {
     self.id = id
     self.title = title
     self.backdrop_path = backdropPath
     self.poster_path = posterPath
     self.release_date = releaseDate
+    self.overview = overview
   }
 }
