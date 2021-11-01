@@ -23,7 +23,6 @@
 		4FA84C41272F1AB90051F22A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C40272F1AB90051F22A /* AppDelegate.swift */; };
 		4FA84C43272F1AB90051F22A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C42272F1AB90051F22A /* SceneDelegate.swift */; };
 		4FA84C45272F1AB90051F22A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C44272F1AB90051F22A /* ViewController.swift */; };
-		4FA84C48272F1AB90051F22A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FA84C46272F1AB90051F22A /* Main.storyboard */; };
 		4FA84C4B272F1AB90051F22A /* WikiMovApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C49272F1AB90051F22A /* WikiMovApp.xcdatamodeld */; };
 		4FA84C4D272F1ABC0051F22A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FA84C4C272F1ABC0051F22A /* Assets.xcassets */; };
 		4FA84C50272F1ABC0051F22A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FA84C4E272F1ABC0051F22A /* LaunchScreen.storyboard */; };
@@ -58,7 +57,6 @@
 		4FA84C40272F1AB90051F22A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FA84C42272F1AB90051F22A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4FA84C44272F1AB90051F22A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4FA84C47272F1AB90051F22A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4FA84C4A272F1AB90051F22A /* WikiMovApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WikiMovApp.xcdatamodel; sourceTree = "<group>"; };
 		4FA84C4C272F1ABC0051F22A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4FA84C4F272F1ABC0051F22A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 				4FA84C40272F1AB90051F22A /* AppDelegate.swift */,
 				4FA84C42272F1AB90051F22A /* SceneDelegate.swift */,
 				4FA84C44272F1AB90051F22A /* ViewController.swift */,
-				4FA84C46272F1AB90051F22A /* Main.storyboard */,
 				4FA84C4C272F1ABC0051F22A /* Assets.xcassets */,
 				4FA84C4E272F1ABC0051F22A /* LaunchScreen.storyboard */,
 				4FA84C51272F1ABC0051F22A /* Info.plist */,
@@ -305,7 +302,6 @@
 			files = (
 				4FA84C50272F1ABC0051F22A /* LaunchScreen.storyboard in Resources */,
 				4FA84C4D272F1ABC0051F22A /* Assets.xcassets in Resources */,
-				4FA84C48272F1AB90051F22A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,14 +356,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4FA84C46272F1AB90051F22A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4FA84C47272F1AB90051F22A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4FA84C4E272F1ABC0051F22A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -621,7 +609,6 @@
 				INFOPLIST_FILE = WikiMovApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -653,7 +640,6 @@
 				INFOPLIST_FILE = WikiMovApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
