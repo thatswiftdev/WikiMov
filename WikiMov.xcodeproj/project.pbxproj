@@ -37,6 +37,7 @@
 		4FA84C7C272F7CA90051F22A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C7B272F7CA90051F22A /* Constants.swift */; };
 		4FA84C80272F839A0051F22A /* ScrollViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C7F272F839A0051F22A /* ScrollViewContainer.swift */; };
 		4FA84C83272F88EC0051F22A /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C82272F88EC0051F22A /* UITableView+Extension.swift */; };
+		4FA84C86272F8EE90051F22A /* Animatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C85272F8EE90051F22A /* Animatable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		4FA84C7B272F7CA90051F22A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4FA84C7F272F839A0051F22A /* ScrollViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewContainer.swift; sourceTree = "<group>"; };
 		4FA84C82272F88EC0051F22A /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		4FA84C85272F8EE90051F22A /* Animatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animatable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +253,7 @@
 			children = (
 				4FA84C79272F7A430051F22A /* BarButtonAble.swift */,
 				4FA84C7F272F839A0051F22A /* ScrollViewContainer.swift */,
+				4FA84C85272F8EE90051F22A /* Animatable.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				4FA84C73272F78CD0051F22A /* UIView+Center.swift in Sources */,
 				4FA84C43272F1AB90051F22A /* SceneDelegate.swift in Sources */,
 				4FA84C60272F6D0D0051F22A /* MovieListPresenter.swift in Sources */,
+				4FA84C86272F8EE90051F22A /* Animatable.swift in Sources */,
 				4FA84C6F272F78960051F22A /* UIView+Constraintable.swift in Sources */,
 				4FA84C83272F88EC0051F22A /* UITableView+Extension.swift in Sources */,
 			);
