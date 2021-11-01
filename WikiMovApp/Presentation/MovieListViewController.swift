@@ -44,8 +44,9 @@ class MovieListViewController: UIViewController {
   
   override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
     if let newvalue = change?[.newKey], keyPath == UITableView.contentSizeKeyPath {
-      let newsize  = newvalue as! CGSize
-      self.updateTableViewContentSize(size: newsize.height)
+      if let newsize  = newvalue as?  CGSize {
+        self.updateTableViewContentSize(size: newsize.height)
+      }
     }
   }
   

@@ -6,9 +6,11 @@ import Foundation
 public final class URLSessionHTTPClient: HTTPClient {
   
   private let session: URLSession
+  private let logger: Logger
   
-  public init(session: URLSession = .shared) {
+  public init(session: URLSession = .shared, logger: Logger = DefaultNetworkLogger()) {
     self.session = session
+    self.logger = logger
   }
   
   public func get(from request: URLRequest, queue: DispatchQueue, completion: @escaping (HTTPClient.Result) -> Void) {
@@ -17,10 +19,12 @@ public final class URLSessionHTTPClient: HTTPClient {
         queue.async {
           completion(.failure(error))
         }
-      } else if let data = data, let response = response as? HTTPURLResponse {
+      } else if let data = data,
+                let response = response as? HTTPURLResponse {
         queue.async {
           completion(.success((data, response)))
         }
+        self.logger.log(response)
       }
     }.resume()
   }
