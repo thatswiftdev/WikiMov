@@ -10,6 +10,10 @@ class MovieListViewController: UIViewController {
     didSet { load() }
   }
   
+  private var tableViewHeight: NSLayoutConstraint? {
+    didSet { tableViewHeight?.activated() }
+  }
+  
   private lazy var titleLabel = UILabel.make {
     $0.textColor = .black
     $0.text = Constants.App.title
@@ -22,20 +26,40 @@ class MovieListViewController: UIViewController {
     $0.setSpacingBetweenItems(to: 5)
   }
   
+  private lazy var tableView = UITableView.make {
+    $0.dataSource = self
+    $0.register(UITableViewCell.self, forCellReuseIdentifier: "MovieList")
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    tableView.addObserver(self, forKeyPath: UITableView.contentSizeKeyPath, options: .new, context: nil)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     configureSubviews()
     configureBarButton()
   }
-
+  
+  override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    if let newvalue = change?[.newKey], keyPath == UITableView.contentSizeKeyPath {
+      let newsize  = newvalue as! CGSize
+      self.updateTableViewContentSize(size: newsize.height)
+    }
+  }
+  
   // MARK: - Helpers
   private func load() {
-    self.presenter.loadMovies(from: MovieEndpoint.popular)
+    // self.presenter.loadMovies(from: MovieEndpoint.popular)
   }
   
   private func configureSubviews() {
+    tableViewHeight = tableView.heightAnchor.constraint(equalToConstant: 0)
     view.addSubviews([
-      scrollView
+      scrollView.addArrangedSubViews([
+        tableView
+      ])
     ])
   }
   
@@ -44,7 +68,33 @@ class MovieListViewController: UIViewController {
     let rightBarButton = makeBarButton(withImage: Constants.Image.favorite, position: .rightBarButton)
     rightBarButton.tintColor = Constants.Color.pink
   }
+  
+  private func updateTableViewContentSize(size: CGFloat) {
+    DispatchQueue.main.async {
+      self.scrollView.layoutIfNeeded()
+      self.tableViewHeight?.constant = size
+    }
+  }
+
 
 }
 
 extension MovieListViewController: MovieListViewBehavior {}
+
+extension MovieListViewController: UITableViewDataSource {
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 10
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "MovieList")
+    cell.textLabel?.text = "Title @\(indexPath.row+1)"
+    cell.detailTextLabel?.text = "Description @\(indexPath.row+1)"
+    return cell
+  }
+}
+
+extension UITableView {
+  static let contentSizeKeyPath = "contentSize"
+}
