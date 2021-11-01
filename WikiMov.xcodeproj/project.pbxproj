@@ -66,8 +66,9 @@
 		4FFE326427303974001D7B0C /* LocalMovieStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE326227303974001D7B0C /* LocalMovieStore.xcdatamodeld */; };
 		4FFE326627303C72001D7B0C /* ListFavoriteMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE326527303C72001D7B0C /* ListFavoriteMovies.swift */; };
 		4FFE326827303D3B001D7B0C /* CoreDataLocalMovieStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE326727303D3B001D7B0C /* CoreDataLocalMovieStore.swift */; };
-		4FFE326A27303E8F001D7B0C /* LoadFavoriteMoviesFromLocalStoreUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE326927303E8F001D7B0C /* LoadFavoriteMoviesFromLocalStoreUseCases.swift */; };
+		4FFE326A27303E8F001D7B0C /* LoadFavoriteMoviesFromLocalStoreUseCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE326927303E8F001D7B0C /* LoadFavoriteMoviesFromLocalStoreUseCasesTests.swift */; };
 		4FFE326C27303EF2001D7B0C /* LocalMovieStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE326B27303EF2001D7B0C /* LocalMovieStoreSpy.swift */; };
+		4FFE326E273040EE001D7B0C /* SaveFavoriteMoviesToLocalStoreUseCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE326D273040EE001D7B0C /* SaveFavoriteMoviesToLocalStoreUseCasesTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,8 +163,9 @@
 		4FFE326327303974001D7B0C /* LocalMovieStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalMovieStore.xcdatamodel; sourceTree = "<group>"; };
 		4FFE326527303C72001D7B0C /* ListFavoriteMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFavoriteMovies.swift; sourceTree = "<group>"; };
 		4FFE326727303D3B001D7B0C /* CoreDataLocalMovieStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataLocalMovieStore.swift; sourceTree = "<group>"; };
-		4FFE326927303E8F001D7B0C /* LoadFavoriteMoviesFromLocalStoreUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFavoriteMoviesFromLocalStoreUseCases.swift; sourceTree = "<group>"; };
+		4FFE326927303E8F001D7B0C /* LoadFavoriteMoviesFromLocalStoreUseCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFavoriteMoviesFromLocalStoreUseCasesTests.swift; sourceTree = "<group>"; };
 		4FFE326B27303EF2001D7B0C /* LocalMovieStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalMovieStoreSpy.swift; sourceTree = "<group>"; };
+		4FFE326D273040EE001D7B0C /* SaveFavoriteMoviesToLocalStoreUseCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFavoriteMoviesToLocalStoreUseCasesTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -372,7 +374,8 @@
 				4FA84C1B272EDC5B0051F22A /* EndpointTests.swift */,
 				4FA84C2B272EF7300051F22A /* LoadMoviesFromRemoteUseCaseTests.swift */,
 				05B8F0B1272FFDBF002EF1F0 /* Helpers */,
-				4FFE326927303E8F001D7B0C /* LoadFavoriteMoviesFromLocalStoreUseCases.swift */,
+				4FFE326927303E8F001D7B0C /* LoadFavoriteMoviesFromLocalStoreUseCasesTests.swift */,
+				4FFE326D273040EE001D7B0C /* SaveFavoriteMoviesToLocalStoreUseCasesTests.swift */,
 			);
 			path = WikiMovTests;
 			sourceTree = "<group>";
@@ -640,9 +643,10 @@
 			files = (
 				4FA84C2C272EF7300051F22A /* LoadMoviesFromRemoteUseCaseTests.swift in Sources */,
 				4FA84C36272F17890051F22A /* XCTestCase+TrackingMemoryLeaks.swift in Sources */,
+				4FFE326E273040EE001D7B0C /* SaveFavoriteMoviesToLocalStoreUseCasesTests.swift in Sources */,
 				4FA84C32272F17310051F22A /* HTTPClientSpy.swift in Sources */,
 				4FA84C1C272EDC5B0051F22A /* EndpointTests.swift in Sources */,
-				4FFE326A27303E8F001D7B0C /* LoadFavoriteMoviesFromLocalStoreUseCases.swift in Sources */,
+				4FFE326A27303E8F001D7B0C /* LoadFavoriteMoviesFromLocalStoreUseCasesTests.swift in Sources */,
 				4FFE326C27303EF2001D7B0C /* LocalMovieStoreSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

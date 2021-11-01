@@ -18,7 +18,7 @@ func anyNSError() -> NSError {
   return NSError(domain: "Any Error", code: 0)
 }
 
-final class MachineStoreSpy: LocalMovieStore {
+final class LocalMovieStoreSpy: LocalMovieStore {
   
   enum ReceivedMessage: Equatable {
     case retrieve

@@ -4,7 +4,7 @@
 import XCTest
 import WikiMov
 
-class LoadFavoriteMoviesFromLocalStoreUseCases: XCTestCase {
+class LoadFavoriteMoviesFromLocalStoreUseCasesTests: XCTestCase {
   
   func test_init_doesNotMessageStoreUponCreation() {
     let (_, store) = makeSUT()
@@ -47,7 +47,7 @@ class LoadFavoriteMoviesFromLocalStoreUseCases: XCTestCase {
   }
   
   func test_load_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
-    let store = MachineStoreSpy()
+    let store = LocalMovieStoreSpy()
     var sut: DefaultLocalMovieLoader? = DefaultLocalMovieLoader(store: store)
     
     var receivedResult = [LoadDataResult]()
@@ -60,8 +60,8 @@ class LoadFavoriteMoviesFromLocalStoreUseCases: XCTestCase {
   }
   
   // MARK: -  Helpers
-  private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: DefaultLocalMovieLoader, store: MachineStoreSpy) {
-    let store = MachineStoreSpy()
+  private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: DefaultLocalMovieLoader, store: LocalMovieStoreSpy) {
+    let store = LocalMovieStoreSpy()
     let sut = DefaultLocalMovieLoader(store: store)
     trackForMemoryLeaks(for: store, file: file, line: line)
     trackForMemoryLeaks(for: sut, file: file, line: line)
