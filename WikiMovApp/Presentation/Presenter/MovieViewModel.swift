@@ -12,3 +12,9 @@ struct MovieViewModel {
   public let overview: String
   public let isFavorite: Bool
 }
+
+extension MovieViewModel {
+  var formattedReleaseDate: String {
+    return releaseDate.formatDate(from: .serverDate, to: .dayMonthYear)
+  }
+}
