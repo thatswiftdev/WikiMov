@@ -28,6 +28,11 @@
 		4FA84C60272F6D0D0051F22A /* MovieListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C5F272F6D0D0051F22A /* MovieListPresenter.swift */; };
 		4FA84C68272F6E480051F22A /* WikiMov.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA84C07272EB9130051F22A /* WikiMov.framework */; };
 		4FA84C69272F6E480051F22A /* WikiMov.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA84C07272EB9130051F22A /* WikiMov.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4FA84C6F272F78960051F22A /* UIView+Constraintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C6E272F78960051F22A /* UIView+Constraintable.swift */; };
+		4FA84C71272F78B10051F22A /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C70272F78B10051F22A /* Constraint.swift */; };
+		4FA84C73272F78CD0051F22A /* UIView+Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C72272F78CD0051F22A /* UIView+Center.swift */; };
+		4FA84C75272F78EA0051F22A /* UIView+Dimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C74272F78EA0051F22A /* UIView+Dimension.swift */; };
+		4FA84C77272F79010051F22A /* UIView+Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C76272F79010051F22A /* UIView+Spacing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +89,11 @@
 		4FA84C4F272F1ABC0051F22A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4FA84C51272F1ABC0051F22A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FA84C5F272F6D0D0051F22A /* MovieListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListPresenter.swift; sourceTree = "<group>"; };
+		4FA84C6E272F78960051F22A /* UIView+Constraintable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraintable.swift"; sourceTree = "<group>"; };
+		4FA84C70272F78B10051F22A /* Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
+		4FA84C72272F78CD0051F22A /* UIView+Center.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Center.swift"; sourceTree = "<group>"; };
+		4FA84C74272F78EA0051F22A /* UIView+Dimension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Dimension.swift"; sourceTree = "<group>"; };
+		4FA84C76272F79010051F22A /* UIView+Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Spacing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +197,7 @@
 		4FA84C3F272F1AB90051F22A /* WikiMovApp */ = {
 			isa = PBXGroup;
 			children = (
+				4FA84C78272F790D0051F22A /* Helpers */,
 				4FA84C40272F1AB90051F22A /* AppDelegate.swift */,
 				4FA84C42272F1AB90051F22A /* SceneDelegate.swift */,
 				4FA84C44272F1AB90051F22A /* MovieListViewController.swift */,
@@ -203,6 +214,26 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4FA84C6D272F78510051F22A /* Declayout */ = {
+			isa = PBXGroup;
+			children = (
+				4FA84C6E272F78960051F22A /* UIView+Constraintable.swift */,
+				4FA84C70272F78B10051F22A /* Constraint.swift */,
+				4FA84C72272F78CD0051F22A /* UIView+Center.swift */,
+				4FA84C74272F78EA0051F22A /* UIView+Dimension.swift */,
+				4FA84C76272F79010051F22A /* UIView+Spacing.swift */,
+			);
+			path = Declayout;
+			sourceTree = "<group>";
+		};
+		4FA84C78272F790D0051F22A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4FA84C6D272F78510051F22A /* Declayout */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,10 +403,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FA84C77272F79010051F22A /* UIView+Spacing.swift in Sources */,
+				4FA84C71272F78B10051F22A /* Constraint.swift in Sources */,
 				4FA84C45272F1AB90051F22A /* MovieListViewController.swift in Sources */,
 				4FA84C41272F1AB90051F22A /* AppDelegate.swift in Sources */,
+				4FA84C75272F78EA0051F22A /* UIView+Dimension.swift in Sources */,
+				4FA84C73272F78CD0051F22A /* UIView+Center.swift in Sources */,
 				4FA84C43272F1AB90051F22A /* SceneDelegate.swift in Sources */,
 				4FA84C60272F6D0D0051F22A /* MovieListPresenter.swift in Sources */,
+				4FA84C6F272F78960051F22A /* UIView+Constraintable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
