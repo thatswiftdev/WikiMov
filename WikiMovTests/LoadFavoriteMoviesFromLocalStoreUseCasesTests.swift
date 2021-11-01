@@ -39,7 +39,7 @@ class LoadFavoriteMoviesFromLocalStoreUseCasesTests: XCTestCase {
   
   func test_load_deliversDataOnNonEmptyCache() {
     let (sut, store) = makeSUT()
-    let data = [uniqueMachineData(), uniqueMachineData()]
+    let data = [uniqueLocalMovie(), uniqueLocalMovie()]
     
     expect(sut, toCompleteWith: .success(data)) {
       store.completeRetrieval(with: data)

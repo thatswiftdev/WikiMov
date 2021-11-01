@@ -14,7 +14,7 @@ class SaveFavoriteMoviesToLocalStoreUseCasesTests: XCTestCase {
   
   func test_save_messageTheStore() {
     let (sut, store) = makeSUT()
-    let data = uniqueMachineData()
+    let data = uniqueLocalMovie()
     
     sut.save(data) { _ in }
     
@@ -44,7 +44,7 @@ class SaveFavoriteMoviesToLocalStoreUseCasesTests: XCTestCase {
     
     var receivedResult = [DefaultLocalMovieLoader.SaveResult]()
     
-    sut?.save(uniqueMachineData()) { receivedResult.append($0) }
+    sut?.save(uniqueLocalMovie()) { receivedResult.append($0) }
     
     sut = nil
     
@@ -68,7 +68,7 @@ class SaveFavoriteMoviesToLocalStoreUseCasesTests: XCTestCase {
     
     var receivedError: Error?
     
-    sut.save(uniqueMachineData()) { error in
+    sut.save(uniqueLocalMovie()) { error in
       receivedError = error
       exp.fulfill()
     }

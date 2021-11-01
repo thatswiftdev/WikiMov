@@ -70,6 +70,10 @@
 		4FFE326C27303EF2001D7B0C /* LocalMovieStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE326B27303EF2001D7B0C /* LocalMovieStoreSpy.swift */; };
 		4FFE326E273040EE001D7B0C /* SaveFavoriteMoviesToLocalStoreUseCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE326D273040EE001D7B0C /* SaveFavoriteMoviesToLocalStoreUseCasesTests.swift */; };
 		4FFE327027304188001D7B0C /* DeleteFavoriteMovieFromLocalStoreUseCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE326F27304188001D7B0C /* DeleteFavoriteMovieFromLocalStoreUseCasesTests.swift */; };
+		4FFE327827304282001D7B0C /* WikiMovLocalStoreIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE327727304282001D7B0C /* WikiMovLocalStoreIntegrationTests.swift */; };
+		4FFE327927304282001D7B0C /* WikiMov.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA84C07272EB9130051F22A /* WikiMov.framework */; };
+		4FFE327F273042C1001D7B0C /* XCTestCase+TrackingMemoryLeaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C35272F17890051F22A /* XCTestCase+TrackingMemoryLeaks.swift */; };
+		4FFE3280273042DA001D7B0C /* LocalMovieStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE326B27303EF2001D7B0C /* LocalMovieStoreSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +85,13 @@
 			remoteInfo = WikiMov;
 		};
 		4FA84C6A272F6E480051F22A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FA84BFE272EB9130051F22A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4FA84C06272EB9130051F22A;
+			remoteInfo = WikiMov;
+		};
+		4FFE327A27304282001D7B0C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4FA84BFE272EB9130051F22A /* Project object */;
 			proxyType = 1;
@@ -168,6 +179,8 @@
 		4FFE326B27303EF2001D7B0C /* LocalMovieStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalMovieStoreSpy.swift; sourceTree = "<group>"; };
 		4FFE326D273040EE001D7B0C /* SaveFavoriteMoviesToLocalStoreUseCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFavoriteMoviesToLocalStoreUseCasesTests.swift; sourceTree = "<group>"; };
 		4FFE326F27304188001D7B0C /* DeleteFavoriteMovieFromLocalStoreUseCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFavoriteMovieFromLocalStoreUseCasesTests.swift; sourceTree = "<group>"; };
+		4FFE327527304282001D7B0C /* WikiMovLocalStoreIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikiMovLocalStoreIntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FFE327727304282001D7B0C /* WikiMovLocalStoreIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiMovLocalStoreIntegrationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +204,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FA84C68272F6E480051F22A /* WikiMov.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FFE327227304282001D7B0C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FFE327927304282001D7B0C /* WikiMov.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +342,7 @@
 				4FA84C09272EB9130051F22A /* WikiMov */,
 				4FA84C1A272EDC5B0051F22A /* WikiMovTests */,
 				4FA84C3F272F1AB90051F22A /* WikiMovApp */,
+				4FFE327627304282001D7B0C /* WikiMovLocalStoreIntegrationTests */,
 				4FA84C08272EB9130051F22A /* Products */,
 				4FA84C61272F6D530051F22A /* Frameworks */,
 			);
@@ -332,6 +354,7 @@
 				4FA84C07272EB9130051F22A /* WikiMov.framework */,
 				4FA84C19272EDC5B0051F22A /* WikiMovTests.xctest */,
 				4FA84C3E272F1AB90051F22A /* WikiMovApp.app */,
+				4FFE327527304282001D7B0C /* WikiMovLocalStoreIntegrationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -475,6 +498,14 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
+		4FFE327627304282001D7B0C /* WikiMovLocalStoreIntegrationTests */ = {
+			isa = PBXGroup;
+			children = (
+				4FFE327727304282001D7B0C /* WikiMovLocalStoreIntegrationTests.swift */,
+			);
+			path = WikiMovLocalStoreIntegrationTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -543,6 +574,24 @@
 			productReference = 4FA84C3E272F1AB90051F22A /* WikiMovApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		4FFE327427304282001D7B0C /* WikiMovLocalStoreIntegrationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FFE327C27304282001D7B0C /* Build configuration list for PBXNativeTarget "WikiMovLocalStoreIntegrationTests" */;
+			buildPhases = (
+				4FFE327127304282001D7B0C /* Sources */,
+				4FFE327227304282001D7B0C /* Frameworks */,
+				4FFE327327304282001D7B0C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4FFE327B27304282001D7B0C /* PBXTargetDependency */,
+			);
+			name = WikiMovLocalStoreIntegrationTests;
+			productName = WikiMovLocalStoreIntegrationTests;
+			productReference = 4FFE327527304282001D7B0C /* WikiMovLocalStoreIntegrationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -563,6 +612,9 @@
 					4FA84C3D272F1AB90051F22A = {
 						CreatedOnToolsVersion = 13.0;
 					};
+					4FFE327427304282001D7B0C = {
+						CreatedOnToolsVersion = 13.0;
+					};
 				};
 			};
 			buildConfigurationList = 4FA84C01272EB9130051F22A /* Build configuration list for PBXProject "WikiMov" */;
@@ -581,6 +633,7 @@
 				4FA84C06272EB9130051F22A /* WikiMov */,
 				4FA84C18272EDC5B0051F22A /* WikiMovTests */,
 				4FA84C3D272F1AB90051F22A /* WikiMovApp */,
+				4FFE327427304282001D7B0C /* WikiMovLocalStoreIntegrationTests */,
 			);
 		};
 /* End PBXProject section */
@@ -606,6 +659,13 @@
 			files = (
 				4FA84C50272F1ABC0051F22A /* LaunchScreen.storyboard in Resources */,
 				4FA84C4D272F1ABC0051F22A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FFE327327304282001D7B0C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,6 +751,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4FFE327127304282001D7B0C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FFE327827304282001D7B0C /* WikiMovLocalStoreIntegrationTests.swift in Sources */,
+				4FFE327F273042C1001D7B0C /* XCTestCase+TrackingMemoryLeaks.swift in Sources */,
+				4FFE3280273042DA001D7B0C /* LocalMovieStoreSpy.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -703,6 +773,11 @@
 			isa = PBXTargetDependency;
 			target = 4FA84C06272EB9130051F22A /* WikiMov */;
 			targetProxy = 4FA84C6A272F6E480051F22A /* PBXContainerItemProxy */;
+		};
+		4FFE327B27304282001D7B0C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4FA84C06272EB9130051F22A /* WikiMov */;
+			targetProxy = 4FFE327A27304282001D7B0C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1020,6 +1095,56 @@
 			};
 			name = Release;
 		};
+		4FFE327D27304282001D7B0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 296RF6QMS7;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.overheardswift.WikiMovLocalStoreIntegrationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4FFE327E27304282001D7B0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 296RF6QMS7;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.overheardswift.WikiMovLocalStoreIntegrationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1055,6 +1180,15 @@
 			buildConfigurations = (
 				4FA84C53272F1ABC0051F22A /* Debug */,
 				4FA84C54272F1ABC0051F22A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FFE327C27304282001D7B0C /* Build configuration list for PBXNativeTarget "WikiMovLocalStoreIntegrationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FFE327D27304282001D7B0C /* Debug */,
+				4FFE327E27304282001D7B0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -4,7 +4,7 @@
 import WikiMov
 import Foundation
 
-func uniqueMachineData() -> LocalMovie {
+func uniqueLocalMovie() -> LocalMovie {
   return LocalMovie(id: randomNumber(6), title: "A title", backdropPath: "/\(randomNumber(10))", posterPath: "\(randomNumber(10))", releaseDate: "2021-05-20", overview: "An overview", isFavorite: true)
 }
 

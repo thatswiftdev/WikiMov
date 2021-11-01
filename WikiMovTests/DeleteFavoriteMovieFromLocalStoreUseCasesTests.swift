@@ -14,7 +14,7 @@ class DeleteFavoriteMovieFromLocalStoreUseCasesTests: XCTestCase {
   
   func test_delete_messageTheStore() {
     let (sut, store) = makeSUT()
-    let data = uniqueMachineData()
+    let data = uniqueLocalMovie()
     
     sut.delete(data) { _ in }
     
@@ -23,7 +23,7 @@ class DeleteFavoriteMovieFromLocalStoreUseCasesTests: XCTestCase {
   
   func test_delete_failsOnDeletionError() {
     let (sut, store) = makeSUT()
-    let data = uniqueMachineData()
+    let data = uniqueLocalMovie()
     
     let exp = expectation(description: "Wait for deletion completion")
     sut.delete(data) { error in
@@ -36,7 +36,7 @@ class DeleteFavoriteMovieFromLocalStoreUseCasesTests: XCTestCase {
   
   func test_delete_succeedsOnSuccessfulDataDeletion() {
     let (sut, store) = makeSUT()
-    let data = uniqueMachineData()
+    let data = uniqueLocalMovie()
 
     let exp = expectation(description: "Wait for deletion completion")
     sut.delete(data) { error in
@@ -53,7 +53,7 @@ class DeleteFavoriteMovieFromLocalStoreUseCasesTests: XCTestCase {
     
     var receivedResult = [DefaultLocalMovieLoader.SaveResult]()
     
-    sut?.delete(uniqueMachineData()) { receivedResult.append($0) }
+    sut?.delete(uniqueLocalMovie()) { receivedResult.append($0) }
     
     sut = nil
     
