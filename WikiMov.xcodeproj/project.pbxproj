@@ -59,6 +59,7 @@
 		4FA84C83272F88EC0051F22A /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C82272F88EC0051F22A /* UITableView+Extension.swift */; };
 		4FA84C86272F8EE90051F22A /* Animatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C85272F8EE90051F22A /* Animatable.swift */; };
 		4FA84C88272F9AF20051F22A /* LocalMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C87272F9AF20051F22A /* LocalMovie.swift */; };
+		4FFE325B27303472001D7B0C /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE325A27303472001D7B0C /* MovieDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +147,7 @@
 		4FA84C82272F88EC0051F22A /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		4FA84C85272F8EE90051F22A /* Animatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animatable.swift; sourceTree = "<group>"; };
 		4FA84C87272F9AF20051F22A /* LocalMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalMovie.swift; sourceTree = "<group>"; };
+		4FFE325A27303472001D7B0C /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,15 +184,9 @@
 				059B7CF527300881007B97A7 /* MovieDetailPresenter.swift */,
 				059B7CF7273008A0007B97A7 /* DefaultMovieDetailPresenter.swift */,
 				059B7CFD27301ABF007B97A7 /* MovieDetailViewBehavior.swift */,
+				4FFE325A27303472001D7B0C /* MovieDetailView.swift */,
 			);
 			path = "Movie Detail";
-			sourceTree = "<group>";
-		};
-		059B7CFC27300C9D007B97A7 /* Reviews */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Reviews;
 			sourceTree = "<group>";
 		};
 		05B8F09D272FCDAE002EF1F0 /* Application */ = {
@@ -360,7 +356,6 @@
 		4FA84C37272F18090051F22A /* Movie API */ = {
 			isa = PBXGroup;
 			children = (
-				059B7CFC27300C9D007B97A7 /* Reviews */,
 				05B8F0A8272FFB03002EF1F0 /* Detail */,
 				05B8F0A7272FFADB002EF1F0 /* Movies */,
 				05B8F0A5272FF756002EF1F0 /* Client */,
@@ -627,6 +622,7 @@
 				05B8F092272FC4E2002EF1F0 /* Observable.swift in Sources */,
 				4FA84C77272F79010051F22A /* UIView+Spacing.swift in Sources */,
 				05B8F096272FCB9C002EF1F0 /* MovieCell.swift in Sources */,
+				4FFE325B27303472001D7B0C /* MovieDetailView.swift in Sources */,
 				4FA84C7C272F7CA90051F22A /* Constants.swift in Sources */,
 				059B7CF627300881007B97A7 /* MovieDetailPresenter.swift in Sources */,
 				4FA84C71272F78B10051F22A /* Constraint.swift in Sources */,

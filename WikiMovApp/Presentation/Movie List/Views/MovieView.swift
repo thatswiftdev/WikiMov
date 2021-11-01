@@ -3,7 +3,7 @@
 
 import UIKit
 
-final class MovieView: UIView {
+class MovieView: UIView {
   
   private lazy var container = UIView.make {
     $0.verticalPadding(to: self, 3)
@@ -15,7 +15,7 @@ final class MovieView: UIView {
     $0.layer.shadowRadius = 2
   }
   
-  private lazy var stack = UIStackView.make {
+  private(set) lazy var stack = UIStackView.make {
     $0.spacing = 10
     $0.edges(to: container, 5)
     $0.alignment = .top

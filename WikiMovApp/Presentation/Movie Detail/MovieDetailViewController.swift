@@ -5,14 +5,10 @@ import UIKit
 
 final class MovieDetailViewController: UIViewController {
   
-  private lazy var movieView = MovieView.make {
+  private lazy var movieView = MovieDetailView.make {
     $0.posterView.width(160)
     $0.posterView.height(220)
     $0.overviewLabel.numberOfLines = 0
-  }
-  
-  private lazy var dummyView = UIView.make {
-    $0.backgroundColor = .brown
   }
   
   private lazy var scrollView = ScrollViewContainer.make {
@@ -33,8 +29,7 @@ final class MovieDetailViewController: UIViewController {
     view.backgroundColor = .white
     view.addSubviews([
       scrollView.addArrangedSubViews([
-        movieView,
-        dummyView
+        movieView
       ])
     ])
   }
@@ -43,6 +38,7 @@ final class MovieDetailViewController: UIViewController {
 
 extension MovieDetailViewController: MovieDetailViewBehavior {
   func configureView(with viewModel: MovieViewModel) {
+    title = viewModel.title
     movieView.titleLabel.text = viewModel.title
     movieView.releaseDateLabel.text = viewModel.formattedReleaseDate
     movieView.overviewLabel.text = viewModel.overview
