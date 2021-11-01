@@ -7,7 +7,7 @@ import WikiMov
 class EndpointTests: XCTestCase {
   
   func test_popularMovies_endpointURL() throws {
-    let request = try makeEndpoint(MovieEndpoint.popular)
+    let request = makeEndpoint(MovieEndpoint.popular)
     
     XCTAssertEqual(request.url?.scheme, "https")
     XCTAssertEqual(request.url?.host, "api.themoviedb.org")
@@ -16,7 +16,7 @@ class EndpointTests: XCTestCase {
   }
   
   func test_nowPlayingMovies_endpointURL() throws {
-    let request = try makeEndpoint(MovieEndpoint.nowPlaying)
+    let request = makeEndpoint(MovieEndpoint.nowPlaying)
     
     XCTAssertEqual(request.url?.scheme, "https")
     XCTAssertEqual(request.url?.host, "api.themoviedb.org")
@@ -25,7 +25,7 @@ class EndpointTests: XCTestCase {
   }
   
   func test_topRatedMovies_endpointURL() throws {
-    let request = try makeEndpoint(MovieEndpoint.topRated)
+    let request = makeEndpoint(MovieEndpoint.topRated)
     
     XCTAssertEqual(request.url?.scheme, "https")
     XCTAssertEqual(request.url?.host, "api.themoviedb.org")
@@ -34,8 +34,8 @@ class EndpointTests: XCTestCase {
   }
   
   // MARK: - Helpers
-  private func makeEndpoint(_ endpoint: Endpoint) throws -> URLRequest {
-    let request = try endpoint.makeURLRequest()
+  private func makeEndpoint(_ endpoint: Endpoint) -> URLRequest {
+    let request = endpoint.makeURLRequest()
     return request
   }
 }

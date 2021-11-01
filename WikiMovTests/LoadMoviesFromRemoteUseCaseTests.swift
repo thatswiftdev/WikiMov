@@ -15,7 +15,7 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
   func test_load_shouldRequestDataFromURL() throws {
     let (sut, client) = makeSUT()
     
-    let endpoint = try MovieEndpoint.popular.makeURLRequest()
+    let endpoint = MovieEndpoint.popular.makeURLRequest()
     
     sut.load { _ in }
     
@@ -25,7 +25,7 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
   func test_loadTwice_shouldRequestDataFromURLTwice() throws {
     let (sut, client) = makeSUT()
     
-    let endpoint = try MovieEndpoint.popular.makeURLRequest()
+    let endpoint = MovieEndpoint.popular.makeURLRequest()
     
     sut.load { _ in }
     sut.load { _ in }
@@ -90,7 +90,7 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
   func test_load_doesNotDeliverResultAfterSUTInstanceHasBeenDeallocated() {
     let endpoint = MovieEndpoint.nowPlaying
     let client = HTTPClientSpy()
-    var sut: DefaultMovieLoader? = try! DefaultMovieLoader(client: client, endpoint: endpoint)
+    var sut: DefaultMovieLoader? = DefaultMovieLoader(client: client, endpoint: endpoint)
     
     var capturedResults: [DefaultMovieLoader.Result] = []
     sut?.load { result in capturedResults.append(result) }
@@ -107,7 +107,7 @@ class LoadMoviesFromRemoteUseCaseTests: XCTestCase {
     file: StaticString = #filePath,
     line: UInt = #line) -> (DefaultMovieLoader, HTTPClientSpy) {
       let client = HTTPClientSpy()
-      let sut = try! DefaultMovieLoader(client: client, endpoint: endpoint)
+      let sut = DefaultMovieLoader(client: client, endpoint: endpoint)
       trackForMemoryLeaks(for: sut, file: file, line: line)
       trackForMemoryLeaks(for: client, file: file, line: line)
       return (sut, client)

@@ -14,15 +14,10 @@ public protocol Endpoint {
   var method: HTTPMethod { get }
 }
 
-public enum RequestGenerationError: Error {
-  case components
-  case urlError
-}
-
 public extension Endpoint {
-  private func makeURL() throws -> URL? {
+  private func makeURL() -> URL? {
     guard var components = URLComponents(string: baseURL) else {
-      throw RequestGenerationError.components
+      fatalError("Failed to create URLComponents")
     }
     components.path = path
     
@@ -32,8 +27,8 @@ public extension Endpoint {
     return components.url
   }
 
-  func makeURLRequest() throws -> URLRequest {
-    guard let url = try? self.makeURL() else { throw RequestGenerationError.urlError }
+  func makeURLRequest() -> URLRequest {
+    guard let url = self.makeURL() else { fatalError("Failed to create URL") }
     var request = URLRequest(url: url)
     request.httpMethod = method.rawValue
     return request
