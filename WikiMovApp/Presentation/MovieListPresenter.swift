@@ -4,7 +4,9 @@
 import Foundation
 import WikiMov
 
-protocol MovieListViewBehavior: BarButtonAble {}
+protocol MovieListViewBehavior: BarButtonAble {
+  func show(isLoading: Bool)
+}
 
 protocol MovieListPresenterUseCase {
   func loadMovies(from endpoint: Endpoint)
@@ -24,12 +26,15 @@ final class DefaultMovieListPresenter: MovieListPresenter {
   }
   
   func loadMovies(from endpoint: Endpoint) {
-    loader.load(from: endpoint) { result in
+    loader.load(from: endpoint) { [weak self] result in
+      guard let self = self else { return }
+      
       switch result {
-      case .success(let success):
-        print(success)
-      case .failure(let failure):
-        print(failure)
+      case .success:
+        self.view.show(isLoading: false)
+        
+      case .failure:
+        self.view.show(isLoading: false)
       }
     }
   }

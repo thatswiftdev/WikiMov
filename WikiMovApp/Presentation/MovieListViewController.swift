@@ -22,7 +22,7 @@ class MovieListViewController: UIViewController {
   
   private lazy var scrollView = ScrollViewContainer.make {
     $0.edges(to: view, 0, true)
-    $0.setBackgroundColor(color: .systemBlue)
+    $0.setBackgroundColor(color: .white)
     $0.setSpacingBetweenItems(to: 5)
   }
   
@@ -51,7 +51,8 @@ class MovieListViewController: UIViewController {
   
   // MARK: - Helpers
   private func load() {
-    // self.presenter.loadMovies(from: MovieEndpoint.popular)
+    self.show(isLoading: true)
+    self.presenter.loadMovies(from: MovieEndpoint.popular)
   }
   
   private func configureSubviews() {
@@ -79,7 +80,16 @@ class MovieListViewController: UIViewController {
 
 }
 
-extension MovieListViewController: MovieListViewBehavior {}
+extension MovieListViewController: MovieListViewBehavior {
+  func show(isLoading: Bool) {
+    if isLoading {
+      self.scrollView.refreshControl?.beginRefreshing()
+    } else {
+      self.scrollView.refreshControl?.endRefreshing()
+      self.scrollView.refreshControl?.removeFromSuperview()
+    }
+  }
+}
 
 extension MovieListViewController: UITableViewDataSource {
   
@@ -93,8 +103,4 @@ extension MovieListViewController: UITableViewDataSource {
     cell.detailTextLabel?.text = "Description @\(indexPath.row+1)"
     return cell
   }
-}
-
-extension UITableView {
-  static let contentSizeKeyPath = "contentSize"
 }
