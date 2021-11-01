@@ -22,15 +22,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     window?.makeKeyAndVisible()
   }
   
-  private func makePresenter() -> MovieListPresenter {
+  private func makePresenter(view: MovieListViewBehavior) -> MovieListPresenter {
     let loader = DefaultMovieLoader(client: client)
-    let presenter = DefaultMovieListPresenter(loader: loader)
+    let presenter = DefaultMovieListPresenter(loader: loader, view: view)
     return presenter
   }
   
   private func initialController() -> UINavigationController {
-    let movieList = MovieListViewController(presenter: self.makePresenter())
+    let movieList = MovieListViewController()
     movieList.view.backgroundColor = .white
+    movieList.presenter = makePresenter(view: movieList)
     
     let navigation = UINavigationController(rootViewController: movieList)
     return navigation
