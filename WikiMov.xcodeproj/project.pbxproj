@@ -160,18 +160,18 @@
 		4FA84C11272EDB6C0051F22A /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				4FA84C12272EDB760051F22A /* Networking */,
+				4FA84C12272EDB760051F22A /* Endpoint */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
 		};
-		4FA84C12272EDB760051F22A /* Networking */ = {
+		4FA84C12272EDB760051F22A /* Endpoint */ = {
 			isa = PBXGroup;
 			children = (
 				4FA84C13272EDB890051F22A /* Endpoint.swift */,
 				4FA84C25272EF1E20051F22A /* MovieEndpoint.swift */,
 			);
-			path = Networking;
+			path = Endpoint;
 			sourceTree = "<group>";
 		};
 		4FA84C1A272EDC5B0051F22A /* WikiMovTests */ = {

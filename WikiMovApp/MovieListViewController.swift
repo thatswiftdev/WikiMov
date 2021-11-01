@@ -10,7 +10,7 @@ class MovieListViewController: UIViewController, BarButtonAble {
   
   private lazy var titleLabel = UILabel.make {
     $0.textColor = .black
-    $0.text = "WikiMov"
+    $0.text = Constants.App.title
     $0.font = .systemFont(ofSize: 16, weight: .semibold)
   }
   
@@ -27,8 +27,8 @@ class MovieListViewController: UIViewController, BarButtonAble {
   // MARK: - Helpers
   private func configureBarButton() {
     makeBarButton(withCustomView: titleLabel, position: .leftBarButton)
-    let rightBarButton = makeBarButton(withImage: UIImage(systemName: "heart.fill"), position: .rightBarButton)
-    rightBarButton.tintColor = .systemPink
+    let rightBarButton = makeBarButton(withImage: Constants.Image.favorite, position: .rightBarButton)
+    rightBarButton.tintColor = Constants.Color.pink
   }
 
 }
