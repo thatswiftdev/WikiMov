@@ -35,6 +35,7 @@
 		4FA84C77272F79010051F22A /* UIView+Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C76272F79010051F22A /* UIView+Spacing.swift */; };
 		4FA84C7A272F7A430051F22A /* BarButtonAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C79272F7A430051F22A /* BarButtonAble.swift */; };
 		4FA84C7C272F7CA90051F22A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C7B272F7CA90051F22A /* Constants.swift */; };
+		4FA84C80272F839A0051F22A /* ScrollViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C7F272F839A0051F22A /* ScrollViewContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		4FA84C76272F79010051F22A /* UIView+Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Spacing.swift"; sourceTree = "<group>"; };
 		4FA84C79272F7A430051F22A /* BarButtonAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonAble.swift; sourceTree = "<group>"; };
 		4FA84C7B272F7CA90051F22A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4FA84C7F272F839A0051F22A /* ScrollViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,10 +238,27 @@
 			isa = PBXGroup;
 			children = (
 				4FA84C6D272F78510051F22A /* Declayout */,
-				4FA84C79272F7A430051F22A /* BarButtonAble.swift */,
-				4FA84C7B272F7CA90051F22A /* Constants.swift */,
+				4FA84C7D272F83890051F22A /* Views */,
+				4FA84C7E272F838F0051F22A /* Constant */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4FA84C7D272F83890051F22A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4FA84C79272F7A430051F22A /* BarButtonAble.swift */,
+				4FA84C7F272F839A0051F22A /* ScrollViewContainer.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4FA84C7E272F838F0051F22A /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				4FA84C7B272F7CA90051F22A /* Constants.swift */,
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,6 +433,7 @@
 				4FA84C71272F78B10051F22A /* Constraint.swift in Sources */,
 				4FA84C45272F1AB90051F22A /* MovieListViewController.swift in Sources */,
 				4FA84C41272F1AB90051F22A /* AppDelegate.swift in Sources */,
+				4FA84C80272F839A0051F22A /* ScrollViewContainer.swift in Sources */,
 				4FA84C75272F78EA0051F22A /* UIView+Dimension.swift in Sources */,
 				4FA84C7A272F7A430051F22A /* BarButtonAble.swift in Sources */,
 				4FA84C73272F78CD0051F22A /* UIView+Center.swift in Sources */,
