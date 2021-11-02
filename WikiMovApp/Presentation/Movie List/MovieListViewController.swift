@@ -7,8 +7,10 @@ import WikiMov
 class MovieListViewController: SharedView, Alertable {
   
   var presenter: MovieListPresenter! {
-    didSet { load() }
+    didSet { load(endpoint: self.category) }
   }
+  
+  private var category: MovieEndpoint = .topRated
   
   private lazy var titleLabel = UILabel.make {
     $0.textColor = .black
@@ -29,18 +31,26 @@ class MovieListViewController: SharedView, Alertable {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    show(isLoading: true)
     configureViews()
     configureSubviews()
     configureBarButton()
+    configureCallback()
   }
   
   // MARK: - Helpers
-  private func load(endpoint: Endpoint = MovieEndpoint.topRated) {
+  private func load(endpoint: Endpoint) {
+    self.show(isLoading: true)
     self.presenter.loadMovies(from: endpoint)
     self.presenter.dataSource.observe(on: self) { [weak self] dataSource in
       guard let self = self, let dataSource = dataSource else { return }
       self.tableView.dataSourceDelegate(dataSource).reloads()
+    }
+  }
+  
+  private func configureCallback() {
+    self.scrollView.refreshCallback = { [weak self] in
+      guard let self = self else { return }
+      self.load(endpoint: self.category)
     }
   }
   
@@ -73,12 +83,16 @@ class MovieListViewController: SharedView, Alertable {
   
   @objc private func selectCategory() {
     showCategoryAlert {
+      self.category = .upcoming
       self.load(endpoint: MovieEndpoint.upcoming)
     } popular: {
+      self.category = .popular
       self.load(endpoint: MovieEndpoint.popular)
     } topRated: {
+      self.category = .topRated
       self.load(endpoint: MovieEndpoint.topRated)
     } nowPlaying: {
+      self.category = .nowPlaying
       self.load(endpoint: MovieEndpoint.nowPlaying)
     }
   }
