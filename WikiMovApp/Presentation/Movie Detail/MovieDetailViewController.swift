@@ -40,6 +40,9 @@ final class MovieDetailViewController: SharedView {
   
   private func configureCallbacks() {
     movieDetailView.favoriteCallback = { [weak self] type in
+      
+      self?.fireHapticFeedBack()
+      
       switch type {
       case let .addToFavorite(viewModel):
         self?.presenter.addMovieToFavorite(viewModel)
@@ -71,5 +74,9 @@ extension MovieDetailViewController: MovieDetailViewBehavior {
     } else  {
       self.scrollView.refreshControl?.endRefreshing()
     }
+  }
+  
+  func fireHapticFeedBack() {
+    self.impactGenerator(style: .medium)
   }
 }

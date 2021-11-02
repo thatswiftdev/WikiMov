@@ -3,6 +3,7 @@
 
 import Foundation
 
-protocol MovieDetailViewBehavior: MovieViewBehavior {
+protocol MovieDetailViewBehavior: MovieViewBehavior, Hapticable {
   func configureView(with viewModel: MovieViewModel)
+  func fireHapticFeedBack()
 }

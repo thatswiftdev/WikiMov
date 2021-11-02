@@ -12,6 +12,7 @@
 		055BBBC227310C76001A3C98 /* FavoriteMovieViewBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055BBBC127310C76001A3C98 /* FavoriteMovieViewBehavior.swift */; };
 		055BBBC427310E33001A3C98 /* Shared+MovieListPresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055BBBC327310E33001A3C98 /* Shared+MovieListPresenterOutput.swift */; };
 		055BBBC627310ED9001A3C98 /* DefaultFavoriteMoviesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055BBBC527310ED9001A3C98 /* DefaultFavoriteMoviesPresenter.swift */; };
+		055BBBC8273117A1001A3C98 /* Hapticable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055BBBC7273117A1001A3C98 /* Hapticable.swift */; };
 		059B7CF3273004A6007B97A7 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B7CF2273004A6007B97A7 /* MovieDetailViewController.swift */; };
 		059B7CF627300881007B97A7 /* MovieDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B7CF527300881007B97A7 /* MovieDetailPresenter.swift */; };
 		059B7CF8273008A0007B97A7 /* DefaultMovieDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059B7CF7273008A0007B97A7 /* DefaultMovieDetailPresenter.swift */; };
@@ -136,6 +137,7 @@
 		055BBBC127310C76001A3C98 /* FavoriteMovieViewBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovieViewBehavior.swift; sourceTree = "<group>"; };
 		055BBBC327310E33001A3C98 /* Shared+MovieListPresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+MovieListPresenterOutput.swift"; sourceTree = "<group>"; };
 		055BBBC527310ED9001A3C98 /* DefaultFavoriteMoviesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFavoriteMoviesPresenter.swift; sourceTree = "<group>"; };
+		055BBBC7273117A1001A3C98 /* Hapticable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hapticable.swift; sourceTree = "<group>"; };
 		059B7CF2273004A6007B97A7 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		059B7CF527300881007B97A7 /* MovieDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailPresenter.swift; sourceTree = "<group>"; };
 		059B7CF7273008A0007B97A7 /* DefaultMovieDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMovieDetailPresenter.swift; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 				4FA84C85272F8EE90051F22A /* Animatable.swift */,
 				05B8F0A1272FE4A3002EF1F0 /* RemoteImageView.swift */,
 				4FFE32952730CC5A001D7B0C /* Alertable.swift */,
+				055BBBC7273117A1001A3C98 /* Hapticable.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -831,6 +834,7 @@
 				055BBBBE27310ADF001A3C98 /* Shared+MovieViewbehavior.swift in Sources */,
 				4FFE329C2730DA87001D7B0C /* FavoriteMoviesViewController.swift in Sources */,
 				05B8F090272FBBBA002EF1F0 /* Shared+MovieView.swift in Sources */,
+				055BBBC8273117A1001A3C98 /* Hapticable.swift in Sources */,
 				4FFE32A12730E10C001D7B0C /* Shared+LocalMovie.swift in Sources */,
 				4FA84C60272F6D0D0051F22A /* MovieListPresenter.swift in Sources */,
 				4FA84C86272F8EE90051F22A /* Animatable.swift in Sources */,
