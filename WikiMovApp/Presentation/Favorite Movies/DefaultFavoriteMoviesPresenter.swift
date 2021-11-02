@@ -24,7 +24,6 @@ final class DefaultFavoriteMoviesPresenter: FavoriteMoviePresenter {
   private func configureObservers() {
     let dataSource = dataSource
     self.localMovie.observe(on: self) { movies in
-      
       dataSource.value = MovieDataSource(movies: movies)
       dataSource.value?.selectedCallback = { [weak self] id in
         self?.router.showDetail(with: id)
@@ -38,10 +37,15 @@ final class DefaultFavoriteMoviesPresenter: FavoriteMoviePresenter {
       
       switch result {
       case let .success(data):
+        
         self.localMovie.value = data.toViewModel()
         
         DispatchQueue.main.async {
           self.view.show(isLoading: false)
+          
+          if data.isEmpty {
+            self.view.configureEmptyView("You don't have favorite movies")
+          }
         }
         
       case .failure:

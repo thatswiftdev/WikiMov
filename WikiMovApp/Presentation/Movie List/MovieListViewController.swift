@@ -13,7 +13,7 @@ class MovieListViewController: SharedView, Alertable {
   private var category: MovieEndpoint = .topRated
   
   private lazy var titleLabel = UILabel.make {
-    $0.textColor = .black
+    $0.textColor = Constants.Color.black
     $0.text = Constants.App.title
     $0.font = .systemFont(ofSize: 16, weight: .semibold)
   }

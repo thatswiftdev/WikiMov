@@ -38,7 +38,7 @@ extension DefaultMovieRouter {
   
   private func makeFavoriteMoviesController() -> FavoriteMoviesViewController {
     let favorite = FavoriteMoviesViewController()
-    favorite.setTitle("Favorite Movies")
+    favorite.configureTitle("Favorite Movies")
     
     let router = DefaultMovieRouter(view: favorite)
     let presenter = DefaultFavoriteMoviesPresenter(

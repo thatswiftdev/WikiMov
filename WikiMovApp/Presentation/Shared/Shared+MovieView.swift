@@ -9,7 +9,7 @@ class MovieView: UIView {
     $0.verticalPadding(to: self, 3)
     $0.horizontalPadding(to: self, 8)
     $0.backgroundColor = Constants.Color.white
-    $0.layer.shadowColor = UIColor.black.withAlphaComponent(0.4).cgColor
+    $0.layer.shadowColor = Constants.Color.black.withAlphaComponent(0.4).cgColor
     $0.layer.shadowOpacity = 0.7
     $0.layer.shadowOffset = .zero
     $0.layer.shadowRadius = 2

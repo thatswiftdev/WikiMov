@@ -9,7 +9,7 @@ final class MovieDetailViewController: SharedView {
   
   private lazy var movieDetailView = MovieDetailView()
   private let reviewCellIdentifier = "ReviewCell"
- 
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     show(isLoading: true)
@@ -40,7 +40,6 @@ final class MovieDetailViewController: SharedView {
   
   private func configureCallbacks() {
     movieDetailView.favoriteCallback = { [weak self] type in
-      
       self?.fireHapticFeedBack()
       
       switch type {
@@ -49,6 +48,13 @@ final class MovieDetailViewController: SharedView {
         
       case let .deleteFromFavorite(viewModel):
         self?.presenter.removeMovieFromFavorite(viewModel)
+      }
+    }
+    
+    scrollView.refreshCallback = { [weak self] in
+      if let movieId = self?.presenter.movieId.value {
+        self?.presenter.loadMovieDetailFromLocalStore(movieId: movieId)
+        self?.presenter.loadMovieReviews(movieId: movieId)
       }
     }
   }

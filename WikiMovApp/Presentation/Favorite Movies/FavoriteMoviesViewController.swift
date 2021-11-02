@@ -56,8 +56,12 @@ extension FavoriteMoviesViewController: FavoriteMovieViewBehavior {
     return self.navigationController
   }
   
-  func setTitle(_ title: String) {
+  func configureTitle(_ title: String) {
     self.title = title
+  }
+  
+  func configureEmptyView(_ message: String) {
+    self.setEmptyView(message)
   }
   
   func show(isLoading: Bool) {

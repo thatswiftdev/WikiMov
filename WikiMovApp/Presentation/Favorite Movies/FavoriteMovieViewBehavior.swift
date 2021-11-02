@@ -4,5 +4,6 @@
 import Foundation
 
 protocol FavoriteMovieViewBehavior: MovieViewBehavior, MovieViewInput {
-  func setTitle(_ title: String)
+  func configureTitle(_ title: String)
+  func configureEmptyView(_ message: String)
 }
