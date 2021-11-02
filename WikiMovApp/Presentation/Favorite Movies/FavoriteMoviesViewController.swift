@@ -11,6 +11,7 @@ final class FavoriteMoviesViewController: SharedView {
     super.viewDidLoad()
     configureViews()
     configureSubviews()
+    configureCallback()
     load()
   }
   
@@ -36,6 +37,12 @@ final class FavoriteMoviesViewController: SharedView {
     tableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.identifier)
     tableViewHeight = tableView.zeroHeightConstraint
     configureBackBarButton()
+  }
+  
+  private func configureCallback() {
+    self.scrollView.refreshCallback = { [weak self] in
+      self?.load()
+    }
   }
 }
 
