@@ -22,6 +22,7 @@ final class MovieDetailViewController: SharedView {
   private func configureViews() {
     view.backgroundColor = .white
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ReviewCell")
+    tableView.separatorStyle = .singleLine
     tableViewHeight = tableView.heightAnchor.constraint(equalToConstant: 0)
     scrollView.edges(to: view, 0, true)
   }
