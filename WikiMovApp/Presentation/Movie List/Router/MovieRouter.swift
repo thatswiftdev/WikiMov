@@ -40,7 +40,12 @@ extension DefaultMovieRouter {
     let favorite = FavoriteMoviesViewController()
     favorite.setTitle("Favorite Movies")
     
-    let presenter = DefaultFavoriteMoviesPresenter(loader: makeLocalMovieLoader(), view: favorite, router: self)
+    let router = DefaultMovieRouter(view: favorite)
+    let presenter = DefaultFavoriteMoviesPresenter(
+      loader: makeLocalMovieLoader(),
+      view: favorite,
+      router: router
+    )
     favorite.presenter = presenter
     
     return favorite

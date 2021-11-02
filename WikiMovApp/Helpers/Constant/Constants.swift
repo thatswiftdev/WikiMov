@@ -7,6 +7,7 @@ struct Constants {
   struct Image {
     static let favorite = UIImage(systemName: "heart.fill")
     static let unfavorite = UIImage(systemName: "heart")
+    static let arrowLeft = UIImage(systemName: "arrow.left")
   }
   
   struct Color {

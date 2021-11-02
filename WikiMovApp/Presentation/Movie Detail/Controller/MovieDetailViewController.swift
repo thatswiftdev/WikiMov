@@ -25,6 +25,7 @@ final class MovieDetailViewController: SharedView {
     tableView.separatorStyle = .singleLine
     tableViewHeight = tableView.heightAnchor.constraint(equalToConstant: 0)
     scrollView.edges(to: view, 0, true)
+    configureBackBarButton()
   }
   
   private func configureSubviews() {

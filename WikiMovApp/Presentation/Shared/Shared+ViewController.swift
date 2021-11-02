@@ -3,7 +3,7 @@
 
 import UIKit
 
-class SharedView: UIViewController, Animatable {
+class SharedView: UIViewController, Animatable, BarButtonAble {
   
   var tableViewHeight: NSLayoutConstraint? {
     didSet { tableViewHeight?.activated() }
@@ -42,5 +42,16 @@ class SharedView: UIViewController, Animatable {
       self.tableViewHeight?.constant = size
       self.scrollView.layoutIfNeeded()
     } completion: { _ in }
+  }
+  
+  func configureBackBarButton() {
+    let barButton = makeBarButton(withImage: Constants.Image.arrowLeft, position: .leftBarButton)
+    barButton.tintColor = .black
+    barButton.action = #selector(back)
+  }
+  
+  // MARK: -  Events
+  @objc private func back() {
+    self.navigationController?.popViewController(animated: true)
   }
 }

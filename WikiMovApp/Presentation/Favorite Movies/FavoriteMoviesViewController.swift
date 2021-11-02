@@ -32,9 +32,10 @@ final class FavoriteMoviesViewController: SharedView {
   }
   
   private func configureSubviews() {
+    scrollView.edges(to: view, 0, true)
     tableViewHeight = tableView.heightAnchor.constraint(equalToConstant: 0)
     tableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.identifier)
-    scrollView.edges(to: view, 0, true)
+    configureBackBarButton()
   }
 }
 
