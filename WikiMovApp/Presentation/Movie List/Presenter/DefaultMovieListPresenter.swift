@@ -27,8 +27,7 @@ final class DefaultMovieListPresenter: MovieListPresenter {
       
       self.dataSource.value = MovieDataSource(movies: movies)
       self.dataSource.value?.selectedCallback = { [weak self] id in
-        guard let self = self else { return }
-        self.router.showDetail(with: id)
+        self?.router.showDetail(with: id)
       }
     }
   }

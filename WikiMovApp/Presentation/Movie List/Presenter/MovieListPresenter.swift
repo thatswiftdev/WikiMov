@@ -9,9 +9,4 @@ protocol MovieListPresenterUseCase {
   func loadFavoriteMovies()
 }
 
-protocol MovieListPresenterOutput {
-  var localMovie: Observable<[MovieViewModel]> { get }
-  var dataSource: Observable<MovieDataSource?> { get }
-}
-
 protocol MovieListPresenter: MovieListPresenterUseCase, MovieListPresenterOutput {}

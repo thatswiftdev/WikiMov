@@ -3,6 +3,6 @@
 
 import Foundation
 
-protocol MovieDetailViewBehavior: MovieViewBehavior {
-  func configureView(with viewModel: MovieViewModel)
+protocol MovieViewBehavior {
+  func show(isLoading: Bool)
 }

@@ -1,7 +1,6 @@
 // Created for WikiMov. By @overheardswift.
 // Copyright © 2021. All rights reserved.
 
-import Foundation
 import WikiMov
 import UIKit
 
@@ -39,9 +38,11 @@ extension DefaultMovieRouter {
   
   private func makeFavoriteMoviesController() -> FavoriteMoviesViewController {
     let favorite = FavoriteMoviesViewController()
-    let presenter = DefaultFavoriteMoviePresenter(loader: makeLocalMovieLoader())
+    favorite.setTitle("Favorite Movies")
     
+    let presenter = DefaultFavoriteMoviesPresenter(loader: makeLocalMovieLoader(), view: favorite, router: self)
     favorite.presenter = presenter
+    
     return favorite
   }
   
@@ -53,11 +54,15 @@ extension DefaultMovieRouter {
     
     let detail = MovieDetailViewController()
     
-    let presenter = DefaultMovieDetailPresenter(adapter: DefaultMovieDetailPresenter.MovieDetailAdapter(remoteLoader: remoteLoader, localLoader: localLoader), reviewLoader: reviewLoader, view: detail)
+    let presenter = DefaultMovieDetailPresenter(
+      adapter: DefaultMovieDetailPresenter.MovieDetailAdapter(remoteLoader: remoteLoader, localLoader: localLoader),
+      reviewLoader: reviewLoader,
+      view: detail
+    )
     
     presenter.movieId.value = id
     detail.presenter = presenter
-  
+    
     return detail
   }
 }

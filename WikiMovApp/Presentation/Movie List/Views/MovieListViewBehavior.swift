@@ -1,12 +1,6 @@
 // Created for WikiMov. By @overheardswift.
 // Copyright © 2021. All rights reserved.
 
-import UIKit
+import Foundation
 
-protocol MovieViewInput {
-  var navigation: UINavigationController? { get }
-}
-
-protocol MovieListViewBehavior: BarButtonAble, Animatable, MovieViewInput {
-  func show(isLoading: Bool)
-}
+protocol MovieListViewBehavior: BarButtonAble, Animatable, MovieViewInput, MovieViewBehavior {}
