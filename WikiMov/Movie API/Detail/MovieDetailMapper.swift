@@ -9,7 +9,7 @@ final class MovieDetailMapper {
   
   static func map(_ data: Data, response: HTTPURLResponse) throws -> Movie {
     guard response.statusCode == OK_200, let root = try? JSONDecoder().decode(Movie.self, from: data) else {
-      throw DefaultMovieLoader.Error.invalidData
+      throw DefaultMovieDetailLoader.Error.invalidData
     }
     
     return root

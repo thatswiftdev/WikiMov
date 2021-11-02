@@ -4,7 +4,7 @@
 import Foundation
 
 public enum MovieReviewsEndpoint {
-  case reviews(id: Int)
+  case reviews(movieId: Int)
 }
 
 extension MovieReviewsEndpoint: Endpoint {
