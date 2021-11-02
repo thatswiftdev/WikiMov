@@ -405,12 +405,9 @@
 		4FA84C1A272EDC5B0051F22A /* WikiMovTests */ = {
 			isa = PBXGroup;
 			children = (
-				4FA84C1B272EDC5B0051F22A /* EndpointTests.swift */,
-				4FA84C2B272EF7300051F22A /* LoadMoviesFromRemoteUseCaseTests.swift */,
+				4FFE32942730C5E7001D7B0C /* Remote */,
 				05B8F0B1272FFDBF002EF1F0 /* Helpers */,
-				4FFE326927303E8F001D7B0C /* LoadFavoriteMoviesFromLocalStoreUseCasesTests.swift */,
-				4FFE326D273040EE001D7B0C /* SaveFavoriteMoviesToLocalStoreUseCasesTests.swift */,
-				4FFE326F27304188001D7B0C /* DeleteFavoriteMovieFromLocalStoreUseCasesTests.swift */,
+				4FFE32932730C5DF001D7B0C /* Local */,
 			);
 			path = WikiMovTests;
 			sourceTree = "<group>";
@@ -570,6 +567,25 @@
 				05B8F091272FC4E2002EF1F0 /* Observable.swift */,
 			);
 			path = Observable;
+			sourceTree = "<group>";
+		};
+		4FFE32932730C5DF001D7B0C /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				4FFE326927303E8F001D7B0C /* LoadFavoriteMoviesFromLocalStoreUseCasesTests.swift */,
+				4FFE326D273040EE001D7B0C /* SaveFavoriteMoviesToLocalStoreUseCasesTests.swift */,
+				4FFE326F27304188001D7B0C /* DeleteFavoriteMovieFromLocalStoreUseCasesTests.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		4FFE32942730C5E7001D7B0C /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				4FA84C1B272EDC5B0051F22A /* EndpointTests.swift */,
+				4FA84C2B272EF7300051F22A /* LoadMoviesFromRemoteUseCaseTests.swift */,
+			);
+			path = Remote;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
