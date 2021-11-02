@@ -260,8 +260,6 @@
 				4FFE328D2730C4A8001D7B0C /* ReviewViewModel.swift */,
 				059B7CF527300881007B97A7 /* MovieDetailPresenter.swift */,
 				059B7CF7273008A0007B97A7 /* DefaultMovieDetailPresenter.swift */,
-				4FFE328F2730C52A001D7B0C /* Controller */,
-				4FFE32902730C547001D7B0C /* Presenter */,
 			);
 			path = "Movie Detail";
 			sourceTree = "<group>";
@@ -523,20 +521,6 @@
 				4FFE32892730B925001D7B0C /* ReviewMapper.swift */,
 			);
 			path = Reviews;
-			sourceTree = "<group>";
-		};
-		4FFE328F2730C52A001D7B0C /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		4FFE32902730C547001D7B0C /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Presenter;
 			sourceTree = "<group>";
 		};
 		4FFE32922730C5A9001D7B0C /* Observable */ = {
