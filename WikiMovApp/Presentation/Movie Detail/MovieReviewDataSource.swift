@@ -18,6 +18,10 @@ final class MovieReviewDataSource: NSObject, UITableViewDataSourceDelegate {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "ReviewCell")
+    
+    cell.textLabel?.textColor = Constants.Color.black
+    cell.detailTextLabel?.textColor = Constants.Color.black
+    cell.contentView.backgroundColor = Constants.Color.white
     cell.selectionStyle = .none
     cell.textLabel?.text = "From: " + reviews[indexPath.row].author
     cell.textLabel?.font = .systemFont(ofSize: 15, weight: .semibold)

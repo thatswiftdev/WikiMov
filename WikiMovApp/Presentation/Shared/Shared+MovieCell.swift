@@ -16,6 +16,7 @@ final class MovieCell: UITableViewCell {
   
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
+    contentView.backgroundColor = Constants.Color.white
     selectionStyle = .none
     contentView.addSubviews([
       movieView

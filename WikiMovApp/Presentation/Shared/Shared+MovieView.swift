@@ -44,6 +44,7 @@ class MovieView: UIView {
     $0.font = .systemFont(ofSize: 15, weight: .bold)
     $0.numberOfLines = 2
     $0.adjustsFontSizeToFitWidth = true
+    $0.textColor = Constants.Color.black
   }
   
   private(set) lazy var releaseDateLabel = UILabel.make {
@@ -54,6 +55,7 @@ class MovieView: UIView {
   
   private(set) lazy var overviewLabel = UILabel.make {
     $0.font = .systemFont(ofSize: 14, weight: .light)
+    $0.textColor = Constants.Color.black
   }
   
   override init(frame: CGRect) {
