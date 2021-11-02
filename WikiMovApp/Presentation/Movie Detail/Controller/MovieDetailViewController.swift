@@ -8,6 +8,7 @@ final class MovieDetailViewController: SharedView {
   var presenter: MovieDetailPresenter!
   
   private lazy var movieDetailView = MovieDetailView()
+  private let reviewCellIdentifier = "ReviewCell"
  
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -20,15 +21,15 @@ final class MovieDetailViewController: SharedView {
   
   // MARK: -  Helpers
   private func configureViews() {
-    view.backgroundColor = .white
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ReviewCell")
+    tableView.register(UITableViewCell.self, forCellReuseIdentifier: reviewCellIdentifier)
     tableView.separatorStyle = .singleLine
-    tableViewHeight = tableView.heightAnchor.constraint(equalToConstant: 0)
+    tableViewHeight = tableView.zeroHeightConstraint
     scrollView.edges(to: view, 0, true)
     configureBackBarButton()
   }
   
   private func configureSubviews() {
+    view.backgroundColor = .white
     view.addSubviews([
       scrollView.addArrangedSubViews([
         movieDetailView,

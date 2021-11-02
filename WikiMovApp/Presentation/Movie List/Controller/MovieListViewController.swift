@@ -36,7 +36,7 @@ class MovieListViewController: SharedView, Alertable {
   }
   
   // MARK: - Helpers
-  private func load(endpoint: Endpoint = MovieEndpoint.nowPlaying) {
+  private func load(endpoint: Endpoint = MovieEndpoint.topRated) {
     self.presenter.loadMovies(from: endpoint)
     self.presenter.dataSource.observe(on: self) { [weak self] dataSource in
       guard let self = self, let dataSource = dataSource else { return }
@@ -45,8 +45,8 @@ class MovieListViewController: SharedView, Alertable {
   }
   
   private func configureViews() {
+    tableViewHeight = tableView.zeroHeightConstraint
     tableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.identifier)
-    tableViewHeight = tableView.heightAnchor.constraint(equalToConstant: 0)
     scrollView.top(to: view, of: .top(true), 0).horizontalPadding(to: view)
   }
   

@@ -15,6 +15,10 @@ extension UITableView {
     }
   }
   
+  var zeroHeightConstraint: NSLayoutConstraint {
+    return heightAnchor.constraint(equalToConstant: 0)
+  }
+  
   @discardableResult
   func dataSourceDelegate(_ sourceDelegate: UITableViewDataSourceDelegate) -> Self {
     self.delegate = sourceDelegate
