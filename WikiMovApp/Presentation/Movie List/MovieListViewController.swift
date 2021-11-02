@@ -111,4 +111,8 @@ extension MovieListViewController: MovieListViewBehavior {
       self.scrollView.refreshControl?.endRefreshing()
     }
   }
+  
+  func configureEmptyView(_ message: String) {
+    self.setEmptyView(message)
+  }
 }

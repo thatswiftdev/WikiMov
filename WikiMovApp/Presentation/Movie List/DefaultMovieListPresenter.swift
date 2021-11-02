@@ -46,8 +46,13 @@ final class DefaultMovieListPresenter: MovieListPresenter {
         self.localMovie.value = movies.toViewModel()
         self.view.show(isLoading: false)
         
+        if movies.isEmpty {
+          self.view.configureEmptyView("No movie data")
+        }
+        
       case .failure:
         self.view.show(isLoading: false)
+        self.view.configureEmptyView("No movie data")
       }
     }
   }
