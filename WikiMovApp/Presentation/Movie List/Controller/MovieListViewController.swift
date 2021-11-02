@@ -70,7 +70,7 @@ class MovieListViewController: UIViewController {
   
   // MARK: - Helpers
   private func load() {
-    self.presenter.loadMovies(from: MovieEndpoint.nowPlaying)
+    self.presenter.loadMovies(from: MovieEndpoint.topRated)
     self.presenter.dataSource.observe(on: self) { [weak self] dataSource in
       guard let self = self, let dataSource = dataSource else { return }
       self.tableView.dataSourceDelegate(dataSource).reloads()

@@ -17,8 +17,6 @@ class MovieDetailView: MovieView {
   private lazy var favoriteButton = UIButton.make {
     $0.width(35)
     $0.height(30)
-    $0.top(to: container, 5)
-    $0.trailing(to: container, 5)
     $0.setBackgroundImage(Constants.Image.unfavorite, for: .normal)
     $0.setBackgroundImage(Constants.Image.favorite, for: .selected)
     $0.tintColor = Constants.Color.pink
@@ -31,9 +29,7 @@ class MovieDetailView: MovieView {
     posterView.height(250)
     overviewLabel.numberOfLines = 0
     
-    addCustomConstraints([
-      .spacing(from: titleLabel, .trailing(false), relation: .equal, to: favoriteButton, .leading(false), constant: 10)
-    ])
+    stackTitle.addArrangedSubviews([favoriteButton])
   }
   
   func configure(with viewModel: MovieViewModel) {

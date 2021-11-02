@@ -26,9 +26,13 @@ class MovieView: UIView {
     $0.contentMode = .scaleAspectFit
   }
   
-  private lazy var stackHeader = UIStackView.make {
+  private(set) lazy var stackHeader = UIStackView.make {
     $0.axis = .vertical
     $0.spacing = 10
+  }
+  
+  private(set) lazy var stackTitle = UIStackView.make {
+    $0.distribution = .fill
   }
   
   private lazy var stackContent = UIStackView.make {
@@ -37,8 +41,9 @@ class MovieView: UIView {
   }
   
   private(set) lazy var titleLabel = UILabel.make {
-    $0.font = .systemFont(ofSize: 16, weight: .bold)
+    $0.font = .systemFont(ofSize: 15, weight: .bold)
     $0.numberOfLines = 2
+    $0.adjustsFontSizeToFitWidth = true
   }
   
   private(set) lazy var releaseDateLabel = UILabel.make {
@@ -59,7 +64,7 @@ class MovieView: UIView {
           posterView,
           stackContent.addArrangedSubviews([
             stackHeader.addArrangedSubviews([
-              titleLabel,
+              stackTitle.addArrangedSubviews([titleLabel]),
               releaseDateLabel
             ]),
             overviewLabel

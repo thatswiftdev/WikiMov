@@ -20,7 +20,7 @@ final class MovieReviewDataSource: NSObject, UITableViewDataSourceDelegate {
     let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "ReviewCell")
     cell.selectionStyle = .none
     cell.textLabel?.text = "From: " + reviews[indexPath.row].author
-    cell.textLabel?.font = .systemFont(ofSize: 13, weight: .semibold)
+    cell.textLabel?.font = .systemFont(ofSize: 15, weight: .semibold)
     cell.detailTextLabel?.numberOfLines = 0
     cell.detailTextLabel?.text = reviews[indexPath.row].content
     

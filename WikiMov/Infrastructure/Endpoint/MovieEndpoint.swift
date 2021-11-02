@@ -4,6 +4,7 @@
 import Foundation
 
 public enum MovieEndpoint: String {
+  case upcoming
   case popular
   case nowPlaying = "now_playing"
   case topRated = "top_rated"
