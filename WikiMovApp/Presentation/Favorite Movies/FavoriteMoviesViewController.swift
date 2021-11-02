@@ -12,6 +12,10 @@ final class FavoriteMoviesViewController: SharedView {
     configureViews()
     configureSubviews()
     configureCallback()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     load()
   }
   
