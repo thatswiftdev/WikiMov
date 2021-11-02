@@ -371,6 +371,8 @@
 		4FA84C11272EDB6C0051F22A /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				05B8F0A5272FF756002EF1F0 /* Client */,
+				05B8F0A6272FF798002EF1F0 /* Logger */,
 				4FA84C12272EDB760051F22A /* Endpoint */,
 				4FFE32812730432A001D7B0C /* Core Data */,
 			);
@@ -406,8 +408,6 @@
 			children = (
 				05B8F0A8272FFB03002EF1F0 /* Detail */,
 				05B8F0A7272FFADB002EF1F0 /* Movies */,
-				05B8F0A5272FF756002EF1F0 /* Client */,
-				05B8F0A6272FF798002EF1F0 /* Logger */,
 			);
 			path = "Movie API";
 			sourceTree = "<group>";
