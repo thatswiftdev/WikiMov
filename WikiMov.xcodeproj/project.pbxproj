@@ -265,7 +265,6 @@
 			isa = PBXGroup;
 			children = (
 				4FA84C5F272F6D0D0051F22A /* MovieListPresenter.swift */,
-				05B8F097272FCC87002EF1F0 /* MovieViewModel.swift */,
 				05B8F09B272FCD0D002EF1F0 /* DefaultMovieListPresenter.swift */,
 			);
 			path = Presenter;
@@ -275,7 +274,6 @@
 			isa = PBXGroup;
 			children = (
 				4FA84C44272F1AB90051F22A /* MovieListViewController.swift */,
-				05B8F093272FCB5D002EF1F0 /* MovieDataSource.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -283,8 +281,6 @@
 		05B8F0A0272FCECA002EF1F0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				05B8F08F272FBBBA002EF1F0 /* MovieView.swift */,
-				05B8F095272FCB9C002EF1F0 /* MovieCell.swift */,
 				05B8F099272FCCC0002EF1F0 /* MovieListViewBehavior.swift */,
 			);
 			path = Views;
@@ -614,6 +610,10 @@
 			isa = PBXGroup;
 			children = (
 				4FFE32A02730E10C001D7B0C /* Array+LocalMovie.swift */,
+				05B8F097272FCC87002EF1F0 /* MovieViewModel.swift */,
+				05B8F08F272FBBBA002EF1F0 /* MovieView.swift */,
+				05B8F095272FCB9C002EF1F0 /* MovieCell.swift */,
+				05B8F093272FCB5D002EF1F0 /* MovieDataSource.swift */,
 				4FFE32A22730E18A001D7B0C /* SharedView.swift */,
 			);
 			path = Shared;
