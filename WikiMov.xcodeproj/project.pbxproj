@@ -253,10 +253,15 @@
 		059B7CF4273004AA007B97A7 /* Movie Detail */ = {
 			isa = PBXGroup;
 			children = (
-				4FFE328F2730C52A001D7B0C /* Controller */,
-				4FFE32902730C547001D7B0C /* Presenter */,
+				4FFE328B2730C42C001D7B0C /* MovieReviewDataSource.swift */,
+				059B7CF2273004A6007B97A7 /* MovieDetailViewController.swift */,
 				059B7CFD27301ABF007B97A7 /* MovieDetailViewBehavior.swift */,
 				4FFE325A27303472001D7B0C /* MovieDetailView.swift */,
+				4FFE328D2730C4A8001D7B0C /* ReviewViewModel.swift */,
+				059B7CF527300881007B97A7 /* MovieDetailPresenter.swift */,
+				059B7CF7273008A0007B97A7 /* DefaultMovieDetailPresenter.swift */,
+				4FFE328F2730C52A001D7B0C /* Controller */,
+				4FFE32902730C547001D7B0C /* Presenter */,
 			);
 			path = "Movie Detail";
 			sourceTree = "<group>";
@@ -523,8 +528,6 @@
 		4FFE328F2730C52A001D7B0C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4FFE328B2730C42C001D7B0C /* MovieReviewDataSource.swift */,
-				059B7CF2273004A6007B97A7 /* MovieDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -532,9 +535,6 @@
 		4FFE32902730C547001D7B0C /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				4FFE328D2730C4A8001D7B0C /* ReviewViewModel.swift */,
-				059B7CF527300881007B97A7 /* MovieDetailPresenter.swift */,
-				059B7CF7273008A0007B97A7 /* DefaultMovieDetailPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
