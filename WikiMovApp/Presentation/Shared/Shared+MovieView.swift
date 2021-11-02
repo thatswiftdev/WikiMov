@@ -8,7 +8,7 @@ class MovieView: UIView {
   private(set) lazy var container = UIView.make {
     $0.verticalPadding(to: self, 3)
     $0.horizontalPadding(to: self, 8)
-    $0.backgroundColor = .white
+    $0.backgroundColor = Constants.Color.white
     $0.layer.shadowColor = UIColor.black.withAlphaComponent(0.4).cgColor
     $0.layer.shadowOpacity = 0.7
     $0.layer.shadowOffset = .zero

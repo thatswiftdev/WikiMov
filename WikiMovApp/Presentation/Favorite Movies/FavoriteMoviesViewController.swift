@@ -26,7 +26,7 @@ final class FavoriteMoviesViewController: SharedView {
   }
   
   private func configureViews() {
-    view.backgroundColor = .white
+    view.backgroundColor = Constants.Color.white
     view.addSubviews([
       scrollView.addArrangedSubViews([tableView]),
     ])

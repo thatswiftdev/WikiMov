@@ -23,7 +23,7 @@ class MovieListViewController: SharedView, Alertable {
     $0.horizontalPadding(to: view)
     $0.bottom(to: view, of: .bottom(true), 0)
     $0.setTitle("Choose Category", for: .normal)
-    $0.setTitleColor(.white, for: .normal)
+    $0.setTitleColor(Constants.Color.white, for: .normal)
     $0.backgroundColor = Constants.Color.pink
     $0.titleLabel?.font = .systemFont(ofSize: 13, weight: .semibold)
     $0.addTarget(self, action: #selector(selectCategory), for: .touchUpInside)

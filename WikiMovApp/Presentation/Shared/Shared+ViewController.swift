@@ -10,7 +10,7 @@ class SharedView: UIViewController, Animatable, BarButtonAble {
   }
   
   private(set) lazy var scrollView = ScrollViewContainer.make {
-    $0.setBackgroundColor(color: .white)
+    $0.setBackgroundColor(color: Constants.Color.white)
     $0.setSpacingBetweenItems(to: 5)
   }
   

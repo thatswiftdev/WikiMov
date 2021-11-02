@@ -31,7 +31,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
   private func initialController() -> UINavigationController {
     let movieList = MovieListViewController()
-    movieList.view.backgroundColor = .white
+    movieList.view.backgroundColor = Constants.Color.white
     movieList.presenter = makePresenter(view: movieList)
     
     let navigation = UINavigationController(rootViewController: movieList)

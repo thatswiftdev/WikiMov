@@ -29,7 +29,7 @@ final class MovieDetailViewController: SharedView {
   }
   
   private func configureSubviews() {
-    view.backgroundColor = .white
+    view.backgroundColor = Constants.Color.white
     view.addSubviews([
       scrollView.addArrangedSubViews([
         movieDetailView,
