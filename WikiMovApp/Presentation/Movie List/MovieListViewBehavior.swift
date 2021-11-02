@@ -3,6 +3,4 @@
 
 import Foundation
 
-protocol MovieListViewBehavior: BarButtonAble, Animatable, MovieViewInput, MovieViewBehavior {
-  func configureEmptyView(_ message: String)
-}
+protocol MovieListViewBehavior: BarButtonAble, Animatable, MovieViewInput, MovieViewBehavior {}

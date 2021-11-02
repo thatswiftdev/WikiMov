@@ -5,5 +5,4 @@ import Foundation
 
 protocol FavoriteMovieViewBehavior: MovieViewBehavior, MovieViewInput {
   func configureTitle(_ title: String)
-  func configureEmptyView(_ message: String)
 }

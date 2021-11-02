@@ -61,11 +61,4 @@ class SharedView: UIViewController, Animatable, BarButtonAble {
     self.navigationController?.popViewController(animated: true)
   }
   
-  func setEmptyView(_ message: String) {
-    self.emptyView.text = message
-    self.emptyView.center(to: scrollView)
-    self.scrollView.addSubviews([
-      self.emptyView
-    ])
-  }
 }

@@ -42,10 +42,6 @@ final class DefaultFavoriteMoviesPresenter: FavoriteMoviePresenter {
         
         DispatchQueue.main.async {
           self.view.show(isLoading: false)
-          
-          if data.isEmpty {
-            self.view.configureEmptyView("You don't have favorite movies")
-          }
         }
         
       case .failure:
