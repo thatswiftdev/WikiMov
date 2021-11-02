@@ -78,6 +78,8 @@
 		4FFE32862730B8A5001D7B0C /* ReviewLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE32852730B8A5001D7B0C /* ReviewLoader.swift */; };
 		4FFE32882730B8D3001D7B0C /* DefaultReviewLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE32872730B8D3001D7B0C /* DefaultReviewLoader.swift */; };
 		4FFE328A2730B925001D7B0C /* ReviewMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE32892730B925001D7B0C /* ReviewMapper.swift */; };
+		4FFE328C2730C42C001D7B0C /* MovieReviewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE328B2730C42C001D7B0C /* MovieReviewDataSource.swift */; };
+		4FFE328E2730C4A8001D7B0C /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE328D2730C4A8001D7B0C /* ReviewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,6 +191,8 @@
 		4FFE32852730B8A5001D7B0C /* ReviewLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewLoader.swift; sourceTree = "<group>"; };
 		4FFE32872730B8D3001D7B0C /* DefaultReviewLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultReviewLoader.swift; sourceTree = "<group>"; };
 		4FFE32892730B925001D7B0C /* ReviewMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewMapper.swift; sourceTree = "<group>"; };
+		4FFE328B2730C42C001D7B0C /* MovieReviewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReviewDataSource.swift; sourceTree = "<group>"; };
+		4FFE328D2730C4A8001D7B0C /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +238,8 @@
 				059B7CF7273008A0007B97A7 /* DefaultMovieDetailPresenter.swift */,
 				059B7CFD27301ABF007B97A7 /* MovieDetailViewBehavior.swift */,
 				4FFE325A27303472001D7B0C /* MovieDetailView.swift */,
+				4FFE328B2730C42C001D7B0C /* MovieReviewDataSource.swift */,
+				4FFE328D2730C4A8001D7B0C /* ReviewViewModel.swift */,
 			);
 			path = "Movie Detail";
 			sourceTree = "<group>";
@@ -754,6 +760,7 @@
 				05B8F092272FC4E2002EF1F0 /* Observable.swift in Sources */,
 				4FA84C77272F79010051F22A /* UIView+Spacing.swift in Sources */,
 				05B8F096272FCB9C002EF1F0 /* MovieCell.swift in Sources */,
+				4FFE328C2730C42C001D7B0C /* MovieReviewDataSource.swift in Sources */,
 				4FFE325B27303472001D7B0C /* MovieDetailView.swift in Sources */,
 				4FA84C7C272F7CA90051F22A /* Constants.swift in Sources */,
 				059B7CF627300881007B97A7 /* MovieDetailPresenter.swift in Sources */,
@@ -778,6 +785,7 @@
 				4FA84C86272F8EE90051F22A /* Animatable.swift in Sources */,
 				05B8F0A4272FED5C002EF1F0 /* String+DateFormat.swift in Sources */,
 				059B7CF8273008A0007B97A7 /* DefaultMovieDetailPresenter.swift in Sources */,
+				4FFE328E2730C4A8001D7B0C /* ReviewViewModel.swift in Sources */,
 				4FA84C6F272F78960051F22A /* UIView+Constraintable.swift in Sources */,
 				4FA84C83272F88EC0051F22A /* UITableView+Extension.swift in Sources */,
 			);

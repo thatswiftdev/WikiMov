@@ -8,28 +8,38 @@ final class DefaultMovieDetailPresenter: MovieDetailPresenter {
   
   let movieId: Observable<Int?> = Observable(nil)
   let movieDetail: Observable<MovieViewModel?> = Observable(nil)
+  let reviews: Observable<[ReviewViewModel]> = Observable([])
+  let reviewDataSource: Observable<MovieReviewDataSource?> = Observable(nil)
   
-  private let remoteLoader: MovieDetailLoader
-  private let localLoader: LocalMovieLoader
+  private let adapter: MovieDetailAdapter
+  private let reviewLoader: ReviewLoader
   private let view: MovieDetailViewBehavior
+ 
   
-  init(loader: MovieDetailLoader, localLoader: LocalMovieLoader, view: MovieDetailViewBehavior) {
-    self.remoteLoader = loader
-    self.localLoader = localLoader
+  init(adapter: MovieDetailAdapter, reviewLoader: ReviewLoader, view: MovieDetailViewBehavior) {
+    self.adapter = adapter
+    self.reviewLoader = reviewLoader
     self.view = view
     
     configureObservers()
   }
   
+  struct MovieDetailAdapter {
+    let remoteLoader: MovieDetailLoader
+    let localLoader: LocalMovieLoader
+  }
+  
   private func configureObservers() {
     configureMovieIdObserver()
     configureMovieDetailObserver()
+    configureReviewsObserver()
   }
   
   private func configureMovieIdObserver() {
     self.movieId.observe(on: self) { [weak self] id in
       guard let self = self, let id = id else { return }
       self.loadMovieDetailFromLocalStore(movieId: id)
+      self.loadMovieReviews(movieId: id)
     }
   }
   
@@ -45,8 +55,15 @@ final class DefaultMovieDetailPresenter: MovieDetailPresenter {
     }
   }
   
+  private func configureReviewsObserver() {
+    let dataSource = reviewDataSource
+    self.reviews.observe(on: self) { reviews in
+      dataSource.value = MovieReviewDataSource(reviews: reviews)
+    }
+  }
+  
   func loadMovieDetailFromLocalStore(movieId: Int) {
-    localLoader.load { result in
+    adapter.localLoader.load { result in
       switch result {
       case let .success(movies):
         
@@ -60,7 +77,7 @@ final class DefaultMovieDetailPresenter: MovieDetailPresenter {
   }
   
   private func loadMovieDetailFromRemote(movieId: Int) {
-    remoteLoader.load(from: MovieDetailEndpoint.detail(id: movieId)) { result in
+    adapter.remoteLoader.load(from: MovieDetailEndpoint.detail(id: movieId)) { result in
       switch result {
       case let .success(detail):
         
@@ -83,11 +100,21 @@ final class DefaultMovieDetailPresenter: MovieDetailPresenter {
   }
   
   func loadMovieReviews(movieId: Int) {
-    //
+    reviewLoader.load(from: MovieReviewsEndpoint.reviews(movieId: movieId)) { [weak self] result in
+      guard let self = self else { return }
+      
+      switch result {
+      case let .success(reviews):
+        self.reviews.value = reviews.toViewModel()
+        
+      case .failure:
+        break
+      }
+    }
   }
   
   func addMovieToFavorite(_ movie: MovieViewModel) {
-    localLoader.save(movie.toLocal()) { [weak self] error in
+    adapter.localLoader.save(movie.toLocal()) { [weak self] error in
       if error == nil {
         self?.loadMovieDetailFromLocalStore(movieId: movie.id)
       }
@@ -95,7 +122,7 @@ final class DefaultMovieDetailPresenter: MovieDetailPresenter {
   }
   
   func removeMovieFromFavorite(_ movie: MovieViewModel) {
-    localLoader.delete(movie.toLocal()) { [weak self] error in
+    adapter.localLoader.delete(movie.toLocal()) { [weak self] error in
       if error == nil {
         self?.loadMovieDetailFromLocalStore(movieId: movie.id)
       }
@@ -112,5 +139,11 @@ private extension MovieViewModel {
 private extension Array where Element == LocalMovie {
   func toViewModels() -> [MovieViewModel] {
     return map { MovieViewModel(id: $0.id, title: $0.title, backdropPath: $0.backdropPath, posterPath: $0.posterPath, releaseDate: $0.releaseDate, overview: $0.overview, isFavorite: $0.isFavorite) }
+  }
+}
+
+private extension Array where Element == Review {
+  func toViewModel() -> [ReviewViewModel] {
+    return map { ReviewViewModel(id: $0.id ?? "0", author: $0.author ?? "", content: $0.content ?? "")}
   }
 }

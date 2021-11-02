@@ -13,6 +13,8 @@ protocol MovieDetailPresenterUseCase {
 protocol MovieDetailPresenterInput {
   var movieId: Observable<Int?> { get }
   var movieDetail: Observable<MovieViewModel?> { get }
+  var reviews: Observable<[ReviewViewModel]> { get }
+  var reviewDataSource: Observable<MovieReviewDataSource?> { get }
 }
 
 protocol MovieDetailPresenter: MovieDetailPresenterUseCase, MovieDetailPresenterInput {}

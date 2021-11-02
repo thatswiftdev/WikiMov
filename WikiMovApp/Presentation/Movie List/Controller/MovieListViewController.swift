@@ -41,12 +41,6 @@ class MovieListViewController: UIViewController {
     super.viewWillDisappear(animated)
     tableView.removeObserver(self, forKeyPath: UITableView.contentSizeKeyPath)
   }
-
-  override func viewDidLayoutSubviews() {
-    super.viewDidLayoutSubviews()
-    self.scrollView.layoutIfNeeded()
-    self.tableViewHeight?.constant = self.tableView.contentSize.height
-  }
   
   override func viewDidLoad() {
     super.viewDidLoad()

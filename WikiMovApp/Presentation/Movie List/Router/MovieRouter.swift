@@ -31,10 +31,11 @@ extension DefaultMovieRouter {
     let store = try! CoreDataLocalMovieStore(storeURL: URL.storeURL())
     let remoteLoader = DefaultMovieDetailLoader(client: client)
     let localLoader = DefaultLocalMovieLoader(store: store)
+    let reviewLoader = DefaultReviewLoader(client: client)
     let detail = MovieDetailViewController()
-    let presenter = DefaultMovieDetailPresenter(loader: remoteLoader, localLoader: localLoader, view: detail)
-    presenter.movieId.value = id
+    let presenter = DefaultMovieDetailPresenter(adapter: DefaultMovieDetailPresenter.MovieDetailAdapter(remoteLoader: remoteLoader, localLoader: localLoader), reviewLoader: reviewLoader, view: detail)
     
+    presenter.movieId.value = id
     detail.presenter = presenter
   
     return detail

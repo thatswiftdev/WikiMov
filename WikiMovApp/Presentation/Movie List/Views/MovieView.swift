@@ -5,7 +5,7 @@ import UIKit
 
 class MovieView: UIView {
   
-  private lazy var container = UIView.make {
+  private(set) lazy var container = UIView.make {
     $0.verticalPadding(to: self, 3)
     $0.horizontalPadding(to: self, 8)
     $0.backgroundColor = .white
