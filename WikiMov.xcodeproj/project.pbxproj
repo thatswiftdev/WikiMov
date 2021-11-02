@@ -463,7 +463,7 @@
 				4FA84C81272F88E20051F22A /* Extensions */,
 				4FA84C7D272F83890051F22A /* Views */,
 				4FA84C7E272F838F0051F22A /* Constant */,
-				05B8F091272FC4E2002EF1F0 /* Observable.swift */,
+				4FFE32922730C5A9001D7B0C /* Observable */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -562,6 +562,14 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		4FFE32922730C5A9001D7B0C /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				05B8F091272FC4E2002EF1F0 /* Observable.swift */,
+			);
+			path = Observable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
