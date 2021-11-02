@@ -3,71 +3,36 @@
 
 import UIKit
 
-final class MovieDetailViewController: UIViewController {
+final class MovieDetailViewController: SharedView {
   
   var presenter: MovieDetailPresenter!
   
   private lazy var movieDetailView = MovieDetailView()
-  
-  private var tableViewHeight: NSLayoutConstraint? {
-    didSet { tableViewHeight?.activated() }
-  }
-  
-  private lazy var scrollView = ScrollViewContainer.make {
-    $0.edges(to: view, 0, true)
-    $0.setBackgroundColor(color: .white)
-    $0.setSpacingBetweenItems(to: 5)
-  }
-  
-  private lazy var tableView = UITableView.make {
-    $0.separatorStyle = .none
-    $0.rowHeight = UITableView.automaticDimension
-    $0.register(UITableViewCell.self, forCellReuseIdentifier: "ReviewCell")
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    tableView.addObserver(self, forKeyPath: UITableView.contentSizeKeyPath, options: .new, context: nil)
-  }
-  
-  override func viewWillDisappear(_ animated: Bool) {
-    super.viewWillDisappear(animated)
-    tableView.removeObserver(self, forKeyPath: UITableView.contentSizeKeyPath)
-  }
-  
-  override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-    if let newvalue = change?[.newKey], keyPath == UITableView.contentSizeKeyPath {
-      if let newsize  = newvalue as?  CGSize {
-        self.updateTableViewContentSize(size: newsize.height)
-      }
-    }
-  }
-  
+ 
   override func viewDidLoad() {
     super.viewDidLoad()
     show(isLoading: true)
+    configureViews()
     configureSubviews()
     configureCallbacks()
     configureObserver()
   }
   
   // MARK: -  Helpers
-  private func configureSubviews() {
+  private func configureViews() {
     view.backgroundColor = .white
+    tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ReviewCell")
     tableViewHeight = tableView.heightAnchor.constraint(equalToConstant: 0)
+    scrollView.edges(to: view, 0, true)
+  }
+  
+  private func configureSubviews() {
     view.addSubviews([
       scrollView.addArrangedSubViews([
         movieDetailView,
         tableView
       ])
     ])
-  }
-  
-  private func updateTableViewContentSize(size: CGFloat) {
-    DispatchQueue.main.async {
-      self.tableViewHeight?.constant = size
-      self.view.layoutIfNeeded()
-    }
   }
   
   private func configureCallbacks() {

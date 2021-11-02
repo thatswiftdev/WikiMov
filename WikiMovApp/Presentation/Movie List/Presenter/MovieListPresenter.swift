@@ -6,6 +6,7 @@ import WikiMov
 
 protocol MovieListPresenterUseCase {
   func loadMovies(from endpoint: Endpoint)
+  func loadFavoriteMovies()
 }
 
 protocol MovieListPresenterOutput {

@@ -4,14 +4,10 @@
 import UIKit
 import WikiMov
 
-class MovieListViewController: UIViewController, Alertable {
+class MovieListViewController: SharedView, Alertable {
   
   var presenter: MovieListPresenter! {
     didSet { load() }
-  }
-  
-  private var tableViewHeight: NSLayoutConstraint? {
-    didSet { tableViewHeight?.activated() }
   }
   
   private lazy var titleLabel = UILabel.make {
@@ -20,53 +16,23 @@ class MovieListViewController: UIViewController, Alertable {
     $0.font = .systemFont(ofSize: 16, weight: .semibold)
   }
   
-  private lazy var scrollView = ScrollViewContainer.make {
-    $0.top(to: view, of: .top(true), 0)
-    $0.horizontalPadding(to: view)
-    $0.setBackgroundColor(color: .white)
-    $0.setSpacingBetweenItems(to: 5)
-  }
-  
   private lazy var categoryButton = UIButton.make {
     $0.height(40)
     $0.horizontalPadding(to: view)
     $0.bottom(to: view, of: .bottom(true), 0)
-    $0.setTitle("Category", for: .normal)
+    $0.setTitle("Choose Category", for: .normal)
     $0.setTitleColor(.white, for: .normal)
     $0.backgroundColor = Constants.Color.pink
     $0.titleLabel?.font = .systemFont(ofSize: 13, weight: .semibold)
     $0.addTarget(self, action: #selector(selectCategory), for: .touchUpInside)
   }
   
-  private lazy var tableView = UITableView.make {
-    $0.separatorStyle = .none
-    $0.rowHeight = UITableView.automaticDimension
-    $0.register(MovieCell.self, forCellReuseIdentifier: MovieCell.identifier)
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    tableView.addObserver(self, forKeyPath: UITableView.contentSizeKeyPath, options: .new, context: nil)
-  }
-  
-  override func viewWillDisappear(_ animated: Bool) {
-    super.viewWillDisappear(animated)
-    tableView.removeObserver(self, forKeyPath: UITableView.contentSizeKeyPath)
-  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     show(isLoading: true)
+    configureViews()
     configureSubviews()
     configureBarButton()
-  }
-  
-  override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-    if let newvalue = change?[.newKey], keyPath == UITableView.contentSizeKeyPath {
-      if let newsize  = newvalue as?  CGSize {
-        self.updateTableViewContentSize(size: newsize.height)
-      }
-    }
   }
   
   // MARK: - Helpers
@@ -78,8 +44,13 @@ class MovieListViewController: UIViewController, Alertable {
     }
   }
   
-  private func configureSubviews() {
+  private func configureViews() {
+    tableView.register(MovieCell.self, forCellReuseIdentifier: MovieCell.identifier)
     tableViewHeight = tableView.heightAnchor.constraint(equalToConstant: 0)
+    scrollView.top(to: view, of: .top(true), 0).horizontalPadding(to: view)
+  }
+  
+  private func configureSubviews() {
     view.addSubviews([
       scrollView.addArrangedSubViews([tableView]),
       categoryButton
@@ -95,15 +66,10 @@ class MovieListViewController: UIViewController, Alertable {
     rightBarButton.action = #selector(goToFavorites)
   }
   
-  private func updateTableViewContentSize(size: CGFloat) {
-    animate(with: tableView) {
-      self.tableViewHeight?.constant = size
-      self.view.layoutIfNeeded()
-    } completion: { _ in }
-  }
-  
   // MARK: - Events
-  @objc private func goToFavorites() {}
+  @objc private func goToFavorites() {
+    self.presenter.loadFavoriteMovies()
+  }
   
   @objc private func selectCategory() {
     showCategoryAlert {
@@ -115,7 +81,6 @@ class MovieListViewController: UIViewController, Alertable {
     } nowPlaying: {
       self.load(endpoint: MovieEndpoint.nowPlaying)
     }
-
   }
 }
 

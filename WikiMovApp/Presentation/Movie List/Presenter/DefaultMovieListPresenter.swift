@@ -33,6 +33,10 @@ final class DefaultMovieListPresenter: MovieListPresenter {
     }
   }
   
+  func loadFavoriteMovies() {
+    self.router.showFavorites()
+  }
+  
   func loadMovies(from endpoint: Endpoint) {
     loader.load(from: endpoint) { [weak self] result in
       guard let self = self else { return }
@@ -46,20 +50,6 @@ final class DefaultMovieListPresenter: MovieListPresenter {
       case .failure:
         self.view.show(isLoading: false)
       }
-    }
-  }
-}
-
-private extension Array where Element == LocalMovie {
-  func toViewModel() -> [MovieViewModel] {
-    return map { MovieViewModel(
-      id: $0.id,
-      title: $0.title,
-      backdropPath: $0.backdropPath,
-      posterPath: $0.posterPath,
-      releaseDate: $0.releaseDate,
-      overview: $0.overview,
-      isFavorite: $0.isFavorite)
     }
   }
 }
