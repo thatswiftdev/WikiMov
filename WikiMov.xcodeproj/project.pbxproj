@@ -31,7 +31,7 @@
 		05B8F0AC272FFC04002EF1F0 /* MovieDetailLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8F0AB272FFC04002EF1F0 /* MovieDetailLoader.swift */; };
 		05B8F0AE272FFC22002EF1F0 /* DefaultMovieDetailLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8F0AD272FFC21002EF1F0 /* DefaultMovieDetailLoader.swift */; };
 		05B8F0B0272FFD18002EF1F0 /* MovieDetailMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8F0AF272FFD18002EF1F0 /* MovieDetailMapper.swift */; };
-		05B8F0B3272FFECA002EF1F0 /* MovieRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8F0B2272FFECA002EF1F0 /* MovieRouter.swift */; };
+		05B8F0B3272FFECA002EF1F0 /* Shared+MovieRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B8F0B2272FFECA002EF1F0 /* Shared+MovieRouter.swift */; };
 		4FA84C14272EDB890051F22A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C13272EDB890051F22A /* Endpoint.swift */; };
 		4FA84C1C272EDC5B0051F22A /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA84C1B272EDC5B0051F22A /* EndpointTests.swift */; };
 		4FA84C1D272EDC5B0051F22A /* WikiMov.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA84C07272EB9130051F22A /* WikiMov.framework */; };
@@ -155,7 +155,7 @@
 		05B8F0AB272FFC04002EF1F0 /* MovieDetailLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailLoader.swift; sourceTree = "<group>"; };
 		05B8F0AD272FFC21002EF1F0 /* DefaultMovieDetailLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMovieDetailLoader.swift; sourceTree = "<group>"; };
 		05B8F0AF272FFD18002EF1F0 /* MovieDetailMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailMapper.swift; sourceTree = "<group>"; };
-		05B8F0B2272FFECA002EF1F0 /* MovieRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRouter.swift; sourceTree = "<group>"; };
+		05B8F0B2272FFECA002EF1F0 /* Shared+MovieRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shared+MovieRouter.swift"; sourceTree = "<group>"; };
 		4FA84C07272EB9130051F22A /* WikiMov.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WikiMov.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FA84C13272EDB890051F22A /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		4FA84C19272EDC5B0051F22A /* WikiMovTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WikiMovTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -270,31 +270,6 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		05B8F09E272FCEB1002EF1F0 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				4FA84C5F272F6D0D0051F22A /* MovieListPresenter.swift */,
-				05B8F09B272FCD0D002EF1F0 /* DefaultMovieListPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		05B8F09F272FCEBC002EF1F0 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				4FA84C44272F1AB90051F22A /* MovieListViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		05B8F0A0272FCECA002EF1F0 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				05B8F099272FCCC0002EF1F0 /* MovieListViewBehavior.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		05B8F0A5272FF756002EF1F0 /* Client */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,21 +319,13 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		05B8F0B4272FFF27002EF1F0 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				05B8F0B2272FFECA002EF1F0 /* MovieRouter.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
 		05B8F0B5272FFF6D002EF1F0 /* Movie List */ = {
 			isa = PBXGroup;
 			children = (
-				05B8F09F272FCEBC002EF1F0 /* Controller */,
-				05B8F09E272FCEB1002EF1F0 /* Presenter */,
-				05B8F0A0272FCECA002EF1F0 /* Views */,
-				05B8F0B4272FFF27002EF1F0 /* Router */,
+				4FA84C44272F1AB90051F22A /* MovieListViewController.swift */,
+				4FA84C5F272F6D0D0051F22A /* MovieListPresenter.swift */,
+				05B8F09B272FCD0D002EF1F0 /* DefaultMovieListPresenter.swift */,
+				05B8F099272FCCC0002EF1F0 /* MovieListViewBehavior.swift */,
 			);
 			path = "Movie List";
 			sourceTree = "<group>";
@@ -622,6 +589,7 @@
 				055BBBBD27310ADF001A3C98 /* Shared+MovieViewbehavior.swift */,
 				055BBBBF27310BAC001A3C98 /* Shared+MovieViewInput.swift */,
 				055BBBC327310E33001A3C98 /* Shared+MovieListPresenterOutput.swift */,
+				05B8F0B2272FFECA002EF1F0 /* Shared+MovieRouter.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -855,7 +823,7 @@
 				4FA84C7C272F7CA90051F22A /* Constants.swift in Sources */,
 				059B7CF627300881007B97A7 /* MovieDetailPresenter.swift in Sources */,
 				4FA84C71272F78B10051F22A /* Constraint.swift in Sources */,
-				05B8F0B3272FFECA002EF1F0 /* MovieRouter.swift in Sources */,
+				05B8F0B3272FFECA002EF1F0 /* Shared+MovieRouter.swift in Sources */,
 				4FA84C45272F1AB90051F22A /* MovieListViewController.swift in Sources */,
 				4FA84C41272F1AB90051F22A /* AppDelegate.swift in Sources */,
 				05B8F098272FCC87002EF1F0 /* Shared+MovieViewModel.swift in Sources */,
