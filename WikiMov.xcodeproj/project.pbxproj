@@ -461,7 +461,6 @@
 			isa = PBXGroup;
 			children = (
 				4FA84C81272F88E20051F22A /* Extensions */,
-				4FA84C6D272F78510051F22A /* Declayout */,
 				4FA84C7D272F83890051F22A /* Views */,
 				4FA84C7E272F838F0051F22A /* Constant */,
 				05B8F091272FC4E2002EF1F0 /* Observable.swift */,
@@ -491,6 +490,7 @@
 		4FA84C81272F88E20051F22A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4FA84C6D272F78510051F22A /* Declayout */,
 				4FA84C82272F88EC0051F22A /* UITableView+Extension.swift */,
 				05B8F0A3272FED5C002EF1F0 /* String+DateFormat.swift */,
 			);
