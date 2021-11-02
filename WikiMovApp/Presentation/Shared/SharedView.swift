@@ -40,7 +40,7 @@ class SharedView: UIViewController, Animatable {
   private func updateTableViewContentSize(animateView: UIView, size: CGFloat) {
     animate(with: animateView) {
       self.tableViewHeight?.constant = size
-      self.view.layoutIfNeeded()
+      self.scrollView.layoutIfNeeded()
     } completion: { _ in }
   }
 }
