@@ -7,20 +7,26 @@ let imageCache = NSCache<AnyObject, AnyObject>()
 
 class RemoteImageView: UIImageView {
   
-  private lazy var components: URLComponents = {
-    let components = URLComponents(string: "https://image.tmdb.org/t/p/w500/")!
-    return components
+  private lazy var urlString: String = {
+    return "https://image.tmdb.org/t/p/w500/"
   }()
   
   var imageURL: URL?
   
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+  }
+  
+  required init?(coder: NSCoder) {
+    super.init(coder: coder)
+  }
+  
   func setImage(from path: String, contentMode mode: UIView.ContentMode = .scaleToFill) {
     
     contentMode = mode
+    image = nil
     
-    components.path.append(contentsOf: path)
-    
-    guard let url = components.url else { return }
+    guard let url = URL(string: urlString+path) else { return }
     
     imageURL = url
     

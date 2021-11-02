@@ -4,7 +4,7 @@
 import UIKit
 import WikiMov
 
-class MovieListViewController: UIViewController {
+class MovieListViewController: UIViewController, Alertable {
   
   var presenter: MovieListPresenter! {
     didSet { load() }
@@ -35,6 +35,7 @@ class MovieListViewController: UIViewController {
     $0.setTitleColor(.white, for: .normal)
     $0.backgroundColor = Constants.Color.pink
     $0.titleLabel?.font = .systemFont(ofSize: 13, weight: .semibold)
+    $0.addTarget(self, action: #selector(selectCategory), for: .touchUpInside)
   }
   
   private lazy var tableView = UITableView.make {
@@ -69,8 +70,8 @@ class MovieListViewController: UIViewController {
   }
   
   // MARK: - Helpers
-  private func load() {
-    self.presenter.loadMovies(from: MovieEndpoint.topRated)
+  private func load(endpoint: Endpoint = MovieEndpoint.nowPlaying) {
+    self.presenter.loadMovies(from: endpoint)
     self.presenter.dataSource.observe(on: self) { [weak self] dataSource in
       guard let self = self, let dataSource = dataSource else { return }
       self.tableView.dataSourceDelegate(dataSource).reloads()
@@ -103,6 +104,19 @@ class MovieListViewController: UIViewController {
   
   // MARK: - Events
   @objc private func goToFavorites() {}
+  
+  @objc private func selectCategory() {
+    showCategoryAlert {
+      self.load(endpoint: MovieEndpoint.upcoming)
+    } popular: {
+      self.load(endpoint: MovieEndpoint.popular)
+    } topRated: {
+      self.load(endpoint: MovieEndpoint.topRated)
+    } nowPlaying: {
+      self.load(endpoint: MovieEndpoint.nowPlaying)
+    }
+
+  }
 }
 
 extension MovieListViewController: MovieListViewBehavior {

@@ -80,6 +80,7 @@
 		4FFE328A2730B925001D7B0C /* ReviewMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE32892730B925001D7B0C /* ReviewMapper.swift */; };
 		4FFE328C2730C42C001D7B0C /* MovieReviewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE328B2730C42C001D7B0C /* MovieReviewDataSource.swift */; };
 		4FFE328E2730C4A8001D7B0C /* ReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE328D2730C4A8001D7B0C /* ReviewViewModel.swift */; };
+		4FFE32962730CC5A001D7B0C /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFE32952730CC5A001D7B0C /* Alertable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,6 +194,7 @@
 		4FFE32892730B925001D7B0C /* ReviewMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewMapper.swift; sourceTree = "<group>"; };
 		4FFE328B2730C42C001D7B0C /* MovieReviewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReviewDataSource.swift; sourceTree = "<group>"; };
 		4FFE328D2730C4A8001D7B0C /* ReviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewModel.swift; sourceTree = "<group>"; };
+		4FFE32952730CC5A001D7B0C /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -472,6 +474,7 @@
 				4FA84C7F272F839A0051F22A /* ScrollViewContainer.swift */,
 				4FA84C85272F8EE90051F22A /* Animatable.swift */,
 				05B8F0A1272FE4A3002EF1F0 /* RemoteImageView.swift */,
+				4FFE32952730CC5A001D7B0C /* Alertable.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -615,6 +618,8 @@
 			dependencies = (
 			);
 			name = WikiMov;
+			packageProductDependencies = (
+			);
 			productName = WikiMov;
 			productReference = 4FA84C07272EB9130051F22A /* WikiMov.framework */;
 			productType = "com.apple.product-type.framework";
@@ -708,6 +713,8 @@
 				Base,
 			);
 			mainGroup = 4FA84BFD272EB9130051F22A;
+			packageReferences = (
+			);
 			productRefGroup = 4FA84C08272EB9130051F22A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -827,6 +834,7 @@
 				4FA84C73272F78CD0051F22A /* UIView+Center.swift in Sources */,
 				059B7CF3273004A6007B97A7 /* MovieDetailViewController.swift in Sources */,
 				4FA84C43272F1AB90051F22A /* SceneDelegate.swift in Sources */,
+				4FFE32962730CC5A001D7B0C /* Alertable.swift in Sources */,
 				05B8F0A2272FE4A3002EF1F0 /* RemoteImageView.swift in Sources */,
 				05B8F090272FBBBA002EF1F0 /* MovieView.swift in Sources */,
 				4FA84C60272F6D0D0051F22A /* MovieListPresenter.swift in Sources */,

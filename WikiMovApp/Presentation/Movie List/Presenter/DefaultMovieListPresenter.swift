@@ -22,11 +22,11 @@ final class DefaultMovieListPresenter: MovieListPresenter {
   }
   
   private func configureObservers() {
-    let datasource = dataSource
-    
-    self.localMovie.observe(on: self) { movies in
-      datasource.value = MovieDataSource(movies: movies)
-      datasource.value?.selectedCallback = { [weak self] id in
+    self.localMovie.observe(on: self) { [weak self] movies in
+      guard let self = self else { return }
+      
+      self.dataSource.value = MovieDataSource(movies: movies)
+      self.dataSource.value?.selectedCallback = { [weak self] id in
         guard let self = self else { return }
         self.router.showDetail(with: id)
       }
@@ -39,7 +39,7 @@ final class DefaultMovieListPresenter: MovieListPresenter {
       
       switch result {
       case let .success(movies):
-        
+  
         self.localMovie.value = movies.toViewModel()
         self.view.show(isLoading: false)
         
